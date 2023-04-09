@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9178821524217742970}
   - component: {fileID: 9178821524217742973}
   - component: {fileID: 9178821524217742968}
-  - component: {fileID: -9181798490054276135}
+  - component: {fileID: 689029017276270897}
   m_Layer: 7
   m_Name: Test_Range_Monster
   m_TagString: Monster
@@ -109,7 +109,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-9181798490054276135
+--- !u!114 &689029017276270897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,9 +125,9 @@ MonoBehaviour:
   _maxHealth: 0
   _curHealth: 0
   _speed: 0
-  _damage: 0
   _attackRange: 0
   _attackTime: 0
+  monsterSkills: []
   rigid: {fileID: 0}
   target: {fileID: 0}
   isMove: 0
