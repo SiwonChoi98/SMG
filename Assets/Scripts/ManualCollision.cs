@@ -15,7 +15,7 @@ public class ManualCollision : MonoBehaviour
     {
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(Vector3.zero, boxSize);
+        Gizmos.DrawWireCube(transform.position, boxSize);
     }
 }
 
