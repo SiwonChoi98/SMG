@@ -90,7 +90,6 @@ public class Monster : MonoBehaviour, IDamageable
         }
 
         _curHealth -= damage;
-
         isHit = true; // 데미지 깎이면서 isHit을 true로
 
         Debug.Log("Damage : " + damage);

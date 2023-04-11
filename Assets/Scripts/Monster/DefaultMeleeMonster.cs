@@ -14,6 +14,7 @@ public class DefaultMeleeMonster : Monster
         _attackTime = 3f;
         _initialAttackTime = _attackTime;
         _attackSpeed = 10f;
+        monsterSkills.Add(this.GetComponentInChildren<MonsterSkill_NormalAttack>()); //몬스터 공격 스크립트 추가
     } //임시 능력치 셋팅
 
     public override void Shoot()
