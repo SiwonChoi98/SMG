@@ -28,7 +28,7 @@ public class Skill_Thrust : BaseSkill
 
     public override void ExcuteParticleSystem()
     {
-        SkillManager.instance.AttachParticle(ESkill.Thrust, ESkillParticleType.Attach);
+        SkillManager.instance.AttachParticle(mSkill, mSkillParticleType);
     }
 
     public override void ExitParticleSystem()

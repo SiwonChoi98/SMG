@@ -9,13 +9,13 @@ public class ManualCollision : MonoBehaviour
 
     public Collider[] CheckOverlapBox(LayerMask layerMask)
     {
-        return Physics.OverlapBox(transform.position, boxSize, Quaternion.identity, layerMask);
+        return Physics.OverlapBox(transform.position, boxSize * 0.5f, transform.rotation, layerMask);
     }
     private void OnDrawGizmos()
     {
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, boxSize);
+        Gizmos.DrawWireCube(Vector3.zero, boxSize);
     }
 }
 

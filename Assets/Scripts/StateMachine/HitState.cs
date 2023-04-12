@@ -13,7 +13,7 @@ public class HitState : State<Monster>
     public override void OnEnter()
     {
         Debug.Log("Hit 상태로 진입");
-        animator?.SetBool("isHit", true);
+        animator?.SetTrigger("doHit");
     }
 
     public override void Update(float deltaTime)
@@ -30,7 +30,7 @@ public class HitState : State<Monster>
 
     public override void OnExit()
     {
-        animator?.SetBool("isHit", false);
+  
         context.isHit = false;
     }
     

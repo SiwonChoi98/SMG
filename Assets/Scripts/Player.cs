@@ -52,7 +52,7 @@ public class Player : MonoBehaviour, IDamageable
     private float maxHealth = 100f;
 
     // 임시적으로 확인하기 위해서 public으로 해두었다.
-    public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트
+    public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트, 이제는 오직 기본 공격을 위한 리스트로 변경
     public List<Transform> skillSpawnPos = new List<Transform>(); // 스킬들을 스폰할 위치를 담은 리스트
     public ManualCollision normalAttackCollision;
     public LayerMask targetMask;
@@ -69,15 +69,15 @@ public class Player : MonoBehaviour, IDamageable
         dodgeCoolTimeMax = 3.0f;
     }
 
-    void Start()
+    private void Start()
     {
         speed = 5.0f;
         curHealth = maxHealth; // 처음에 피를 100으로 채워준다.
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;
     }
-     
-    void Update()
+
+    private void Update()
     {
         GetInput();
         Move();
@@ -216,11 +216,11 @@ public class Player : MonoBehaviour, IDamageable
 
     private void AttakingMove()
     {
-        if (isAttacking || isCasting) // 공격하거나 캐스팅의 경우
+        if (isAttacking || isCasting) // 공격하거나 캐스팅의 경우, 공격할 때는 playerSkills의 정보대로, isCasting일 때는 sloy의 정보대로로 바꿔야 한다.
         {
             if (isAttackingMove) // 만약 공격 행동을 실행하여 살짝 이동해야 한다면,
             {
-                switch ((int)playerCurrentSkill)
+                switch ((int)playerCurrentSkill) // 이 부분을 Slot의 넘버에 따라서 확인
                 {
                     case 0:
                         {
@@ -402,7 +402,10 @@ public class Player : MonoBehaviour, IDamageable
 
     // 우선 스킬키를 누르면 정해진 대로 스킬이 나가지만, 이 순서는 나중에 변경 가능하도록 하는게 어떤지
     // 예를 들어 SkillKey_1이 찌르기를 넣으면 찌르기가, 다른 베기를 넣으면 베기가 나가도록
-    private void SkillKey()
+    private void SkillKey() // 이 부분을 UseSlotSkill(BaseSkill skill)로 해서, 슬롯의 스킬을 사용하는 식으로 가자.
+                            // 스킬을 사용할 때, 슬롯에서 BaseSkill을 전달해주고, 저기서 검사까지 마치고 왔으므로, 해당 스킬을 틀어주면 된다. 해당 스킬에 포함되어야 하는 정보는 더 있는데,
+                            // 우선 BaseSkill은 ExcuteParticleSystem은 가능하다. 또한 ExcuteAttack도 가능하다. BaseSkill을 어딘가에 저장하면서 ex) SlotSkills 넣어줌으로써 가능하다.
+                            
     {
         if (skillKey_1) // 스킬 1번을 눌렀을 때
         {

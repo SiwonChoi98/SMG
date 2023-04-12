@@ -27,7 +27,7 @@ public class Skill_GiantSword : BaseSkill
     public override void ExcuteParticleSystem()
     {
 
-        SkillManager.instance.SpawnParticle(ESkill.GiantSword, ESkillParticleType.Spawn);
+        SkillManager.instance.SpawnParticle(mSkill, mSkillParticleType);
 
     }
 

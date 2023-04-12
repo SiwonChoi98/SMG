@@ -28,7 +28,7 @@ public class DeadState : State<Monster>
 
     IEnumerator DeadStateAnim()
     {
-        animator?.SetTrigger("isDead");
+        animator?.SetTrigger("doDead");
         yield return new WaitForSeconds(1.6f);
         GameObject.Destroy(context.gameObject);
     }

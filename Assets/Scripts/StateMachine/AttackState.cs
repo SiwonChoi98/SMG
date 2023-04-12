@@ -33,7 +33,7 @@ public class AttackState : State<Monster>
             }
             if (context.isAttack) //공격할수있으면 다시 공격
             {
-                animator?.SetTrigger("isAttack");
+                animator?.SetTrigger("doAttack");
                 context.Shoot();
                 Debug.Log("Attack 성공");
                 context.isAttack = false;

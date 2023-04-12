@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     public Transform target;
     public Vector3 Offset;
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         //만약 target이 제대로 설정이 안되었다면, Player를 찾아서 넣어준다.
         if (target == null)

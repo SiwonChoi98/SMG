@@ -15,19 +15,10 @@ public enum ESkillParticleType : int
 // 그러면 그 강화요소를 bool값으로 넣어서 true인 경우엔 다른 크기의 Partilce과 ManualCollision을 틀어주는거로 하자.
 public enum ESkill : int 
 {
-    NormalAttack1,
-    NormalAttack2,
-    NormalAttack3,
     Thrust,
     GiantSword,
-    DarkSlash,
-    SwordRain,
-    GroundBreak
-}
-
-public enum ESkillLevel : int
-{
-    
+    GroundBreak,
+    NormalAttack
 }
 
 public abstract class BaseSkill : MonoBehaviour 
@@ -42,6 +33,11 @@ public abstract class BaseSkill : MonoBehaviour
     public int damage;
 
     public float attackForce; // 해당 공격 행동을 할 때 나아가는 방향에 곱해주는 정도.
+
+
+    public ESkill mSkill;
+
+    public ESkillParticleType mSkillParticleType;
 
     [SerializeField]
     private float coolTime;

@@ -22,7 +22,7 @@ public class Skill_GroundBreak : BaseSkill
     public override void ExcuteParticleSystem()
     {
 
-        SkillManager.instance.SpawnParticle(ESkill.GroundBreak, ESkillParticleType.Spawn);
+        SkillManager.instance.SpawnParticle(mSkill, mSkillParticleType);
 
     }
 

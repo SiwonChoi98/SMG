@@ -190,7 +190,7 @@ MonoBehaviour:
   calcCoolTime: 0
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   effectPrefab: {fileID: 0}
   monsterAttackCollision: {fileID: 7864041842058681905}
 --- !u!1 &8605951378843065545
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e42213e3017c141bb248e70f6340e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 1.5, y: 2.5, z: 2.5}
+  boxSize: {x: 1.5, y: 2.5, z: 1.8}
 --- !u!1001 &3243589857568053836
 PrefabInstance:
   m_ObjectHideFlags: 0

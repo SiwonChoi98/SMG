@@ -16,7 +16,9 @@ public class IdleState : State<Monster>
         context.transform.LookAt(context.target.position);
         //context.GetComponent<NavMeshAgent>().speed = 0f; //임시
         animator?.SetBool("isIdle", true);
+
         Debug.Log("idle 상태로 진입");
+
         context.GetComponent<NavMeshAgent>().speed = 3.5f; //임시
     }
 

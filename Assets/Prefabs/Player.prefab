@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311229042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 2.48}
+  m_LocalPosition: {x: 0, y: 1.07, z: 2.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e42213e3017c141bb248e70f6340e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 4, y: 2.5, z: 4}
+  boxSize: {x: 3, y: 2.5, z: 3}
 --- !u!1 &440614426
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560483838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 4.93}
+  m_LocalPosition: {x: 0, y: 0.99, z: 5.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896133991}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 1.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -420,7 +420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905676703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 5.22}
+  m_LocalPosition: {x: 0, y: 1.2, z: 5.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -474,13 +474,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid_Player: {fileID: 0}
   particleSystems: []
-  damage: 0
+  damage: 3
   attackForce: 0.35
+  mSkill: 3
+  mSkillParticleType: 0
   coolTime: 0
   calcCoolTime: 0
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  effectPrefab: {fileID: 0}
   normalAttackCollision: {fileID: 896133993}
 --- !u!1 &2049407291
 GameObject:
@@ -529,13 +532,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid_Player: {fileID: 0}
   particleSystems: []
-  damage: 0
+  damage: 2
   attackForce: 0.25
+  mSkill: 3
+  mSkillParticleType: 0
   coolTime: 0
   calcCoolTime: 0
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  effectPrefab: {fileID: 0}
   normalAttackCollision: {fileID: 896133993}
 --- !u!1 &2100132699
 GameObject:
@@ -584,13 +590,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid_Player: {fileID: 0}
   particleSystems: []
-  damage: 0
+  damage: 1
   attackForce: 0.25
+  mSkill: 3
+  mSkillParticleType: 0
   coolTime: 0
   calcCoolTime: 0
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  effectPrefab: {fileID: 0}
   normalAttackCollision: {fileID: 896133993}
 --- !u!1 &2557281968006362543
 GameObject:
@@ -652,7 +661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2801558534424366833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 2.44}
+  m_LocalPosition: {x: 0, y: 0.85, z: 2.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -671,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e42213e3017c141bb248e70f6340e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 1.8, y: 2.5, z: 5}
+  boxSize: {x: 1.8, y: 2, z: 5}
 --- !u!1 &7067910214888515874
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +695,7 @@ GameObject:
   - component: {fileID: 6593125676169337200}
   - component: {fileID: 1887263582}
   - component: {fileID: 1887263581}
+  - component: {fileID: 2130333881}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -758,8 +768,8 @@ MonoBehaviour:
   - {fileID: 2049407293}
   - {fileID: 4374894366952348696}
   - {fileID: 1681306964}
-  - {fileID: 593561337596347089}
-  - {fileID: 1378692915}
+  - {fileID: 8208073011363857964}
+  - {fileID: 8764276617482157587}
   skillSpawnPos:
   - {fileID: 689418607}
   - {fileID: 1113689386}
@@ -801,6 +811,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545de3f548190c84d889bba8f15e29d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2130333881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067910214888515874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f5f16052b4c9c43a2cc21c86569fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  actionText: {fileID: 0}
+  theInventory: {fileID: 0}
 --- !u!1001 &879422690998786691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1282,6 +1310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731372349}
     m_Modifications:
+    - target: {fileID: 1378692915, guid: 14b93a0ec5d41ed48b54d1f971c6d5b3, type: 3}
+      propertyPath: groundBreakAttackCollision
+      value: 
+      objectReference: {fileID: 311229044}
     - target: {fileID: 8764276619535937184, guid: 14b93a0ec5d41ed48b54d1f971c6d5b3, type: 3}
       propertyPath: m_Name
       value: GroundBreak1
@@ -1332,38 +1364,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14b93a0ec5d41ed48b54d1f971c6d5b3, type: 3}
---- !u!1 &752320384 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8764276619535937184, guid: 14b93a0ec5d41ed48b54d1f971c6d5b3, type: 3}
-  m_PrefabInstance: {fileID: 8764276618792538400}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1378692915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752320384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe80104e55689441b845b2427a63b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
-  particleSystems: []
-  damage: 0
-  attackForce: 1.5
-  coolTime: 0
-  calcCoolTime: 0
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
-  groundBreakAttackCollision: {fileID: 311229044}
 --- !u!4 &752320387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8764276619535937187, guid: 14b93a0ec5d41ed48b54d1f971c6d5b3, type: 3}
   m_PrefabInstance: {fileID: 8764276618792538400}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8764276617482157587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1378692915, guid: 14b93a0ec5d41ed48b54d1f971c6d5b3, type: 3}
+  m_PrefabInstance: {fileID: 8764276618792538400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe80104e55689441b845b2427a63b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8778692211903972605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1371,6 +1387,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 710312568}
     m_Modifications:
+    - target: {fileID: 593561337596347089, guid: 197febb14e5c196488de70a550c4193e, type: 3}
+      propertyPath: giantSwordAttackCollision
+      value: 
+      objectReference: {fileID: 560483840}
     - target: {fileID: 3379255404145057211, guid: 197febb14e5c196488de70a550c4193e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1421,35 +1441,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197febb14e5c196488de70a550c4193e, type: 3}
---- !u!1 &430604836582223842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8948088269997484831, guid: 197febb14e5c196488de70a550c4193e, type: 3}
-  m_PrefabInstance: {fileID: 8778692211903972605}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &593561337596347089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430604836582223842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92650047570f1074298024948b9b7a4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
-  particleSystems: []
-  damage: 0
-  attackForce: 1
-  coolTime: 0
-  calcCoolTime: 0
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
-  giantSwordAttackCollision: {fileID: 560483840}
 --- !u!4 &6282988690790996294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3379255404145057211, guid: 197febb14e5c196488de70a550c4193e, type: 3}
   m_PrefabInstance: {fileID: 8778692211903972605}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8208073011363857964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 593561337596347089, guid: 197febb14e5c196488de70a550c4193e, type: 3}
+  m_PrefabInstance: {fileID: 8778692211903972605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92650047570f1074298024948b9b7a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -47,13 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid_Player: {fileID: 0}
   particleSystems: []
-  damage: 0
+  damage: 4
   attackForce: 2
+  mSkill: 0
+  mSkillParticleType: 0
   coolTime: 0
   calcCoolTime: 0
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  effectPrefab: {fileID: 0}
   thrustAttackCollision: {fileID: 0}
 --- !u!1 &6843833554349116319
 GameObject:
