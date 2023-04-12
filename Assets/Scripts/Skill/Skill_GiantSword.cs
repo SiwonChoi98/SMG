@@ -11,9 +11,12 @@ public class Skill_GiantSword : BaseSkill
 
     public ManualCollision giantSwordAttackCollision; // 나중에 스킬이 늘어나면 배열로 바꿔줘서, ExcuteAttack에 강화정도의 인덱스를 넣어준다. 그 인덱스
 
-
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
+        ManualCollision collision = GameObject.Find("GiantSword_Area").GetComponent<ManualCollision>(); // 만약 할당이 안된 상태라면 저장해준다.
+        giantSwordAttackCollision = collision;
+        giantSwordAttackCollision.transform.position = collision.transform.position;
+
         Collider[] colliders = giantSwordAttackCollision?.CheckOverlapBox(targetMask);
 
         
@@ -27,12 +30,12 @@ public class Skill_GiantSword : BaseSkill
     public override void ExcuteParticleSystem()
     {
 
-        SkillManager.instance.SpawnParticle(mSkill, mSkillParticleType);
+        SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
     }
 
     public override void ExitParticleSystem()
-    {
+    {   
 
 
     }

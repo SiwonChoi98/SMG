@@ -49,8 +49,8 @@ MonoBehaviour:
   particleSystems: []
   damage: 5
   attackForce: 1
-  mSkill: 1
-  mSkillParticleType: 1
+  mSkillType: 1
+  mParticleType: 1
   coolTime: 0
   calcCoolTime: 0
   targetMask:

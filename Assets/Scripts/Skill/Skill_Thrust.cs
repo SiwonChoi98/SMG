@@ -10,12 +10,14 @@ public class Skill_Thrust : BaseSkill
 
     public ManualCollision thrustAttackCollision;
 
-
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
-        Collider[] colliders = thrustAttackCollision?.CheckOverlapBox(targetMask);
+        ManualCollision collision = GameObject.Find("Thrust_Area").GetComponent<ManualCollision>(); // 만약 할당이 안된 상태라면 저장해준다.
+        thrustAttackCollision = collision;
 
-       
+        Collider[] colliders = thrustAttackCollision?.CheckOverlapBox(targetMask);
+        thrustAttackCollision.transform.position = collision.transform.position;
+
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {
@@ -28,7 +30,7 @@ public class Skill_Thrust : BaseSkill
 
     public override void ExcuteParticleSystem()
     {
-        SkillManager.instance.AttachParticle(mSkill, mSkillParticleType);
+        SkillManager.instance.AttachParticle(mSkillType, mParticleType);
     }
 
     public override void ExitParticleSystem()

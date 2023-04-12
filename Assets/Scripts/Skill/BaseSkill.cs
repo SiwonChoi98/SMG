@@ -13,7 +13,7 @@ public enum ESkillParticleType : int
 // 나중에 플레이어가 스킬을 슬롯에 넣으면 그때 그게 어떤 스킬인지 확인. 스킬은 그리고 한종류로 통일, 단 스킬이 강화되면, 그것을 체크하는 bool값을 둬서 강화하는 방식으로.
 // 예를 들어 1번에 찌르기를 넣었는데, 스킬이 강회되어서 더 큰 찌르기가 나가야 한다.
 // 그러면 그 강화요소를 bool값으로 넣어서 true인 경우엔 다른 크기의 Partilce과 ManualCollision을 틀어주는거로 하자.
-public enum ESkill : int 
+public enum ESkillType : int 
 {
     Thrust,
     GiantSword,
@@ -35,9 +35,9 @@ public abstract class BaseSkill : MonoBehaviour
     public float attackForce; // 해당 공격 행동을 할 때 나아가는 방향에 곱해주는 정도.
 
 
-    public ESkill mSkill;
+    public ESkillType mSkillType;
 
-    public ESkillParticleType mSkillParticleType;
+    public ESkillParticleType mParticleType;
 
     [SerializeField]
     private float coolTime;

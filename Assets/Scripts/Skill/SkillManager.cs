@@ -36,16 +36,16 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    public void SpawnParticle(ESkill skill, ESkillParticleType type) // 레벨은 나중에 넣든지 하자.
+    public void SpawnParticle(ESkillType skillType, ESkillParticleType particleType) // 레벨은 나중에 넣든지 하자.
     {
-        if (type == ESkillParticleType.Spawn) // 만약 타입이 스폰형 스킬이라면
+        if (particleType == ESkillParticleType.Spawn) // 만약 타입이 스폰형 스킬이라면
         {
             // 자이언트 소드 소환 스킬
-            if (skill == ESkill.GiantSword) // 이 아래에 Switch (level)에  따라 다른 파티클 시스템이 나갈 예정
+            if (skillType == ESkillType.GiantSword) // 이 아래에 Switch (level)에  따라 다른 파티클 시스템이 나갈 예정
             {
-                GameObject GiantSwordSkill = Instantiate(skills[(int)ESkill.GiantSword], 
-                        player.skillSpawnPos[(int)ESkill.GiantSword].position,
-                        player.skillSpawnPos[(int)ESkill.GiantSword].rotation); 
+                GameObject GiantSwordSkill = Instantiate(skills[(int)ESkillType.GiantSword], 
+                        player.skillSpawnPos[(int)ESkillType.GiantSword].position,
+                        player.skillSpawnPos[(int)ESkillType.GiantSword].rotation); 
 
                 ParticleSystem[] particleSystems = GiantSwordSkill.GetComponentsInChildren<ParticleSystem>();  
 
@@ -57,11 +57,11 @@ public class SkillManager : MonoBehaviour
             }
             
             // 땅으로 내려찍는 스킬
-            else if (skill == ESkill.GroundBreak)
+            else if (skillType == ESkillType.GroundBreak)
             {
-                GameObject GroundBreakSkill = Instantiate(skills[(int)ESkill.GroundBreak], 
-                        player.skillSpawnPos[(int)ESkill.GroundBreak].position,
-                        player.skillSpawnPos[(int)ESkill.GroundBreak].rotation); 
+                GameObject GroundBreakSkill = Instantiate(skills[(int)ESkillType.GroundBreak], 
+                        player.skillSpawnPos[(int)ESkillType.GroundBreak].position,
+                        player.skillSpawnPos[(int)ESkillType.GroundBreak].rotation); 
 
                 ParticleSystem[] particleSystems = GroundBreakSkill.GetComponentsInChildren<ParticleSystem>(); 
 
@@ -76,16 +76,16 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    public void AttachParticle(ESkill skill, ESkillParticleType type)
+    public void AttachParticle(ESkillType skill, ESkillParticleType type)
     {
         if (type == ESkillParticleType.Attach)
         {
             // 찌르는 스킬
-            if (skill == ESkill.Thrust)
+            if (skill == ESkillType.Thrust)
             {
-                GameObject ThrustSkill = Instantiate(skills[(int)ESkill.Thrust], 
-                            player.skillSpawnPos[(int)ESkill.Thrust].position,
-                            player.skillSpawnPos[(int)ESkill.Thrust].rotation, 
+                GameObject ThrustSkill = Instantiate(skills[(int)ESkillType.Thrust], 
+                            player.skillSpawnPos[(int)ESkillType.Thrust].position,
+                            player.skillSpawnPos[(int)ESkillType.Thrust].rotation, 
                             player.transform); 
 
                 ParticleSystem[] particleSystems = ThrustSkill.GetComponentsInChildren<ParticleSystem>(); 

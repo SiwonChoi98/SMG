@@ -5,16 +5,13 @@ using UnityEditorInternal;
 using UnityEngine;
 
 
-// 플레이어의 SkillType들, 일단 일반 공격은 0, 1, 2 로 고정
+// 플레이어의 SkillType들, 일단 일반 공격은 0, 1, 2 로 고정, 한번에 딱 하나의 스킬만 사용 가능하다. 만약 유지형 스킬이 있다면, 그건 이쪽이 아닌 다른 쪽에서 처리해야 할듯
 public enum EPlayerSkillType : int
 {
     NormalAttack1,
     NormalAttack2, 
     NormalAttack3,
-    Skill1,
-    Skill2,
-    Skill3,
-    Skill4,
+    SlotSkill,
     None
 }
 
@@ -52,13 +49,16 @@ public class Player : MonoBehaviour, IDamageable
     private float maxHealth = 100f;
 
     // 임시적으로 확인하기 위해서 public으로 해두었다.
-    public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트, 이제는 오직 기본 공격을 위한 리스트로 변경
+    public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트, 이제는 오직 기본 공격을 위한 리스트로 변경해도 되지만, slotskill도 여기에 넣어버리자.
+    
     public List<Transform> skillSpawnPos = new List<Transform>(); // 스킬들을 스폰할 위치를 담은 리스트
+
     public ManualCollision normalAttackCollision;
     public LayerMask targetMask;
 
     private EPlayerSkillType playerCurrentSkill; // 플레이어\가 현재 수행하고 있는 타입
 
+    public bool IsPlayerCanUseSkill => PlayerStateCheck(); // 플레이어의 상태를 체크해서 전달해준다.
     #region Unity Methods
 
     private void Awake()
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour, IDamageable
         Turn();
         Dodge();
         AttackKey();
-        SkillKey();
+        //UseSlotSkill();
     }
 
     // 플레이어의 입력을 받아온다.
@@ -95,10 +95,10 @@ public class Player : MonoBehaviour, IDamageable
         vAxis = Input.GetAxisRaw("Vertical"); //ws
         dodge = Input.GetButtonDown("Jump"); // space
         attackKey = Input.GetButtonDown("Fire1"); //마우스 왼쪽
-        skillKey_1 = Input.GetButtonDown("Skill1"); // 1번
-        skillKey_2 = Input.GetButtonDown("Skill2"); // 2번
-        skillKey_3 = Input.GetButtonDown("Skill3"); // 3번
-        skillKey_4 = Input.GetButtonDown("Skill4"); // 4번
+        //skillKey_1 = Input.GetButtonDown("Skill1"); // 1번
+        //skillKey_2 = Input.GetButtonDown("Skill2"); // 2번
+        //skillKey_3 = Input.GetButtonDown("Skill3"); // 3번
+        //skillKey_4 = Input.GetButtonDown("Skill4"); // 4번
     }
 
     #endregion Unity Methods
@@ -173,9 +173,7 @@ public class Player : MonoBehaviour, IDamageable
             // 재생하고 있던 Particle System도 꺼줘야 한다.
 
             
-            int skillsCount = playerSkills.Count;
-
-            for (int i = 0; i < skillsCount; i++)
+            for (int i = 0; i < 3; i++)
             {
                 playerSkills[i].ExitParticleSystem();
             }
@@ -249,19 +247,6 @@ public class Player : MonoBehaviour, IDamageable
                                playerSkills[3].attackForce;
                             break;
                         }
-                    case 4:
-                        {
-                            transform.position += transform.forward * speed * Time.deltaTime *
-                                playerSkills[4].attackForce;
-                            break;
-                        }
-                    case 5:
-                        {
-                            transform.position += transform.forward * speed * Time.deltaTime *
-                                playerSkills[5].attackForce;
-                            break;
-                        }
-
                 }
 
                 
@@ -400,70 +385,23 @@ public class Player : MonoBehaviour, IDamageable
 
     #region Skill Methods
 
-    // 우선 스킬키를 누르면 정해진 대로 스킬이 나가지만, 이 순서는 나중에 변경 가능하도록 하는게 어떤지
-    // 예를 들어 SkillKey_1이 찌르기를 넣으면 찌르기가, 다른 베기를 넣으면 베기가 나가도록
-    private void SkillKey() // 이 부분을 UseSlotSkill(BaseSkill skill)로 해서, 슬롯의 스킬을 사용하는 식으로 가자.
-                            // 스킬을 사용할 때, 슬롯에서 BaseSkill을 전달해주고, 저기서 검사까지 마치고 왔으므로, 해당 스킬을 틀어주면 된다. 해당 스킬에 포함되어야 하는 정보는 더 있는데,
-                            // 우선 BaseSkill은 ExcuteParticleSystem은 가능하다. 또한 ExcuteAttack도 가능하다. BaseSkill을 어딘가에 저장하면서 ex) SlotSkills 넣어줌으로써 가능하다.
-                            
+    // 이 부분을 UseSlotSkill(BaseSkill skill)로 해서, 슬롯의 스킬을 사용하는 식으로 가자.
+    // 스킬을 사용할 때, 슬롯에서 BaseSkill을 전달해주고, 저기서 검사까지 마치고 왔으므로, 해당 스킬을 틀어주면 된다. 해당 스킬에 포함되어야 하는 정보는 더 있는데,
+    // 우선 BaseSkill은 ExcuteParticleSystem은 가능하다. 또한 ExcuteAttack도 가능하다. BaseSkill을 어딘가에 저장하면서 ex) SlotSkills 넣어줌으로써 가능하다.
+    public void UseSlotSkill(BaseSkill baseSkill = null)                    
     {
-        if (skillKey_1) // 스킬 1번을 눌렀을 때
+        if(playerSkills[(int)EPlayerSkillType.SlotSkill] == null) // 만약 현재 슬롯 스킬이 비어있는 상태여야 넣어준다.
         {
-            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
-            {
-                isCasting = true;
-                anim.SetTrigger("DoSkill");
-                anim.SetInteger("SkillNumber", 1);
-                anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
-                playerCurrentSkill = EPlayerSkillType.Skill1;
+            playerSkills[(int)EPlayerSkillType.SlotSkill] = baseSkill;
 
-                playerSkills[(int)EPlayerSkillType.Skill1].ExcuteParticleSystem();
-            }
+            isCasting = true;
+            anim.SetTrigger("DoSkill");
+            anim.SetInteger("SkillNumber", (int)baseSkill.mSkillType); // 스킬의 mSkill 번호대로 스킬 애니메이션을 실행해준다.
+            anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
+            playerCurrentSkill = EPlayerSkillType.SlotSkill;
 
+            baseSkill.ExcuteParticleSystem();
         }
-        else if (skillKey_2)
-        {
-            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
-            {
-                isCasting = true;
-                anim.SetTrigger("DoSkill");
-                anim.SetInteger("SkillNumber", 2);
-                anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
-                playerCurrentSkill = EPlayerSkillType.Skill2;
-
-                playerSkills[(int)EPlayerSkillType.Skill2].ExcuteParticleSystem();
-            }
-
-        }
-        else if (skillKey_3)
-        {
-            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
-            {
-                isCasting = true;
-                anim.SetTrigger("DoSkill");
-                anim.SetInteger("SkillNumber", 3);
-                anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
-                playerCurrentSkill = EPlayerSkillType.Skill3;
-
-                playerSkills[(int)EPlayerSkillType.Skill3].ExcuteParticleSystem();
-            }
-
-        }
-        else if (skillKey_4)
-        {
-            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
-            {
-                isCasting = true;
-                anim.SetTrigger("DoSkill");
-                anim.SetInteger("SkillNumber", 4);
-                anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
-                playerCurrentSkill = EPlayerSkillType.Skill4;
-
-                playerSkills[(int)EPlayerSkillType.Skill4].ExcuteParticleSystem();
-            }
-
-        }
-
     }
 
     public void PlayerSkillStart()
@@ -474,41 +412,11 @@ public class Player : MonoBehaviour, IDamageable
     // 공격 애니메이션 중 타격 부분을 실행하면 호출
     public void PlayerSkill()
     {
-
-        int SkillNum = anim.GetInteger("SkillNumber");
-
-        switch (SkillNum)
+        if(playerSkills[(int)EPlayerSkillType.SlotSkill] != null) // 스킬이 제대로 슬롯 스킬칸에 들어간 경우에만,
         {
-            case 0:
-                {
-                    break;
-                }
-
-            case 1:
-                {
-                    playerSkills[(int)EPlayerSkillType.Skill1].ExcuteAttack();
-                    break;
-                }
-
-            case 2:
-                {
-                    playerSkills[(int)EPlayerSkillType.Skill2].ExcuteAttack();
-                    break;
-                }
-
-            case 3:
-                {
-                    playerSkills[(int)EPlayerSkillType.Skill3].ExcuteAttack();
-                    break;
-                }
-
-            case 4:
-                {
-                    playerSkills[(int)EPlayerSkillType.Skill4].ExcuteAttack();
-                    break;
-                }
+            playerSkills[(int)EPlayerSkillType.SlotSkill].ExcuteAttack();
         }
-
+       
     }
 
 
@@ -522,8 +430,14 @@ public class Player : MonoBehaviour, IDamageable
     public void PlayerSkillEnd()
     {
 
-        anim.SetInteger("SkillNumber", 0);
+        anim.SetInteger("SkillNumber", -1);
         anim.SetBool("SkillEnd", true);
+
+        if (playerSkills[(int)EPlayerSkillType.SlotSkill] != null) // 스킬이 제대로 슬롯 스킬칸에 들어간 경우에만,
+        {
+            playerSkills[(int)EPlayerSkillType.SlotSkill] = null;
+        }
+
         isCasting = false;
     }
 
@@ -555,5 +469,10 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     #endregion IDamageable Methods
+
+    private bool PlayerStateCheck()
+    {
+        return (!isAttacking && !isDodging && !isCasting);
+    }
 }
 

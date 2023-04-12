@@ -11,7 +11,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     public Item item; // 획득한 아이템
     public int itemCount; // 획득한 아이템의 개수
     public Image itemImage; // 아이템의 이미지
+    public BaseSkill slotSkill; // slot의 스킬도 넣어주어야 한다.
 
+    [SerializeField]
+    private Player player;
     [SerializeField]
     private GameObject go_CountImage;
     [SerializeField]
@@ -36,9 +39,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     {
         item = _item;
         itemCount = _count;
+        slotSkill = _item.skill;
         itemImage.sprite = item.itemImage; // 스프라이트로 형변환
-
-        if(item.itemType != Item.EItemType.Buff) // 아이템 타입이 버프인 경우에는 개수 표시를 할 필요가 없고, 쿨타임 표시를 해줘야 한다. 이 부분은 뒤에 따로 만들자.
+        
+        if (item.itemType == Item.EItemType.Skill) // 아이템 타입이 버프인 경우에는 개수 표시를 할 필요가 없고, 쿨타임 표시를 해줘야 한다. 이 부분은 뒤에 따로 만들자.
         {
             go_CountImage.SetActive(true);
             text_Count.text = itemCount.ToString();
@@ -87,11 +91,20 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
             { 
                 if(item.itemType == Item.EItemType.Skill) 
                 {
-                    // 여기에 스킬을 누르더라도 사용이 안되게 플레이어의 상태를 받아와야 한다. 예를 들어서 IsPlayerCanUseSkill을 하면 실행해주면서 카운트를 깎자.
-                    // IsPlayerCanUseSkill -> !isAttacking && !isDodging && !isCasting 와 같이 만들자.
-                    Debug.Log(item.itemName + " 스킬을 사용했습니다.");
+                    if(player.IsPlayerCanUseSkill) // 플레이어가 !isAttacking && !isDodging && !isCasting 인 상태이면
+                    {
+                        Debug.Log(item.itemName + " 스킬을 사용했습니다.");
+
+                        SetSlotCount(-1);
+
+                        //if(item.skill == null)
+                        //{
+                        //    Debug.Log("item.skill is null");
+                        //}    
+
+                        player.UseSlotSkill(slotSkill); // 플레이어에게 스킬 사용하게 만든다. 여기서 계속 오류가 났었는데, 위에 처럼 public 변수가 없어서 그랬던 것이다.
+                    }
                     
-                    SetSlotCount(-1);
                 }
                 else if(item.itemType == Item.EItemType.Potion)
                 {
