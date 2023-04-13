@@ -48,9 +48,9 @@ MonoBehaviour:
   rigid_Player: {fileID: 0}
   particleSystems: []
   damage: 4
-  attackForce: 2
-  mSkill: 0
-  mSkillParticleType: 0
+  attackForce: 1.5
+  mSkillType: 0
+  mParticleType: 0
   coolTime: 0
   calcCoolTime: 0
   targetMask:

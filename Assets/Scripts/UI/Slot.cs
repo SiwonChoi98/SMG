@@ -11,7 +11,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     public Item item; // 획득한 아이템
     public int itemCount; // 획득한 아이템의 개수
     public Image itemImage; // 아이템의 이미지
-    public BaseSkill slotSkill; // slot의 스킬도 넣어주어야 한다.
+    public BaseSkill slotSkill; // slot의 스킬도 AddItem에서 넣어주어야 한다.
 
     [SerializeField]
     private Player player;
@@ -40,6 +40,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
         item = _item;
         itemCount = _count;
         slotSkill = _item.skill;
+
         itemImage.sprite = item.itemImage; // 스프라이트로 형변환
         
         if (item.itemType == Item.EItemType.Skill) // 아이템 타입이 버프인 경우에는 개수 표시를 할 필요가 없고, 쿨타임 표시를 해줘야 한다. 이 부분은 뒤에 따로 만들자.
@@ -96,11 +97,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
                         Debug.Log(item.itemName + " 스킬을 사용했습니다.");
 
                         SetSlotCount(-1);
-
-                        //if(item.skill == null)
-                        //{
-                        //    Debug.Log("item.skill is null");
-                        //}    
 
                         player.UseSlotSkill(slotSkill); // 플레이어에게 스킬 사용하게 만든다. 여기서 계속 오류가 났었는데, 위에 처럼 public 변수가 없어서 그랬던 것이다.
                     }

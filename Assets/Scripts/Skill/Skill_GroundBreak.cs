@@ -10,10 +10,10 @@ public class Skill_GroundBreak : BaseSkill
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
         ManualCollision collision = GameObject.Find("GroundBreak_Area").GetComponent<ManualCollision>(); // 만약 할당이 안된 상태라면 저장해준다.
+
         groundBreakAttackCollision = collision;
 
         Collider[] colliders = groundBreakAttackCollision?.CheckOverlapBox(targetMask);
-        groundBreakAttackCollision.transform.position = collision.transform.position;
 
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
@@ -26,6 +26,7 @@ public class Skill_GroundBreak : BaseSkill
     {
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
+
 
     }
 

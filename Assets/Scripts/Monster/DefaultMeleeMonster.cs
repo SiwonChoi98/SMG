@@ -21,6 +21,7 @@ public class DefaultMeleeMonster : Monster
     {
         transform.LookAt(target.position); // 때릴 때마다 플레이어 방향으로 돌려준다.
 
+        // Shoot 부분 바로 때려가지고 애니메이션 이벤트 적용해 놓겠습니다.
         monsterSkills[0].ExcuteAttack(target.gameObject); // 여기서 몬스터의 첫번째 공격스킬이 나간다. ex) 고블린 평타
     } 
 }
