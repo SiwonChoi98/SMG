@@ -17,6 +17,14 @@ public enum EPlayerSkillType : int
 
 public class Player : MonoBehaviour, IDamageable
 {
+    [Header("조이스틱")]
+    [SerializeField] private VariableJoystick joy;
+    [Header("체력")]
+    [SerializeField] private int _curHealth;
+    [SerializeField] private int _maxHealth;
+    public int CurHealth { get => _curHealth; set => _curHealth = value; }
+    public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+    //--------------------------------------------------------------------
     private Camera cameraMain;
     private Animator anim;
     private Rigidbody rigid;
@@ -85,6 +93,7 @@ public class Player : MonoBehaviour, IDamageable
         Turn();
         Dodge();
         AttackKey();
+        //JoystickMove();
         //UseSlotSkill();
     }
 
@@ -119,6 +128,28 @@ public class Player : MonoBehaviour, IDamageable
     #endregion Helper Methods;
 
     #region Move Methods
+    private void JoystickMove()
+    {
+        float x = joy.Horizontal;
+        float y = joy.Vertical;
+        moveVec = new Vector3(x, 0, y).normalized;
+
+        if (isDodging)
+            moveVec = dodgeVec;
+
+        if (!isAttacking && !isCasting) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우
+        {
+            transform.position += moveVec * speed * Time.deltaTime;
+
+            anim.SetBool("IsRun", moveVec != Vector3.zero);
+        }
+        //turn
+        if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
+        }
+
+    } //조이스틱 이동
     private void Move()
     {
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
