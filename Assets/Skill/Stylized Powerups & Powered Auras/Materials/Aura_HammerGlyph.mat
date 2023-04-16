@@ -24,15 +24,15 @@ Material:
   m_Shader: {fileID: 4800000, guid: 07513da48c7a0174f989813b951c454d, type: 3}
   m_ValidKeywords:
   - _ALPHALAYER_RED
-  - _BLENDMODE_ADD
-  - _ENABLE_FOG_ON_TRANSPARENT
   - _MAINTEXTURELAYER_RED
   - _MASKTEXTURELAYER_ALPHA
-  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
+  - _BLENDMODE_ADD
   - _DISABLE_SSR
+  - _ENABLE_FOG_ON_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
-  m_LightmapFlags: 4
+  - _SURFACE_TYPE_TRANSPARENT
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -165,7 +165,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 1
-    - _Brightness: 50
+    - _Brightness: 8
     - _CoatMask: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -276,6 +276,7 @@ Material:
     - _ZTestModeDistortion: 4
     - _ZTestTransparent: 4
     - _ZWrite: 0
+    - __dirty: 0
     m_Colors:
     - _AlbedoPanning: {r: 0, g: 0, b: 0, a: 0}
     - _AlphaPanning: {r: 0, g: 0, b: 0, a: 0}
