@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1480793704907437720}
   - component: {fileID: 525501949}
   m_Layer: 8
-  m_Name: TestItem
+  m_Name: Thrust
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 6946371992469204984, guid: 101ab30a653e9e740b8d2bfb103a2ec6, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -18,6 +18,9 @@ public enum ESkillType : int
     Thrust,
     GiantSword,
     GroundBreak,
+    UpperSlash,
+    Shield,
+    Baldo,
     NormalAttack
 }
 

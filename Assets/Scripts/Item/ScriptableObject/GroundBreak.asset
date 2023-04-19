@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a1d08e718f95954094f0f4d15ec72f4, type: 3}
-  m_Name: TestItem
+  m_Name: GroundBreak
   m_EditorClassIdentifier: 
-  itemName: TestItem
+  itemName: GroundBreak
   itemType: 0
   itemImage: {fileID: 21300000, guid: 92ca474a0924b7e40a303b6957d51d80, type: 3}
-  itemPrefab: {fileID: 6627727196369006612, guid: 6f0a219ef5d6771449108209bfa62ead, type: 3}
-  skill: {fileID: 1892748173138949998, guid: 9d220a1f05d29fa40af63f540a48c0e2, type: 3}
+  itemPrefab: {fileID: 6627727196369006612, guid: 7a7e0fcc9c8532c4abfbf5afa1ba12a6, type: 3}
+  skill: {fileID: 1378692915, guid: 14b93a0ec5d41ed48b54d1f971c6d5b3, type: 3}
