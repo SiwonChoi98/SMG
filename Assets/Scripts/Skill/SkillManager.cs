@@ -13,7 +13,7 @@ public class SkillManager : MonoBehaviour
 
     public Player player;
 
-    public GameObject[] skills;
+    public GameObject[] playerSkills; 
 
 
     
@@ -31,10 +31,10 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    private void Update()
-    {
+    //private void Update()
+    //{
 
-    }
+    //}
 
     public void SpawnParticle(ESkillType skillType, ESkillParticleType particleType) // 레벨은 나중에 넣든지 하자.
     {
@@ -43,7 +43,7 @@ public class SkillManager : MonoBehaviour
             // 자이언트 소드 소환 스킬
             if (skillType == ESkillType.GiantSword) // 이 아래에 Switch (level)에  따라 다른 파티클 시스템이 나갈 예정
             {
-                GameObject GiantSwordSkill = Instantiate(skills[(int)ESkillType.GiantSword], 
+                GameObject GiantSwordSkill = Instantiate(playerSkills[(int)ESkillType.GiantSword], 
                         player.skillSpawnPos[(int)ESkillType.GiantSword].position,
                         player.skillSpawnPos[(int)ESkillType.GiantSword].rotation); 
 
@@ -59,7 +59,7 @@ public class SkillManager : MonoBehaviour
             // 땅으로 내려찍는 스킬
             else if (skillType == ESkillType.GroundBreak)
             {
-                GameObject GroundBreakSkill = Instantiate(skills[(int)ESkillType.GroundBreak], 
+                GameObject GroundBreakSkill = Instantiate(playerSkills[(int)ESkillType.GroundBreak], 
                         player.skillSpawnPos[(int)ESkillType.GroundBreak].position,
                         player.skillSpawnPos[(int)ESkillType.GroundBreak].rotation); 
 
@@ -75,7 +75,7 @@ public class SkillManager : MonoBehaviour
 
             else if (skillType == ESkillType.UpperSlash)
             {
-                GameObject UpperSlashSkill = Instantiate(skills[(int)ESkillType.UpperSlash],
+                GameObject UpperSlashSkill = Instantiate(playerSkills[(int)ESkillType.UpperSlash],
                         player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
                         player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
 
@@ -91,7 +91,7 @@ public class SkillManager : MonoBehaviour
 
             else if (skillType == ESkillType.Baldo)
             {
-                GameObject BaldoSkill = Instantiate(skills[(int)ESkillType.Baldo],
+                GameObject BaldoSkill = Instantiate(playerSkills[(int)ESkillType.Baldo],
                        player.skillSpawnPos[(int)ESkillType.Baldo].position,
                        player.skillSpawnPos[(int)ESkillType.Baldo].rotation);
 
@@ -115,7 +115,7 @@ public class SkillManager : MonoBehaviour
             // 찌르는 스킬
             if (skill == ESkillType.Thrust)
             {
-                GameObject ThrustSkill = Instantiate(skills[(int)ESkillType.Thrust], 
+                GameObject ThrustSkill = Instantiate(playerSkills[(int)ESkillType.Thrust], 
                             player.skillSpawnPos[(int)ESkillType.Thrust].position,
                             player.skillSpawnPos[(int)ESkillType.Thrust].rotation, 
                             player.transform); 
@@ -132,7 +132,7 @@ public class SkillManager : MonoBehaviour
 
             else if (skill == ESkillType.Shield)
             {
-                GameObject ShieldSkill = Instantiate(skills[(int)ESkillType.Shield],
+                GameObject ShieldSkill = Instantiate(playerSkills[(int)ESkillType.Shield],
                                 player.skillSpawnPos[(int)ESkillType.Shield].position,
                                 player.skillSpawnPos[(int)ESkillType.Shield].rotation,
                                 player.transform);
@@ -144,7 +144,8 @@ public class SkillManager : MonoBehaviour
                     particle.Play(); // 각 위치에 맞게 
                 }
 
-                Destroy(ShieldSkill, 5f);
+
+                Destroy(ShieldSkill, 3f);
             }
         }
 

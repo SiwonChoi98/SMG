@@ -11,6 +11,7 @@ public class ManualCollision : MonoBehaviour
     {
         return Physics.OverlapBox(transform.position, boxSize * 0.5f, transform.rotation, layerMask);
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.matrix = transform.localToWorldMatrix;

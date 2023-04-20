@@ -20,52 +20,48 @@ public class Player : MonoBehaviour, IDamageable
     [Header("조이스틱")]
     [SerializeField] private VariableJoystick joy;
     [Header("체력")]
-    [SerializeField] private int curHealth;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private int curHealth; // 현재 체력
+    [SerializeField] private int maxHealth; // 최대 체력
+    [SerializeField] private int strength; // 플레이어의 공격력, 추후에 이 수치를 각 스킬들에게 전달할 예정
     public int CurHealth { get => curHealth; set => curHealth = value; }
     public int MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public int Strength { get => strength; set => strength = value; }
     //--------------------------------------------------------------------
+
     private Camera cameraMain;
     private Animator anim;
     private Rigidbody rigid;
 
     private float hAxis;
     private float vAxis;
-    private bool dodge;
-    private bool attackKey;
-    private bool skillKey_1;
-    
-    private bool skillKey_2;
-    
-    private bool skillKey_3;
-    
-    private bool skillKey_4;
+    private bool dodge; // 회피키
+    private bool attackKey; // 기본 공격 키
 
-    private bool isDodging;
-    private bool isAttacking;
-    private bool isCasting;
+    private bool isDodging; // 회피 중인가?
+    private bool isAttacking; // 일반 공격 하는 중인가?
+    private bool isCasting; // 스킬을 캐스팅하고 있는가?
 
     private bool isAttackingMove; // 공격할 때 이동시작
-    private bool isDodgeReady;
-    private float dodgeCoolTime;
-    private float dodgeCoolTimeMax;
+    private bool isDodgeReady; // 회피 쿨타임이 다 초기화되서 다시 사용할 수 있는가?
+    private float dodgeCoolTime; // 회피 쿨타임
+    private float dodgeCoolTimeMax; // 회피 쿨타임 최대값
     private Vector3 dodgeVec;
     private Vector3 moveVec;
 
-    private float speed;
+    private float speed; // 캐릭터의 스피드
 
     // 임시적으로 확인하기 위해서 public으로 해두었다.
     public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트, 이제는 오직 기본 공격을 위한 리스트로 변경해도 되지만, slotskill도 여기에 넣어버리자.
     
     public List<Transform> skillSpawnPos = new List<Transform>(); // 스킬들을 스폰할 위치를 담은 리스트
 
-    public int ShieldCount;
-    public ManualCollision normalAttackCollision;
-    public LayerMask targetMask;
+    public int ShieldCount; // 쉴드 스킬 시 생성하는 보호막 개수
 
-    private EPlayerSkillType playerCurrentSkill; // 플레이어\가 현재 수행하고 있는 타입
+    public bool isStrengthBuff; // 힘 버프를 받고 있는가?
 
-    public bool IsPlayerCanUseSkill => PlayerStateCheck(); // 플레이어의 상태를 체크해서 전달해준다.
+    private EPlayerSkillType playerCurrentSkill; // 플레이어가 현재 수행하고 있는 스킬 타입
+
+    public bool IsPlayerCanUseSkill => PlayerStateCheck(); // 플레이어가 현재 스킬을 사용할 수 있는지 슬롯에서 누를 때 전달해주는 bool값
     #region Unity Methods
 
     private void Awake()
@@ -83,6 +79,7 @@ public class Player : MonoBehaviour, IDamageable
         speed = 5.0f;
         maxHealth = 100;
         curHealth = maxHealth; // 처음에 피를 100으로 채워준다.
+        strength = 10;
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;
     }
@@ -421,19 +418,19 @@ public class Player : MonoBehaviour, IDamageable
     // 이 부분을 UseSlotSkill(BaseSkill skill)로 해서, 슬롯의 스킬을 사용하는 식으로 가자.
     // 스킬을 사용할 때, 슬롯에서 BaseSkill을 전달해주고, 저기서 검사까지 마치고 왔으므로, 해당 스킬을 틀어주면 된다. 해당 스킬에 포함되어야 하는 정보는 더 있는데,
     // 우선 BaseSkill은 ExcuteParticleSystem은 가능하다. 또한 ExcuteAttack도 가능하다. BaseSkill을 어딘가에 저장하면서 ex) SlotSkills 넣어줌으로써 가능하다.
-    public void UseSlotSkill(BaseSkill baseSkill = null)                    
+    public void UseSlotSkill(BaseSkill _skill = null)                    
     {
         if(playerSkills[(int)EPlayerSkillType.SlotSkill] == null) // 만약 현재 슬롯 스킬이 비어있는 상태여야 넣어준다.
         {
-            playerSkills[(int)EPlayerSkillType.SlotSkill] = baseSkill;
+            playerSkills[(int)EPlayerSkillType.SlotSkill] = _skill;
 
             isCasting = true;
             anim.SetTrigger("DoSkill");
-            anim.SetInteger("SkillNumber", (int)baseSkill.mSkillType); // 스킬의 mSkill 번호대로 스킬 애니메이션을 실행해준다.
+            anim.SetInteger("SkillNumber", (int)_skill.mSkillType); // 스킬의 mSkill 번호대로 스킬 애니메이션을 실행해준다.
             anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
             playerCurrentSkill = EPlayerSkillType.SlotSkill;
 
-            baseSkill.ExcuteParticleSystem();
+            _skill.ExcuteParticleSystem();
         }
     }
 
@@ -509,7 +506,7 @@ public class Player : MonoBehaviour, IDamageable
 
     #endregion IDamageable Methods
 
-    private bool PlayerStateCheck()
+    private bool PlayerStateCheck() // 여기 부분에 나중에 isDamage 같은 플레이어 피격 상태도 넣어야 할듯
     {
         return (!isAttacking && !isDodging && !isCasting);
     }

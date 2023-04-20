@@ -9,78 +9,80 @@ public class Inventory : MonoBehaviour
     // 인벤토리 키를 눌렀을 경우 인벤토리 활성화, 필요한 컴포넌트
     [SerializeField]
     private GameObject go_InventoryBase;
+
     [SerializeField] 
-    private GameObject go_DefaultSlot; // 이 부분은 스킬 슬롯이 될 것이다.
+    private GameObject go_SkillSlot; // 스킬 슬롯들의 부모 오브젝트
     [SerializeField]
-    private Slot[] slots; // 하나를 스킬 슬롯으로 해서 스킬만 넣고, 다른 slot을 하나 만들어서 포션은 여기에만 넣어주자.
+    private GameObject go_BuffSlot; // 버프 슬롯들의 부모 오브젝트
+
+    [SerializeField]
+    private Slot[] skillSlots; // 스킬 슬롯들
+    [SerializeField]
+    private Slot[] buffSlots; // 버프 슬롯들
 
 
     // Start is called before the first frame update
     private void Start()
     {
-        slots = go_DefaultSlot.GetComponentsInChildren<Slot>();
+        skillSlots = go_SkillSlot.GetComponentsInChildren<Slot>();
+        buffSlots = go_BuffSlot.GetComponentsInChildren<Slot>();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        TryOpenInventory();
-    }
-
-
-    private void TryOpenInventory()
-    {
-        if(Input.GetKeyDown(KeyCode.I)) 
-        { 
-            inventoryActivated = !inventoryActivated;
-
-            if(inventoryActivated) 
-            {
-                OpenInventory();
-            }
-            else
-            {
-                CloseInventory();
-            }
-        }
-    }
-
-    private void OpenInventory()
-    {
-        go_InventoryBase.SetActive(true);
-    }
-
-    private void CloseInventory()
-    {
-        go_InventoryBase.SetActive(false);
-    }
-
+    // 이 부분에서 스킬 슬롯이 다 찼는지, 또는 스킬을 먹었는데 보유한 스킬 개수가 이미 Max인지 검사해야 한다.
+    
     public void AcquireItem(Item _item, int _count = 1)
     {
-        if(_item.itemType != Item.EItemType.Buff) // 버프류가 아닌 경우에만 인벤토리에 넣어준다. 또한 인벤토리가 다 차있어도 안된다.
+        if(_item.itemType == Item.EItemType.Skill) // 획득한 아이템이 스킬인 경우
         {
-            for (int i = 0; i < slots.Length; i++) // 슬롯에 이미 아이템이 있는 경우
+            for (int i = 0; i < skillSlots.Length; i++) // 슬롯에 이미 같은 스킬이 있는 경우 SetSlotCount로 개수를 늘려준다.
             {
-                if (slots[i].item != null)
+                if (skillSlots[i].item != null)
                 {
-                    if (slots[i].item.itemName == _item.itemName)
+                    if (skillSlots[i].item.itemName == _item.itemName)
                     {
-                        slots[i].SetSlotCount(_count);
+                        // Default가 1인 상태인데, 여기서 _count를 바꾸면 된다.
+                        skillSlots[i].SetSlotCount(_count);
                         return;
                     }
                 }
                
             }
 
-            for (int i = 0; i < slots.Length; i++) // 슬롯에 아이템이 없으면, 빈 공간에 넣어준다.
+            for (int i = 0; i < skillSlots.Length; i++) // 슬롯에 아이템이 없으면, 빈 공간에 넣어준다.
             {
-                if (slots[i].item == null)
+                if (skillSlots[i].item == null)
                 {
-                    slots[i].AddItem(_item, _count);
+                    skillSlots[i].AddItem(_item, _count);
                     return;
                 }
             }
         }
+
+        else if (_item.itemType == Item.EItemType.Buff) // 획득한 아이템이 버프인 경우
+        {
+            for(int i = 0; i < buffSlots.Length; i++) // 슬롯에 이미 같은 버프가 있는 경우 SetSlotTime으로 해당 시간을 다시 초기화 시켜준다.
+            {
+                if (buffSlots[i].item != null) 
+                {
+                    if (buffSlots[i].item.itemName == _item.itemName)
+                    {
+                        // Default가 15인 상태인데, 여기서 _time을 바꾸면 된다.
+                        buffSlots[i].SetSlotTime(buffSlots[i].item.buff.buffTimeMax);
+                        return;
+                    }
+                }
+            }
+
+            for (int i = 0; i < buffSlots.Length; i++) // 슬롯에 아이템이 없으면, 빈 공간에 넣어준다.
+            {
+                if (buffSlots[i].item == null)
+                {
+                    buffSlots[i].AddItem(_item, _count);
+                    return;
+                }
+            }
+        }
+            
        
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 // 스킬이 플레이어에 붙어있어야 하는지, 아니면 소환되어야 하는지
 public enum ESkillParticleType : int
 {
@@ -10,9 +9,7 @@ public enum ESkillParticleType : int
     Spawn
 }
 
-// 나중에 플레이어가 스킬을 슬롯에 넣으면 그때 그게 어떤 스킬인지 확인. 스킬은 그리고 한종류로 통일, 단 스킬이 강화되면, 그것을 체크하는 bool값을 둬서 강화하는 방식으로.
-// 예를 들어 1번에 찌르기를 넣었는데, 스킬이 강회되어서 더 큰 찌르기가 나가야 한다.
-// 그러면 그 강화요소를 bool값으로 넣어서 true인 경우엔 다른 크기의 Partilce과 ManualCollision을 틀어주는거로 하자.
+// 플레이어가 사용하는 스킬 타입
 public enum ESkillType : int 
 {
     Thrust,
@@ -29,14 +26,11 @@ public abstract class BaseSkill : MonoBehaviour
     // 여기 Variables의 public도 진짜 필요한 것만 public으로 처리하자.
     #region Variables
 
-    public Rigidbody rigid_Player;
+    public ParticleSystem[] particleSystems; // 일반 공격에서 사용하는 파티클 시스템,
 
-    public ParticleSystem[] particleSystems;
-
-    public int damage;
+    public int damage; // 플레이어가 
 
     public float attackForce; // 해당 공격 행동을 할 때 나아가는 방향에 곱해주는 정도.
-
 
     public ESkillType mSkillType;
 
@@ -62,7 +56,6 @@ public abstract class BaseSkill : MonoBehaviour
 
     protected virtual void Awake() 
     {
-        rigid_Player = GetComponentInParent<Rigidbody>(); // 부모로부터 Rigidbody를 받아온다. 현재 Rigidbody는 Player 하나만 존재한다.
         particleSystems = GetComponentsInChildren<ParticleSystem>(); // 자식들로부터 ParticleSystem 들을 받아온다.
     }
 

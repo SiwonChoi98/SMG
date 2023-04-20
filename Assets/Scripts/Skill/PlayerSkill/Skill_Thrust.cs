@@ -35,10 +35,6 @@ public class Skill_Thrust : BaseSkill
 
     public override void ExitParticleSystem()
     {
-        foreach (ParticleSystem particles in particleSystems)
-        {
-            particles.Stop();
-        }
-
+   
     }
 }

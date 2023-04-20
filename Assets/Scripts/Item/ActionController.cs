@@ -12,11 +12,11 @@ public class ActionController : MonoBehaviour
 
     private RaycastHit hitInfo; // 충돌체의 정보 저장.
 
-    // 아이템 레이어에만 반응하도록 레이어 마스크를 설정
     [SerializeField]
-    private LayerMask layerMask;
+    private LayerMask layerMask; // 아이템 레이어에만 반응하도록 레이어 마스크를 설정
 
     // 필요한 컴포넌트
+
     [SerializeField]
     private Text actionText;
     [SerializeField]
@@ -39,7 +39,8 @@ public class ActionController : MonoBehaviour
         
     }
 
-    private void CheckItem() // 현재 방식은 플레이어에서 발사하는 Raycast가 거리 내에 닿으면 아이템 정보 뜸 , 이것을 그냥 플레이어 쪽으로 옮겨되 돌 것 같다.
+    // 현재 방식은 플레이어에서 발사하는 Raycast가 거리 내에 닿으면 아이템 정보 뜸 , 이것을 그냥 플레이어 쪽으로 옮겨되 돌 것 같다.
+    private void CheckItem() 
     {
         if (Physics.Raycast(transform.position + Vector3.up * 0.1f, transform.forward, 
             out hitInfo, range, layerMask)) // transform.TransformDirection(Vector3.forward)는 transfrom.forward와 같은 역할이다.
@@ -47,7 +48,7 @@ public class ActionController : MonoBehaviour
             if (hitInfo.transform.tag == "Item")
             {
       
-                ItemInfoAppear();
+                ItemInfoAppear(); 
             }
         }
 
@@ -58,7 +59,8 @@ public class ActionController : MonoBehaviour
 
     }
 
-    private void CanPickUp()
+    // 실제로 아이템을 흭득하는 부분, 인벤토리에 AcquireItem을 해주면서 넣어준다.
+    private void CanPickUp() 
     {
         if (pickupActivated)
         {

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1d08e718f95954094f0f4d15ec72f4, type: 3}
+  m_Name: HealthBuff
+  m_EditorClassIdentifier: 
+  itemName: HealthBuff
+  itemType: 1
+  itemImage: {fileID: 21300000, guid: 5b56d9fa0e8bd6e409ed188db38a692c, type: 3}
+  itemPrefab: {fileID: 4431597898553647596, guid: a7aaec8908485994fb339f4bf0083395, type: 3}
+  skill: {fileID: 0}
+  buff: {fileID: -2919801760579195570, guid: 3b99952373ffbf7408689d101e0d02f8, type: 3}
