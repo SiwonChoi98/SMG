@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: AttackBuff
   itemType: 1
-  itemImage: {fileID: 21300000, guid: 2346d84bbae5a40448751323e30ce062, type: 3}
+  itemImage: {fileID: 21300000, guid: 7f4776d0f79cc4926b32cede06142fa2, type: 3}
   itemPrefab: {fileID: 3239422303686283717, guid: da0b46477ff38db4a92a0d3bf79acbb8, type: 3}
   skill: {fileID: 0}
   buff: {fileID: -5584172486411183641, guid: bfa95a465e8f3c347ac00e468a2733dd, type: 3}
