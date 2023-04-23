@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ManualCollision : MonoBehaviour 
 {
-    [SerializeField]
-    private Vector3 boxSize = new Vector3(1.5f, 2.5f, 2.5f);
+ 
+    public Vector3 boxSize = new Vector3(1.5f, 2.5f, 2.5f);
 
     public Collider[] CheckOverlapBox(LayerMask layerMask)
     {

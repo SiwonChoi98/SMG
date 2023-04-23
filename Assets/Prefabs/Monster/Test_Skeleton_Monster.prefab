@@ -1063,7 +1063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f495d63bcf56143b64b907dc800d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
   particleSystems: []
   damage: 10
   attackForce: 0
@@ -1135,6 +1134,7 @@ GameObject:
   - component: {fileID: 1219450425589935846}
   - component: {fileID: 1219450425589935845}
   - component: {fileID: 1219450425589935844}
+  - component: {fileID: 6866679997243553854}
   m_Layer: 7
   m_Name: Test_Skeleton_Monster
   m_TagString: Monster
@@ -1253,12 +1253,25 @@ MonoBehaviour:
   monsterSkills:
   - {fileID: 1219450424217614141}
   rigid: {fileID: 0}
+  anim: {fileID: 0}
   target: {fileID: 0}
   isMove: 0
   isAttackRange: 0
   isAttack: 0
   isHit: 0
   attackPrefab: {fileID: 0}
+--- !u!114 &6866679997243553854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219450425589935867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb818bbd055aa0489f03e9a2429493e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1231614980719526982
 GameObject:
   m_ObjectHideFlags: 0

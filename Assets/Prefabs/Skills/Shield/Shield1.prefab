@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b2a73f9dc5a6a4089abef100faff15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
   particleSystems: []
   damage: 0
   attackForce: 0
@@ -94,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1962549923708854575, guid: bae37edfdce922e49aed80d6a19faefb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1962549923708854575, guid: bae37edfdce922e49aed80d6a19faefb, type: 3}
       propertyPath: m_LocalPosition.z

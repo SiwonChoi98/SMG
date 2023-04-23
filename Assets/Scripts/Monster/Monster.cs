@@ -12,14 +12,14 @@ public class Monster : MonoBehaviour, IDamageable
 
     [SerializeField] protected float _attackRange; //공격 거리
     [SerializeField] protected float _attackTime; //공격 쿨타임
-
+    [SerializeField] public float _hitTime; // 피격 쿨타임
     public List<BaseSkill> monsterSkills = new List<BaseSkill>(); // 새로추가한 부분, 가능한 공격 및 스킬을 담은 리스트
 
     public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
     public int CurHealth { get => _curHealth; set => _curHealth = value; }
 
     public Rigidbody rigid;
-    protected Animator anim;
+    public Animator anim;
 
     [SerializeField] public Transform target;
 
@@ -31,10 +31,11 @@ public class Monster : MonoBehaviour, IDamageable
     public bool isAttackRange = false; //공격할수 거리인지 체크 변수
     public bool isAttack = false; //공격 쿨타임 지났는지 체크 변수
     public bool isHit = false; //공격받았는지 체크 변수
-
+    public bool isHitEnd = true; // 공격 받고 있는 상태가 아닌지 체크 변수 
 
     private float _distance; //플레이어(타겟)과의 거리
     protected float _initialAttackTime; //공격 쿨타임 초기화
+    public float _initialHitTime; // 피격 쿨타임 초기화
     public GameObject attackPrefab; //임시) 원거리 공격 오브젝트
     protected float _attackSpeed; //나가는 속도
 
@@ -75,6 +76,7 @@ public class Monster : MonoBehaviour, IDamageable
     {
         AttackDistanceCheak();
         AttackCoolTime();
+        HitCoolTime();
         stateMachine.Update(Time.deltaTime); //상태 계속 체크
     }
 
@@ -117,6 +119,8 @@ public class Monster : MonoBehaviour, IDamageable
     //} //임시) HIT
 
     // 거리 체크해서 공격할 수 있는 상태만들기
+
+    #region Attack Methods
     public bool AttackDistanceCheak()
     {
         _distance = Vector3.Distance(this.transform.position, target.transform.position); // 나중에 플레이어와 몬스터의 키를 뺴준다.
@@ -144,11 +148,27 @@ public class Monster : MonoBehaviour, IDamageable
                 isAttack = true;
             }
         }
-    } 
+    }
 
-    public virtual void Shoot()
+    public void HitCoolTime()
+    {
+        if(!isHitEnd)
+        {
+            _hitTime -= Time.deltaTime;
+            if (_hitTime < 0)
+            {
+                _hitTime = _initialHitTime;
+                isHitEnd = true;
+            }
+        }
+    }
+
+    public virtual void Shoot() // 현재 Shoot은 공격할 때 Target을 향해 돌아보는 역할
     {
 
     }
 
+    
+
+    #endregion Attack Methods
 }

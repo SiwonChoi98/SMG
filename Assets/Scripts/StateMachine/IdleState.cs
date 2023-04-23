@@ -19,7 +19,6 @@ public class IdleState : State<Monster>
 
         Debug.Log("idle 상태로 진입");
 
-        context.GetComponent<NavMeshAgent>().speed = 3.5f; //임시
     }
 
     public override void Update(float deltaTime) //게속업데이트
@@ -32,14 +31,18 @@ public class IdleState : State<Monster>
                 return;
             }
 
-            if (context.isAttackRange)
+            if(context.isHitEnd) // 맞는 상태가 종료된 시, 즉 다 맞았거나, 맞지 않은 상태에서
             {
-                stateMachine.ChangeState<AttackState>();
-                return;
+                if (context.isAttackRange && context.isAttack) // 공격이 사거리에 들어오면 이동 && 공격 쿨타임이 다 찼으면 이동
+                {
+                    stateMachine.ChangeState<AttackState>();
+                    return;
+                }
+                stateMachine.ChangeState<MoveState>();
             }
-            stateMachine.ChangeState<MoveState>();
         }
     }
+
     public override void OnExit() //나가기
     {
         animator?.SetBool("isIdle", false);

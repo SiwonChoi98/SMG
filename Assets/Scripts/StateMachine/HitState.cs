@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class HitState : State<Monster>
 {
@@ -12,8 +13,13 @@ public class HitState : State<Monster>
 
     public override void OnEnter()
     {
+        //context.GetComponent<NavMeshAgent>().isStopped = true;
+        context.GetComponent<NavMeshAgent>().speed = 0;
         Debug.Log("Hit 상태로 진입");
         animator?.SetTrigger("doHit");
+
+        context.isHitEnd = false; // HitState로 변할 때 마다 초기화
+        context._hitTime = context._initialHitTime; // 맞을 때 마다 초기화
     }
 
     public override void Update(float deltaTime)
@@ -22,7 +28,7 @@ public class HitState : State<Monster>
         {
             stateMachine.ChangeState<IdleState>();
         }
-        else
+        else if (context.CurHealth < 0)
         {
             stateMachine.ChangeState<DeadState>();
         }
@@ -30,8 +36,10 @@ public class HitState : State<Monster>
 
     public override void OnExit()
     {
-  
+
+        //context.GetComponent<NavMeshAgent>().isStopped = false; 
         context.isHit = false;
+        
     }
     
 }
