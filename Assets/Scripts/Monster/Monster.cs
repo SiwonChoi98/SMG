@@ -107,6 +107,15 @@ public class Monster : MonoBehaviour, IDamageable
 
     }
 
+    public void KnockBack(float attackForce)
+    {
+        Vector3 dir = target.position - transform.position;
+        rigid.AddForce(dir.normalized * -1 * 10);
+
+        //this.GetComponent<NavMeshAgent>().enabled = true;
+        //rigidbody.AddForce(transform.up, ForceMode2D.Impulse);
+    }
+
     #endregion IDamageable Methods
 
     // 새로바뀐부분, 원래 있던 Hit 주석 처리 해주었다.
@@ -168,7 +177,18 @@ public class Monster : MonoBehaviour, IDamageable
 
     }
 
-    
+    // 애니메이션 이벤트 호출 부분
+    public void MonsterSKill() // 실제 공격이 나가거나 투사체가 나가야하는 타이밍
+    {
+        monsterSkills[0].ExcuteAttack(target.gameObject); // 여기서 몬스터의 첫번째 공격스킬이 나간다. ex) 고블린 평타
+    }
+
+    public void MonsterSkillEnd() // 공격 애니메이션이 다 끝났는지 확인함
+    {
+        anim.SetBool("SkillEnd", true); // true로 만들어주면 attack motion 탈출
+    }
 
     #endregion Attack Methods
+
+
 }

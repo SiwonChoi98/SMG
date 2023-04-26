@@ -482,7 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbc49cd6a1c0c44aa4c02c85e5182e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
   particleSystems: []
   damage: 3
   attackForce: 0.35
@@ -540,7 +539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbc49cd6a1c0c44aa4c02c85e5182e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
   particleSystems: []
   damage: 2
   attackForce: 0.25
@@ -598,7 +596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbc49cd6a1c0c44aa4c02c85e5182e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
   particleSystems: []
   damage: 1
   attackForce: 0.25
@@ -745,9 +742,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &8482757446248892750
 BoxCollider:
@@ -775,8 +772,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joy: {fileID: 0}
-  curHealth: 0
-  maxHealth: 0
+  curHealth: 100
+  maxHealth: 100
+  strength: 10
   playerSkills:
   - {fileID: 2100132701}
   - {fileID: 2049407293}
@@ -790,10 +788,7 @@ MonoBehaviour:
   - {fileID: 1220390159}
   - {fileID: 364569215}
   ShieldCount: 0
-  normalAttackCollision: {fileID: 896133993}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
+  isStrengthBuff: 0
 --- !u!95 &1887263582
 Animator:
   serializedVersion: 5

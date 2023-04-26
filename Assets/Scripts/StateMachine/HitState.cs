@@ -13,7 +13,6 @@ public class HitState : State<Monster>
 
     public override void OnEnter()
     {
-        //context.GetComponent<NavMeshAgent>().isStopped = true;
         context.GetComponent<NavMeshAgent>().speed = 0;
         Debug.Log("Hit 상태로 진입");
         animator?.SetTrigger("doHit");
@@ -28,7 +27,8 @@ public class HitState : State<Monster>
         {
             stateMachine.ChangeState<IdleState>();
         }
-        else if (context.CurHealth < 0)
+
+        else if (context.CurHealth <= 0)
         {
             stateMachine.ChangeState<DeadState>();
         }

@@ -30,6 +30,7 @@ public abstract class BaseSkill : MonoBehaviour
 
     public int damage; // 플레이어가 
 
+    [SerializeField]
     public float attackForce; // 해당 공격 행동을 할 때 나아가는 방향에 곱해주는 정도.
 
     public ESkillType mSkillType;

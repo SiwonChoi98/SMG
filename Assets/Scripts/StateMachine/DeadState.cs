@@ -18,7 +18,6 @@ public class DeadState : State<Monster>
 
     public override void Update(float deltaTime)
     {
-       
         
     }
 

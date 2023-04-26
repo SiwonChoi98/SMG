@@ -476,7 +476,7 @@ public class Player : MonoBehaviour, IDamageable
     #region IDamageable Methods
     public bool IsAlive => curHealth > 0;
 
-    public void TakeDamage(int damage, GameObject hittEffectPrefab)
+    public void TakeDamage(int damage, GameObject hittEffectPrefab) // 맞았을 경우 플레이어가 피격당하는 위치를 어떻게 할지
     {
         if (!IsAlive)
         {
