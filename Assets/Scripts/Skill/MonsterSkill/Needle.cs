@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.7 제거
+public class Needle : MonoBehaviour
 {
     public LayerMask TargetMask;
 
@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.7 제�
 
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 
-        Destroy(this.gameObject, DestroyTime);
+        Destroy(this.gameObject, DestroyTime); // 맞지 않더라도 일정 시간 지나면 제거
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.7 제�
         {
             //Debug.Log("collision.gameObject.layer : " + collision.gameObject.layer);
             collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx);
-            
+            Destroy(this.gameObject); // 맞으면 바로 제거
         }
 
 
@@ -48,4 +48,3 @@ public class Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.7 제�
         TargetMask = layerMask;
     }
 }
-

@@ -15,7 +15,8 @@ public class MoveState : State<Monster>
     {
         animator?.SetBool("isMove", true);
         Debug.Log("Move 상태로 진입");
-        context.GetComponent<NavMeshAgent>().speed = 2.5f; //임시
+        // 이 부분을 context.Speed로 바꿔줘야한다.
+        //context.GetComponent<NavMeshAgent>().speed = 2.5f; 
     }
 
     public override void Update(float deltaTime) 
@@ -30,14 +31,15 @@ public class MoveState : State<Monster>
 
             if(context.isHitEnd)
             {
-                if (context.isAttackRange && context.isAttack)
+                if (context.isAttackRange)
                 {
                     stateMachine.ChangeState<AttackState>();
                     //context.GetComponent<NavMeshAgent>().speed = 0; //임시
                     return;
                 }
             }
-            context.GetComponent<NavMeshAgent>().SetDestination(context.target.position);
+            context.transform.position = Vector3.MoveTowards(context.transform.position, context.target.position, Time.deltaTime * 2.5f);
+            context.transform.LookAt(context.target.position);
         }
     }
 

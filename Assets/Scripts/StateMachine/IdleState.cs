@@ -13,7 +13,7 @@ public class IdleState : State<Monster>
 
     public override void OnEnter() //한번실행
     {
-        context.transform.LookAt(context.target.position);
+        //context.transform.LookAt(context.target.position);
         //context.GetComponent<NavMeshAgent>().speed = 0f; //임시
         animator?.SetBool("isIdle", true);
 
@@ -33,7 +33,7 @@ public class IdleState : State<Monster>
 
             if(context.isHitEnd) // 맞는 상태가 종료된 시, 즉 다 맞았거나, 맞지 않은 상태에서
             {
-                if (context.isAttackRange && context.isAttack) // 공격이 사거리에 들어오면 이동 && 공격 쿨타임이 다 찼으면 이동
+                if (context.isAttackRange) // 공격이 사거리에 들어오면 이동 && 공격 쿨타임이 다 찼으면 이동
                 {
                     stateMachine.ChangeState<AttackState>();
                     return;

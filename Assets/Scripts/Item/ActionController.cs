@@ -45,7 +45,7 @@ public class ActionController : MonoBehaviour
         if (Physics.Raycast(transform.position + Vector3.up * 0.1f, transform.forward, 
             out hitInfo, range, layerMask)) // transform.TransformDirection(Vector3.forward)는 transfrom.forward와 같은 역할이다.
         {
-            if (hitInfo.transform.tag == "Item")
+            if (hitInfo.transform.CompareTag("Item"))
             {
       
                 ItemInfoAppear(); 

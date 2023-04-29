@@ -18,11 +18,11 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
         }
 
         GameObject go = Instantiate(slashObject, 
-            SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
-             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
+            SkillManager.instance.player.skillSpawnPos[(int)ESkillType.SpawnEagle].position,
+             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.SpawnEagle].rotation);
 
-        go.GetComponent<Projectile>().SetDamage((int)(damage));
-        go.GetComponent<Projectile>().SetTarget(targetMask);
+        go.GetComponent<Player_Projectile>().SetDamage((int)(damage));
+        go.GetComponent<Player_Projectile>().SetTarget(targetMask);
 
     }
 

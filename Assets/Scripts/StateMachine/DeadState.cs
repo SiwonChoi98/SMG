@@ -13,7 +13,7 @@ public class DeadState : State<Monster>
 
     public override void OnEnter()
     {
-        context.StartCoroutine(DeadStateAnim());
+        context.StartCoroutine(DeadStateAnim()); // 이거 대신 죽는 시간을 체크해야 한다. 죽으면서 물리적 효과도 받으면 안된다.
     }
 
     public override void Update(float deltaTime)

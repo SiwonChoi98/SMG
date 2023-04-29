@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 3009770090547666182}
   - component: {fileID: 3009770090547666186}
   m_Layer: 7
-  m_Name: Spider_Normal
+  m_Name: Lv1 Spider_Normal
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ Transform:
   m_GameObject: {fileID: 3540956261841486207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 262.84686, y: -32.12317, z: 366.88098}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3544612083917518437}
@@ -134,12 +134,12 @@ Rigidbody:
   m_GameObject: {fileID: 3540956261841486207}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 2
 --- !u!65 &3009770090547666178
 BoxCollider:
@@ -152,8 +152,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4524536, y: 1.0744476, z: 1.7669983}
-  m_Center: {x: -0.032287598, y: 0.2501831, z: 0.28858948}
+  m_Size: {x: 1.4524537, y: 0.57481945, z: 1.7669983}
+  m_Center: {x: -0.032287583, y: 0.49999738, z: 0.28858945}
 --- !u!195 &3009770090547666183
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -195,15 +195,20 @@ MonoBehaviour:
   _attackRange: 0
   _attackTime: 0
   _hitTime: 0
-  monsterSkills: []
+  monsterSkills:
+  - {fileID: 3009770090547666185}
   rigid: {fileID: 0}
   anim: {fileID: 0}
   target: {fileID: 0}
+  projectilePoint: {fileID: 0}
+  mType: 0
   isMove: 0
   isAttackRange: 0
   isAttack: 0
   isHit: 0
   isHitEnd: 1
+  isHitbySkill: 0
+  isAttackingMove: 0
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
 --- !u!114 &3009770090547666186
@@ -1254,7 +1259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6445190644498088758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.32, z: 1.267}
+  m_LocalPosition: {x: 0, y: 0.33, z: 1.267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -19,4 +19,4 @@ public class ManualCollision : MonoBehaviour
         Gizmos.DrawWireCube(Vector3.zero, boxSize);
     }
 }
-
+    

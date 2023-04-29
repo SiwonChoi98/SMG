@@ -18,7 +18,10 @@ public class Skill_GroundBreak : BaseSkill
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {
+            collider.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
             collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(damage), effectPrefab);
+            collider.gameObject.GetComponent<Monster>()?.KnockBack(10f);  // 임시
+
         }
     }
 

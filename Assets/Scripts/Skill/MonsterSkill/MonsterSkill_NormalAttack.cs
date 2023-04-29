@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSkill_NormalAttack : BaseSkill
+public class MonsterSkill_NormalAttack : BaseSkill // 이거는 진짜 평타만 치는 일반 몬스터에게 적용, 엘리트 몬스터는 다른 스킬을 만들어야 함
 {
     public ManualCollision monsterAttackCollision;
 

@@ -38,6 +38,7 @@ public class BuffManager : MonoBehaviour
             {
                 strengthBuffTime = 0;
                 player.isStrengthBuff = false;
+                player.Strength = (int)(player.Strength * 0.5f);
                 GameObject strengthAura = GameObject.Find("StrengthAura(Clone)"); // 일단 임시로 이렇게 제거하도록 하였다.
                 Destroy(strengthAura);
             }
@@ -49,7 +50,7 @@ public class BuffManager : MonoBehaviour
     {
         if (buffType == EBuffType.HealthBuff) // 체력 버프인 경우
         {
-            if (gameObject.tag == "Player") // 받는 대상이 플레이어인 경우
+            if (gameObject.CompareTag("Player")) // 받는 대상이 플레이어인 경우
             {
                 Player player = gameObject.GetComponent<Player>();
 
@@ -77,7 +78,7 @@ public class BuffManager : MonoBehaviour
 
         else if(buffType == EBuffType.StrengthBuff) 
         {
-            if (gameObject.tag == "Player") // 받는 대상이 플레이어인 경우
+            if (gameObject.CompareTag("Player")) // 받는 대상이 플레이어인 경우
             {
                 Player player = gameObject.GetComponent<Player>();
 

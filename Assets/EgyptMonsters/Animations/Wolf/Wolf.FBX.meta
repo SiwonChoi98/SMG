@@ -1,91 +1,245 @@
 fileFormatVersion: 2
 guid: 99c9c8bd6d8006642a15e1dff0fd738b
-timeCreated: 1530954632
-licenseType: Store
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: joint1
-    100002: joint2
-    100004: joint3
-    100006: joint5
-    100008: jtBn_head
-    100010: jtBn_Jaw_
-    100012: jtBn_l_backLeg_
-    100014: jtBn_l_backLeg_1
-    100016: jtBn_l_backLeg_2
-    100018: jtBn_l_backLeg_3
-    100020: jtBn_l_frontLeg_
-    100022: jtBn_l_frontLeg_1
-    100024: jtBn_l_frontLeg_2
-    100026: jtBn_l_frontLeg_3
-    100028: jtBn_neck
-    100030: jtBn_r_backLeg_
-    100032: jtBn_r_backLeg_1
-    100034: jtBn_r_backLeg_2
-    100036: jtBn_r_backLeg_3
-    100038: jtBn_r_frontLeg_
-    100040: jtBn_r_frontLeg_1
-    100042: jtBn_r_frontLeg_2
-    100044: jtBn_r_frontLeg_3
-    100046: jtBn_spline
-    100048: jtBn_spline1
-    100050: jtBn_spline2
-    100052: jtBn_spline3
-    100054: jtBn_Tail_
-    100056: jtBn_Tail_1
-    100058: jtBn_Tail_2
-    100060: jtBn_Tail_3
-    100062: //RootNode
-    100064: Wolf
-    400000: joint1
-    400002: joint2
-    400004: joint3
-    400006: joint5
-    400008: jtBn_head
-    400010: jtBn_Jaw_
-    400012: jtBn_l_backLeg_
-    400014: jtBn_l_backLeg_1
-    400016: jtBn_l_backLeg_2
-    400018: jtBn_l_backLeg_3
-    400020: jtBn_l_frontLeg_
-    400022: jtBn_l_frontLeg_1
-    400024: jtBn_l_frontLeg_2
-    400026: jtBn_l_frontLeg_3
-    400028: jtBn_neck
-    400030: jtBn_r_backLeg_
-    400032: jtBn_r_backLeg_1
-    400034: jtBn_r_backLeg_2
-    400036: jtBn_r_backLeg_3
-    400038: jtBn_r_frontLeg_
-    400040: jtBn_r_frontLeg_1
-    400042: jtBn_r_frontLeg_2
-    400044: jtBn_r_frontLeg_3
-    400046: jtBn_spline
-    400048: jtBn_spline1
-    400050: jtBn_spline2
-    400052: jtBn_spline3
-    400054: jtBn_Tail_
-    400056: jtBn_Tail_1
-    400058: jtBn_Tail_2
-    400060: jtBn_Tail_3
-    400062: //RootNode
-    400064: Wolf
-    2100000: No Name
-    4300000: Wolf
-    7400000: Wolf | WalkBackward
-    7400002: Wolf | Run
-    7400004: Wolf | Attack1
-    7400006: Wolf | Attack2
-    7400008: Wolf | Death
-    7400010: Wolf | Idle
-    7400012: Wolf | Hit
-    7400014: Wolf | Howl
-    9500000: //RootNode
-    13700000: Wolf
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: joint1
+  - first:
+      1: 100002
+    second: joint2
+  - first:
+      1: 100004
+    second: joint3
+  - first:
+      1: 100006
+    second: joint5
+  - first:
+      1: 100008
+    second: jtBn_head
+  - first:
+      1: 100010
+    second: jtBn_Jaw_
+  - first:
+      1: 100012
+    second: jtBn_l_backLeg_
+  - first:
+      1: 100014
+    second: jtBn_l_backLeg_1
+  - first:
+      1: 100016
+    second: jtBn_l_backLeg_2
+  - first:
+      1: 100018
+    second: jtBn_l_backLeg_3
+  - first:
+      1: 100020
+    second: jtBn_l_frontLeg_
+  - first:
+      1: 100022
+    second: jtBn_l_frontLeg_1
+  - first:
+      1: 100024
+    second: jtBn_l_frontLeg_2
+  - first:
+      1: 100026
+    second: jtBn_l_frontLeg_3
+  - first:
+      1: 100028
+    second: jtBn_neck
+  - first:
+      1: 100030
+    second: jtBn_r_backLeg_
+  - first:
+      1: 100032
+    second: jtBn_r_backLeg_1
+  - first:
+      1: 100034
+    second: jtBn_r_backLeg_2
+  - first:
+      1: 100036
+    second: jtBn_r_backLeg_3
+  - first:
+      1: 100038
+    second: jtBn_r_frontLeg_
+  - first:
+      1: 100040
+    second: jtBn_r_frontLeg_1
+  - first:
+      1: 100042
+    second: jtBn_r_frontLeg_2
+  - first:
+      1: 100044
+    second: jtBn_r_frontLeg_3
+  - first:
+      1: 100046
+    second: jtBn_spline
+  - first:
+      1: 100048
+    second: jtBn_spline1
+  - first:
+      1: 100050
+    second: jtBn_spline2
+  - first:
+      1: 100052
+    second: jtBn_spline3
+  - first:
+      1: 100054
+    second: jtBn_Tail_
+  - first:
+      1: 100056
+    second: jtBn_Tail_1
+  - first:
+      1: 100058
+    second: jtBn_Tail_2
+  - first:
+      1: 100060
+    second: jtBn_Tail_3
+  - first:
+      1: 100062
+    second: //RootNode
+  - first:
+      1: 100064
+    second: Wolf
+  - first:
+      4: 400000
+    second: joint1
+  - first:
+      4: 400002
+    second: joint2
+  - first:
+      4: 400004
+    second: joint3
+  - first:
+      4: 400006
+    second: joint5
+  - first:
+      4: 400008
+    second: jtBn_head
+  - first:
+      4: 400010
+    second: jtBn_Jaw_
+  - first:
+      4: 400012
+    second: jtBn_l_backLeg_
+  - first:
+      4: 400014
+    second: jtBn_l_backLeg_1
+  - first:
+      4: 400016
+    second: jtBn_l_backLeg_2
+  - first:
+      4: 400018
+    second: jtBn_l_backLeg_3
+  - first:
+      4: 400020
+    second: jtBn_l_frontLeg_
+  - first:
+      4: 400022
+    second: jtBn_l_frontLeg_1
+  - first:
+      4: 400024
+    second: jtBn_l_frontLeg_2
+  - first:
+      4: 400026
+    second: jtBn_l_frontLeg_3
+  - first:
+      4: 400028
+    second: jtBn_neck
+  - first:
+      4: 400030
+    second: jtBn_r_backLeg_
+  - first:
+      4: 400032
+    second: jtBn_r_backLeg_1
+  - first:
+      4: 400034
+    second: jtBn_r_backLeg_2
+  - first:
+      4: 400036
+    second: jtBn_r_backLeg_3
+  - first:
+      4: 400038
+    second: jtBn_r_frontLeg_
+  - first:
+      4: 400040
+    second: jtBn_r_frontLeg_1
+  - first:
+      4: 400042
+    second: jtBn_r_frontLeg_2
+  - first:
+      4: 400044
+    second: jtBn_r_frontLeg_3
+  - first:
+      4: 400046
+    second: jtBn_spline
+  - first:
+      4: 400048
+    second: jtBn_spline1
+  - first:
+      4: 400050
+    second: jtBn_spline2
+  - first:
+      4: 400052
+    second: jtBn_spline3
+  - first:
+      4: 400054
+    second: jtBn_Tail_
+  - first:
+      4: 400056
+    second: jtBn_Tail_1
+  - first:
+      4: 400058
+    second: jtBn_Tail_2
+  - first:
+      4: 400060
+    second: jtBn_Tail_3
+  - first:
+      4: 400062
+    second: //RootNode
+  - first:
+      4: 400064
+    second: Wolf
+  - first:
+      21: 2100000
+    second: No Name
+  - first:
+      43: 4300000
+    second: Wolf
+  - first:
+      74: 7400000
+    second: Wolf | WalkBackward
+  - first:
+      74: 7400002
+    second: Wolf | Run
+  - first:
+      74: 7400004
+    second: Wolf | Attack1
+  - first:
+      74: 7400006
+    second: Wolf | Attack2
+  - first:
+      74: 7400008
+    second: Wolf | Death
+  - first:
+      74: 7400010
+    second: Wolf | Idle
+  - first:
+      74: 7400012
+    second: Wolf | Hit
+  - first:
+      74: 7400014
+    second: Wolf | Howl
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Wolf
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -94,6 +248,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -102,6 +257,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -113,6 +269,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | WalkBackward
       takeName: Wolf | WalkBackward
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -141,6 +298,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | Run
       takeName: Wolf | Run
+      internalID: 0
       firstFrame: 1
       lastFrame: 25
       wrapMode: 0
@@ -169,6 +327,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | Attack1
       takeName: Wolf | Attack1
+      internalID: 0
       firstFrame: 1
       lastFrame: 40
       wrapMode: 0
@@ -204,6 +363,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | Attack2
       takeName: Wolf | Attack2
+      internalID: 0
       firstFrame: 1
       lastFrame: 50
       wrapMode: 0
@@ -239,6 +399,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | Death
       takeName: Wolf | Death
+      internalID: 0
       firstFrame: 1
       lastFrame: 50
       wrapMode: 0
@@ -267,6 +428,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | Idle
       takeName: Wolf | Idle
+      internalID: 0
       firstFrame: 1
       lastFrame: 60
       wrapMode: 0
@@ -295,6 +457,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | Hit
       takeName: Wolf | Hit
+      internalID: 0
       firstFrame: 1
       lastFrame: 30
       wrapMode: 0
@@ -323,6 +486,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wolf | Howl
       takeName: Wolf | Howl
+      internalID: 0
       firstFrame: 1
       lastFrame: 60
       wrapMode: 0
@@ -354,21 +518,33 @@ ModelImporter:
     globalScale: 20
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -376,10 +552,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -389,14 +568,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 20
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

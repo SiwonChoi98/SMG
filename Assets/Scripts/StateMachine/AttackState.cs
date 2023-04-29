@@ -16,8 +16,9 @@ public class AttackState : State<Monster>
     {
         //context.GetComponent<NavMeshAgent>().isStopped = true;
         //context.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
-        context.GetComponent<NavMeshAgent>().speed = 0;
+        //context.GetComponent<NavMeshAgent>().speed = 0;
         //context.anim.SetBool("SkillEnd", false); 
+
         Debug.Log("Attack 상태로 진입");
     }
 
@@ -25,6 +26,41 @@ public class AttackState : State<Monster>
     {
         if (context.target)
         {
+            
+            if(context.mType == EMonsterType.Boss && context.isAttack) // 만약 보스 타입이라면 && 그리고 공격할 수 있으면
+            {
+
+                float ranNum = Random.Range(0f, 10f);
+
+                if(ranNum >= 0 && ranNum <= 5f) // 50퍼센트
+                {
+                    context.anim.SetBool("SkillEnd", false); 
+                    animator.SetTrigger("doAttack"); // 공격을 시키고
+                    animator.SetInteger("SkillNumber", 0); // 첫번째 스킬 애니메이션을 실행해준다.
+                    context.Shoot();
+                    context.isAttack = false;
+                }
+
+                else if(ranNum > 5f && ranNum <= 8.5f) // 35퍼센트
+                {
+                    context.anim.SetBool("SkillEnd", false);
+                    animator.SetTrigger("doAttack"); // 공격을 시키고
+                    animator.SetInteger("SkillNumber", 1); // 두번째 스킬 애니메이션을 실행해준다.
+                    context.Shoot();
+                    context.isAttack = false;
+                }
+
+                else // 15퍼센트
+                {
+                    context.anim.SetBool("SkillEnd", false);
+                    animator.SetTrigger("doAttack"); // 공격을 시키고
+                    animator.SetInteger("SkillNumber", 2); // 세번째 스킬 애니메이션을 실행해준다.
+                    context.Shoot();
+                    context.isAttack = false;
+                }
+
+                return;
+            }
             if (context.isHit) // 플레이어에게 맞으면 무조건 Hit, 몬스터 종류에 따라 안넘어갈수도 있다.
             {
                 context.anim.SetBool("SkillEnd", true); // 하던 공격을 취소해준다.
@@ -45,6 +81,7 @@ public class AttackState : State<Monster>
                 context.isAttack = false;
                 return;
             }
+           
         }
 
     }

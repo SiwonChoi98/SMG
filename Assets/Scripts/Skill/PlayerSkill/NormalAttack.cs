@@ -21,6 +21,7 @@ public class NormalAttack : BaseSkill
         foreach (Collider collider in colliders)
         {
             collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(damage), effectPrefab);
+            collider.gameObject.GetComponent<Monster>()?.KnockBack(5f); // 임시
         }
         
 

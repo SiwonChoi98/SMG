@@ -74,9 +74,12 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Start()
     {
+
+        Application.targetFrameRate = 60; // 이 부분 수정 예정
+
         dodgeCoolTimeMax = 3.0f;
         ShieldCount = 0;
-        speed = 5.0f;
+        speed = 5f;
         maxHealth = 100;
         curHealth = maxHealth; // 처음에 피를 100으로 채워준다.
         strength = 10;
@@ -88,7 +91,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         GetInput();
         Move();
-        AttakingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
+        AttackingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
         Turn();
         Dodge();
         AttackKey();
@@ -242,44 +245,14 @@ public class Player : MonoBehaviour, IDamageable
         rigid.angularVelocity = Vector3.zero;
     }
 
-    private void AttakingMove()
+    private void AttackingMove()
     {
         if (isAttacking || isCasting) // 공격하거나 캐스팅의 경우, 공격할 때는 playerSkills의 정보대로, isCasting일 때는 sloy의 정보대로로 바꿔야 한다.
         {
             if (isAttackingMove) // 만약 공격 행동을 실행하여 살짝 이동해야 한다면,
             {
-                switch ((int)playerCurrentSkill) // 이 부분을 Slot의 넘버에 따라서 확인
-                {
-                    case 0:
-                        {
-                            transform.position += transform.forward * speed * Time.deltaTime * 
-                                playerSkills[0].attackForce;
-                            break;
-                        }
-
-                    case 1:
-                        {
-                            transform.position += transform.forward * speed * Time.deltaTime *
-                               playerSkills[1].attackForce;
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            transform.position += transform.forward * speed * Time.deltaTime *
-                               playerSkills[2].attackForce;
-                            break;
-                        }
-
-                    case 3:
-                        {
-                            transform.position += transform.forward * speed * Time.deltaTime *
-                               playerSkills[3].attackForce;
-                            break;
-                        }
-                }
-
-                
+                transform.position += transform.forward * speed * Time.deltaTime *
+                               playerSkills[(int)playerCurrentSkill].attackForce; 
             }
         }   
     }
@@ -423,10 +396,11 @@ public class Player : MonoBehaviour, IDamageable
         if(playerSkills[(int)EPlayerSkillType.SlotSkill] == null) // 만약 현재 슬롯 스킬이 비어있는 상태여야 넣어준다.
         {
             playerSkills[(int)EPlayerSkillType.SlotSkill] = _skill;
-
             isCasting = true;
             anim.SetTrigger("DoSkill");
             anim.SetInteger("SkillNumber", (int)_skill.mSkillType); // 스킬의 mSkill 번호대로 스킬 애니메이션을 실행해준다.
+            
+            
             anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
             playerCurrentSkill = EPlayerSkillType.SlotSkill;
 

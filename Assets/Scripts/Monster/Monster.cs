@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum EMonsterType : int
+{
+    Common, // 일반몹
+    Elite, // 엘리트몹
+    Boss // 보스몹
+}
+
 public class Monster : MonoBehaviour, IDamageable
 {
     [SerializeField] protected string _name;
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _curHealth;
     [SerializeField] protected int _speed; //현재는 네비게이션안에 speed 써서 speed는 따로 정의가 필요없다. 추후에 바꿀예정
+    // 이 부분에서 각각의 몬스터마다 speed를 받아올 수 있도록하자.
 
     [SerializeField] protected float _attackRange; //공격 거리
     [SerializeField] protected float _attackTime; //공격 쿨타임
@@ -18,6 +26,7 @@ public class Monster : MonoBehaviour, IDamageable
     public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
     public int CurHealth { get => _curHealth; set => _curHealth = value; }
 
+    public int Speed { get => _speed; set => _speed = value; }
     public Rigidbody rigid;
     public Animator anim;
 
@@ -25,13 +34,20 @@ public class Monster : MonoBehaviour, IDamageable
 
     protected StateMachine<Monster> stateMachine;
 
+    public Transform projectilePoint; // 투사체가 나가는 방향
+    
     [Header("상태 체크 변수")]
 
+    public EMonsterType mType; // 몬스터 등급
     public bool isMove = false; //이동할수 있는지 체크 변수
     public bool isAttackRange = false; //공격할수 거리인지 체크 변수
-    public bool isAttack = false; //공격 쿨타임 지났는지 체크 변수
+    public bool isAttack = false; //공격 쿨타임 지났는지 체크 변수, 이 부분은 보스에게는 공격 쿨타임이 여러개 있거나
     public bool isHit = false; //공격받았는지 체크 변수
     public bool isHitEnd = true; // 공격 받고 있는 상태가 아닌지 체크 변수 
+    public bool isHitbySkill = false; // 스킬에 의한 공격을 받았는지 체크 변수
+
+    public bool isAttackingMove = false; // 몬스터 애니메이션 시 움직이는 경우 체크 변수
+    protected float dir; // 몬스터 애니메이션 시 움직임의 방향 및 크기
 
     private float _distance; //플레이어(타겟)과의 거리
     protected float _initialAttackTime; //공격 쿨타임 초기화
@@ -80,6 +96,8 @@ public class Monster : MonoBehaviour, IDamageable
         stateMachine.Update(Time.deltaTime); //상태 계속 체크
     }
 
+
+
     // 새로 추가한 부분
     #region IDamageable Methods 
     public bool IsAlive => _curHealth > 0; // 이 부분을 뺄 수도 있음
@@ -92,25 +110,56 @@ public class Monster : MonoBehaviour, IDamageable
         }
 
         _curHealth -= damage;
-        isHit = true; // 데미지 깎이면서 isHit을 true로
+
+        if(mType == EMonsterType.Common) // 만약 일반 몬스터라면 바로 hit 처리
+        {
+            isHit = true; // 데미지 깎이면서 isHit을 true로
+        }
+
+        else if(mType == EMonsterType.Elite && isHitbySkill) // 만약 엘리트 몬스터이며 && 스킬에 맞았을 경우에만 hit 처리
+        {
+            isHit = true;
+            //isHitbySkill = false;
+        }
+        // 보스는 hit 상태로 넘어갈 일이 없다.
 
         Debug.Log("Damage : " + damage);
 
-        if (IsAlive)
+        if(_curHealth <= 0) 
         {
-
-        }
-        else
-        {
-            //stateMachine.ChangeState<DeadState>(); // 죽으면 DeadState로 가준다.
+            stateMachine.ChangeState<DeadState>();
         }
 
     }
 
+    // 스킬에 의해 맞았는가?
+    public void SetHitBySkill(bool isSKill) 
+    {
+        isHitbySkill = isSKill;
+    }
+    // y값을 빼줘야 정상적으로 밀린다.
     public void KnockBack(float attackForce)
     {
-        Vector3 dir = target.position - transform.position;
-        rigid.AddForce(dir.normalized * -1 * 10);
+        if(mType == EMonsterType.Common) // 몬스터가 일반 몬스터면 무조건 밀린다.
+        {
+            Vector3 dir = target.position - transform.position;
+            dir.y = 0;
+            Debug.Log("attackForce : " + attackForce);
+            rigid.AddForce(dir.normalized * -1 * attackForce, ForceMode.Impulse);
+        }
+        else if(mType == EMonsterType.Elite) // 몬스터가 엘리트면 스킬 공격에만 밀린다.
+        {
+            if(isHitbySkill)
+            {
+                Vector3 dir = target.position - transform.position;
+                dir.y = 0;
+                Debug.Log("attackForce : " + attackForce);
+                rigid.AddForce(dir.normalized * -1 * attackForce, ForceMode.Impulse);
+                isHitbySkill = false;
+            }
+        }
+        // 보스면 밀리지 않는다.
+       
 
         //this.GetComponent<NavMeshAgent>().enabled = true;
         //rigidbody.AddForce(transform.up, ForceMode2D.Impulse);
@@ -142,7 +191,6 @@ public class Monster : MonoBehaviour, IDamageable
         {
             return isAttackRange = false;
         }
-
     }
 
     // 공격 쿨타임
@@ -151,13 +199,14 @@ public class Monster : MonoBehaviour, IDamageable
         if (!isAttack)
         {
             _attackTime -= Time.deltaTime;
-            if (_attackTime < 0)
+            if (_attackTime < 0 && anim.GetBool("SkillEnd"))
             {
                 _attackTime = _initialAttackTime;
                 isAttack = true;
             }
         }
     }
+
 
     public void HitCoolTime()
     {
@@ -172,20 +221,36 @@ public class Monster : MonoBehaviour, IDamageable
         }
     }
 
-    public virtual void Shoot() // 현재 Shoot은 공격할 때 Target을 향해 돌아보는 역할
+    public virtual void Shoot() // 현재 Shoot은 공격 시작 시  Target을 향해 돌아보는 역할
     {
 
     }
 
     // 애니메이션 이벤트 호출 부분
-    public void MonsterSKill() // 실제 공격이 나가거나 투사체가 나가야하는 타이밍
+    public void MonsterSKillStart(float degree)
     {
-        monsterSkills[0].ExcuteAttack(target.gameObject); // 여기서 몬스터의 첫번째 공격스킬이 나간다. ex) 고블린 평타
+        isAttackingMove = true;
+        dir = degree;
+    }
+
+    public void MonsterSKillEnable()
+    {
+        isAttackingMove = false;
+    }
+
+    public virtual void MonsterSKill(int index) // 실제 공격이 나가거나 투사체가 나가야하는 타이밍, projectilePoint가 있는 경우 저기서 스킬이 나갈 것이다.
+    {
+    
     }
 
     public void MonsterSkillEnd() // 공격 애니메이션이 다 끝났는지 확인함
     {
         anim.SetBool("SkillEnd", true); // true로 만들어주면 attack motion 탈출
+        
+        if(mType == EMonsterType.Boss)
+        {
+            anim.SetInteger("SkillNumber", -1);
+        }
     }
 
     #endregion Attack Methods

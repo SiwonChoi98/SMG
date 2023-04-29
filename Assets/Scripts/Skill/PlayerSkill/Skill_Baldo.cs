@@ -21,6 +21,7 @@ public class Skill_Baldo : BaseSkill // 89 프레임, 12프레임부터 파티�
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {
+            collider.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
             collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(damage), effectPrefab);
         }
     }

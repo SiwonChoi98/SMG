@@ -18,6 +18,7 @@ public enum ESkillType : int
     UpperSlash,
     Shield,
     Baldo,
+    SpawnEagle,
     NormalAttack
 }
 

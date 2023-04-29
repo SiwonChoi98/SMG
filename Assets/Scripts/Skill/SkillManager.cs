@@ -104,16 +104,35 @@ public class SkillManager : MonoBehaviour
 
                 Destroy(BaldoSkill, 3f);
             }
+
+            else if (skillType == ESkillType.SpawnEagle)
+            {
+                GameObject SpawnEagleSkill = Instantiate(playerSkills[(int)ESkillType.SpawnEagle],
+                       player.skillSpawnPos[(int)ESkillType.SpawnEagle].position,
+                       player.skillSpawnPos[(int)ESkillType.SpawnEagle].rotation);
+
+
+                ParticleSystem[] particleSystems = SpawnEagleSkill.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (ParticleSystem particle in particleSystems)
+                {
+                    particle.Play(); // 각 위치에 맞게 
+                }
+
+                Destroy(SpawnEagleSkill, 1.1f);
+
+            }
+
         }
 
     }
 
-    public void AttachParticle(ESkillType skill, ESkillParticleType type)
+    public void AttachParticle(ESkillType skillType, ESkillParticleType particleType)
     {
-        if (type == ESkillParticleType.Attach)
+        if (particleType == ESkillParticleType.Attach)
         {
             // 찌르는 스킬
-            if (skill == ESkillType.Thrust)
+            if (skillType == ESkillType.Thrust)
             {
                 GameObject ThrustSkill = Instantiate(playerSkills[(int)ESkillType.Thrust], 
                             player.skillSpawnPos[(int)ESkillType.Thrust].position,
@@ -130,7 +149,7 @@ public class SkillManager : MonoBehaviour
                 Destroy(ThrustSkill, 1f);
             }
 
-            else if (skill == ESkillType.Shield)
+            else if (skillType == ESkillType.Shield)
             {
                 GameObject ShieldSkill = Instantiate(playerSkills[(int)ESkillType.Shield],
                                 player.skillSpawnPos[(int)ESkillType.Shield].position,
@@ -147,6 +166,8 @@ public class SkillManager : MonoBehaviour
 
                 Destroy(ShieldSkill, 3f);
             }
+
+           
         }
 
     }
