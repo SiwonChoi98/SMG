@@ -10,14 +10,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Map
   - Water
   - UI
   - Player
   - Monster
   - Item
   - PostProcessing
-  - 
+  - MinimapObject
   - 
   - 
   - 
