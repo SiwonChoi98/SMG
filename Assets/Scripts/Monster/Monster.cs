@@ -66,15 +66,7 @@ public class Monster : MonoBehaviour, IDamageable
     //임시 능력치 셋팅, 자식 몬스터들이 구현하도록 함
     protected virtual void InitStat()
     {
-        //_name = "Monster";
-        //MaxHealth = 70;
-        //CurHealth = 70;
-        //_speed = 5;
-        //_damage = 10;
-        //_attackRange = 6f;
-        //_attackTime = 3f;
-        //_initialAttackTime = _attackTime;
-        //_attackSpeed = 10f;
+    
     } 
     protected virtual void Start()
     {
@@ -166,15 +158,6 @@ public class Monster : MonoBehaviour, IDamageable
     }
 
     #endregion IDamageable Methods
-
-    // 새로바뀐부분, 원래 있던 Hit 주석 처리 해주었다.
-    //public virtual void Hit(int damage) 
-    //{
-    //    CurHealth -= damage;
-    //    Debug.Log("Damage : " + damage);
-    //    isHit = true;
-
-    //} //임시) HIT
 
     // 거리 체크해서 공격할 수 있는 상태만들기
 
