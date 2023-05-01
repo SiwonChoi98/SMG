@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
 public enum EMonsterType : int
 {
     Common, // 일반몹
@@ -55,6 +55,7 @@ public class Monster : MonoBehaviour, IDamageable
     public GameObject attackPrefab; //임시) 원거리 공격 오브젝트
     protected float _attackSpeed; //나가는 속도
 
+    public Image healthImage;
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -238,5 +239,9 @@ public class Monster : MonoBehaviour, IDamageable
 
     #endregion Attack Methods
 
+    private void LateUpdate()
+    {
+        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
+    }
 
 }
