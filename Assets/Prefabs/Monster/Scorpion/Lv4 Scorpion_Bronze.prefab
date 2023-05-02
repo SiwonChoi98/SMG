@@ -276,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7044438554098634528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 257.70648, y: -32.123165, z: 373.7266}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -372,6 +372,7 @@ MonoBehaviour:
   isAttackingMove: 0
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
+  healthImage: {fileID: 0}
 --- !u!114 &6713715530846700225
 MonoBehaviour:
   m_ObjectHideFlags: 0
