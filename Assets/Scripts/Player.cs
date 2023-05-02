@@ -94,7 +94,7 @@ public class Player : MonoBehaviour, IDamageable
         AttackingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
         Turn();
         Dodge();
-        AttackKey();
+        //AttackKey();
         //JoystickMove();
         //UseSlotSkill();
     }
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour, IDamageable
         hAxis = Input.GetAxisRaw("Horizontal"); //ad
         vAxis = Input.GetAxisRaw("Vertical"); //ws
         dodge = Input.GetButtonDown("Jump"); // space
-        attackKey = Input.GetButtonDown("Fire1"); //마우스 왼쪽
+        //attackKey = Input.GetButtonDown("Fire1"); //마우스 왼쪽
         //skillKey_1 = Input.GetButtonDown("Skill1"); // 1번
         //skillKey_2 = Input.GetButtonDown("Skill2"); // 2번
         //skillKey_3 = Input.GetButtonDown("Skill3"); // 3번
@@ -261,10 +261,10 @@ public class Player : MonoBehaviour, IDamageable
     #endregion Move Methods
 
     #region NormalAttack Methods
-    private void AttackKey()
+    public void AttackKey()
     {
-        if (attackKey) // 공격키를 눌렀을 경우 
-        {
+        //if (attackKey) // 공격키를 눌렀을 경우 
+        //{
             if(!isAttacking &&!isDodging && !isCasting) // 공격 상태가 아닌 경우 && 회피 상태도 아닌 경우 && 스킬 시전 상태도 아닌 경우
             {
                 isAttacking = true;
@@ -319,7 +319,7 @@ public class Player : MonoBehaviour, IDamageable
 
             }
 
-        }
+        //}
 
        
     }
