@@ -10,10 +10,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     private Vector3 orginPos; // 아이템의 원래 위치
     public Item item; // 획득한 아이템
     public int itemCount; // 획득한 아이템의 개수
+    private int itemMaxCount = 4; //획득한 아이템의 최대 개수
+    public Image itemCountImage; //획득한 아이템의 개수 보여주는 이미지
     public float maxBuffTime; // 버프 타임의 최대값
     public Image itemImage; // 아이템의 이미지
     public BaseSkill slotSkill; // Slot에 들어가는 스킬 정보, 스킬을 얻은 경우에만 추가
-   public BaseBuff slotBuff; // Buff에 들어가는 버프 정보, 버프를 얻은 경우에만 추가 
+    public BaseBuff slotBuff; // Buff에 들어가는 버프 정보, 버프를 얻은 경우에만 추가 
 
     [SerializeField]
     private Player player; // Slot에게 할당된 플레이어
@@ -79,6 +81,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
             slotSkill = _item.skill; // 아이템에 있던 스킬 정보를 넣어준다.
             go_CountImage.SetActive(true);
             text_Count.text = itemCount.ToString();
+            if (itemCount > itemMaxCount)
+                return;
+            
+            itemCountImage.fillAmount = (float)itemCount / (float)itemMaxCount;//Mathf.Lerp(itemCountImage.fillAmount, (float)itemCount / 4 / 1 / 1 ,Time.deltaTime * 5); 
         }
         else if(item.itemType== Item.EItemType.Buff) // 아이템이 버프형인 경우
         {
@@ -98,10 +104,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     {
         itemCount += _count;
         text_Count.text = itemCount.ToString();
-
-        if(itemCount <= 0)
+        if (itemCount > itemMaxCount)
+            return;
+        itemCountImage.fillAmount = (float)itemCount / (float)itemMaxCount;
+        //itemCountImage.fillAmount = (float)_count;//Mathf.Lerp(itemCountImage.fillAmount, (float)itemCount / 4 ,Time.deltaTime * 5);
+        if (itemCount <= 0)
         {
             ClearSkillSlot();
+            itemCountImage.fillAmount = 0f;
         }    
     }
 
@@ -154,7 +164,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
                     Debug.Log(item.itemName + " 스킬을 사용했습니다.");
 
                     SetSlotCount(-1);
-
                     player.UseSlotSkill(slotSkill); // 플레이어에게 스킬 사용하게 만든다. 여기서 계속 오류가 났었는데, 위에 처럼 public 변수가 없어서 그랬던 것이다.
                 }
             }
