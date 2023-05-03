@@ -17,7 +17,8 @@ public class Title : MonoBehaviour
     private IEnumerator Start11()
     {
         titleAnim.SetTrigger("isStartMotion");
+        StageManager.instance.SetCurrent(1);
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Scenes/Demo_Scene/demo");
+        SceneManager.LoadScene("Scenes/Demo_Scene/InGame");
     }
 }

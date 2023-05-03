@@ -5,12 +5,25 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     [Header("플레이어 체력관련 이미지")]
     public Player player;
     [SerializeField] private Transform playerHealthImageTrans;
     [SerializeField] private Image playerHealthImage;
     [SerializeField] private Image playerCanvasHealthImage;
 
+
+    public Stage stage;
+    public int currentStageMonsterCount;
+    public float currentStageRespawnTime;
+    public Transform monsterSpawnPos;
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
     private void Start()
     {
         
@@ -19,9 +32,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+        if (stage == null)
+            return;
+        MonsterSpwan();
     }
+    public void MonsterSpwan()
+    {
+        if (stage.asset.IsClear())
+            return;
+        //클리어가 안되면 몬스터 소환
+        if(currentStageRespawnTime > 0)
+        {
+            currentStageRespawnTime -= Time.deltaTime;
+        }
+        else
+        {
+            currentStageRespawnTime = stage.asset.respawnTime;
+            Monster monster = Instantiate(stage.asset.monsters[0]);
+            monster.transform.position = monsterSpawnPos.position;
+        }
 
+    }
     private void LateUpdate()
     {
         GUI();
