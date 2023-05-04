@@ -20,7 +20,7 @@ public class Skill_GroundBreak : BaseSkill
         {
             collider.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
             collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(damage), effectPrefab);
-            collider.gameObject.GetComponent<Monster>()?.KnockBack(10f);  // 임시
+            collider.gameObject.GetComponent<Monster>()?.KnockBack(2f);  // 임시
 
         }
     }

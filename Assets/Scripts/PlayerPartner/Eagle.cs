@@ -43,19 +43,19 @@ public class Eagle : MonoBehaviour
         CheckCoolTime();
     }
 
-    public void AttackDistanceCheak()
-    {
-        Collider[] cols = Physics.OverlapSphere(transform.position, _attackRange, targetMask);
+    //public void AttackDistanceCheak()
+    //{
+    //    Collider[] cols = Physics.OverlapSphere(transform.position, _attackRange, targetMask);
 
-        if(cols.Length > 0) // 몬스터가 하나라도 있으면
-        {
-            for (int i = 0; i < cols.Length; i++)
-            {
-               target = cols[i].gameObject.GetComponent<Monster>();
-                break;
-            }
-        }
-    }
+    //    if(cols.Length > 0) // 몬스터가 하나라도 있으면
+    //    {
+    //        for (int i = 0; i < cols.Length; i++)
+    //        {
+    //           target = cols[i].gameObject.GetComponent<Monster>();
+    //            break;
+    //        }
+    //    }
+    //}
 
     private void Attack()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802844, g: 0.22571479, b: 0.30692443, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028466, g: 0.22571518, b: 0.30692518, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -41717,6 +41717,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482757446248892749, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
 --- !u!114 &1943652330 stripped
@@ -43270,7 +43274,6 @@ MonoBehaviour:
   monsterSpawnPos: {fileID: 1907826656}
   currentStageTxt: {fileID: 737667486}
   outPortalPos: {fileID: 600545938}
-  clearPortal: {fileID: 0}
 --- !u!4 &2007805269
 Transform:
   m_ObjectHideFlags: 0
