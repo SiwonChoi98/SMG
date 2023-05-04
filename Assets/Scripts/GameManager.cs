@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -14,9 +14,20 @@ public class GameManager : MonoBehaviour
 
 
     public Stage stage;
-    public int currentStageMonsterCount;
-    public float currentStageRespawnTime;
-    public Transform monsterSpawnPos;
+    public int currentStageMonsterCount; //현재 스테이지 몬스터 수
+    public float currentStageRespawnTime; //현재 스테이지 리스폰타임
+    public Transform monsterSpawnPos; //몬스터 나오는 위치
+    public Text currentStageTxt; //현재 스테이지 텍스트
+    public Transform outPortalPos; //스테이지 시작 위치
+    
+
+    public void NextGame() 
+    {
+        StageManager.instance.SetCurrent(++StageManager.instance.currentStageIndex);
+        currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
+        player.transform.position = outPortalPos.position; //시작위치조정
+        SceneManager.LoadSceneAsync("InGame");
+    }
     private void Awake()
     {
         if (instance == null)
@@ -26,22 +37,26 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        
+        currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
+        player.transform.position = outPortalPos.position; //시작위치조정
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (stage == null)
-            return;
+        if (stage.asset.IsClear())
+        {
+            Time.timeScale = 0;
+        }
+        if (stage.asset.IsOver())
+        {
+            Time.timeScale = 0;
+        }
         MonsterSpwan();
     }
     public void MonsterSpwan()
     {
-        if (stage.asset.IsClear())
-            return;
-        //클리어가 안되면 몬스터 소환
-        if(currentStageRespawnTime > 0)
+        if (currentStageRespawnTime > 0)
         {
             currentStageRespawnTime -= Time.deltaTime;
         }
@@ -51,6 +66,7 @@ public class GameManager : MonoBehaviour
             Monster monster = Instantiate(stage.asset.monsters[0]);
             monster.transform.position = monsterSpawnPos.position;
         }
+
 
     }
     private void LateUpdate()
@@ -64,4 +80,5 @@ public class GameManager : MonoBehaviour
         playerHealthImage.fillAmount = Mathf.Lerp(playerHealthImage.fillAmount, (float)player.CurHealth / player.MaxHealth / 1 / 1, Time.deltaTime * 5); //플레이어 체력
         playerCanvasHealthImage.fillAmount = Mathf.Lerp(playerHealthImage.fillAmount, (float)player.CurHealth / player.MaxHealth / 1 / 1, Time.deltaTime * 5); //플레이어 캔버스 체력
     }
+    
 }

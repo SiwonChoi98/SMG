@@ -22,4 +22,12 @@ public class DefaultStageAsset : StageAsset
         }
         return true;
     }
+    public override bool IsOver()
+    {
+        if(GameManager.instance.player.CurHealth > 0)
+        {
+            return false;
+        }
+        return true;
+    }
 }

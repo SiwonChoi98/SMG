@@ -484,5 +484,13 @@ public class Player : MonoBehaviour, IDamageable
     {
         return (!isAttacking && !isDodging && !isCasting);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Clear"))
+        {
+
+        }
+    }
 }
 

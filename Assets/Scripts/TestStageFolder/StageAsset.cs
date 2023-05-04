@@ -10,9 +10,9 @@ public enum GameMode
 public abstract class StageAsset : ScriptableObject
 {
     public GameMode gameMode;
-    public int monsterCount; //스테이지별 몬스터 수
-    public List<Monster> monsters; //스테이지별 몬스터 프리팹
-    public float respawnTime; //스테이지별 몬스터 리스폰 시간
+    public int monsterCount; //몬스터 수
+    public List<Monster> monsters; //몬스터 종류
+    public float respawnTime; //몬스터 리스폰 시간
 
     public StageAsset()
     {
