@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &21816714
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 21816715}
-  m_Layer: 6
-  m_Name: ComboSlash2_Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &21816715
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21816714}
-  m_LocalRotation: {x: -0.2171937, y: 0.17536178, z: 0.037425417, w: -0.95951784}
-  m_LocalPosition: {x: -0.19, y: 1.06, z: 0.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 440614427}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 23.808, y: -22.681, z: 350.691}
 --- !u!1 &154581080
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +292,6 @@ Transform:
   - {fileID: 364569215}
   - {fileID: 1307969564}
   - {fileID: 2022153706}
-  - {fileID: 21816715}
   m_Father: {fileID: 7067910214888515878}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1063,6 +1031,7 @@ MonoBehaviour:
   - {fileID: 1220390159}
   - {fileID: 364569215}
   - {fileID: 1307969564}
+  - {fileID: 2022153706}
   ShieldCount: 0
   isStrengthBuff: 0
 --- !u!95 &1887263582

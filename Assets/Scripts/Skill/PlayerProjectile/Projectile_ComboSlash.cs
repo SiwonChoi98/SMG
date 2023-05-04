@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.7 제거
+public class Projectile_ComboSlash : MonoBehaviour
 {
     public LayerMask TargetMask;
 
@@ -33,7 +33,7 @@ public class Player_Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.
             //Debug.Log("collision.gameObject.layer : " + collision.gameObject.layer);
             collision.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
             collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx);
-            collision.gameObject.GetComponent<Monster>()?.KnockBack(9f);  // 임시
+            collision.gameObject.GetComponent<Monster>()?.KnockBack(6f);  // 임시
 
         }
 
@@ -50,4 +50,3 @@ public class Player_Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.
         TargetMask = layerMask;
     }
 }
-

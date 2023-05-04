@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
+public class Skill_ComboSlash : BaseSkill
 {
-
     [SerializeField]
     GameObject slashObject;
 
@@ -17,12 +16,12 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
             vec = startPoint.position;
         }
 
-        GameObject go = Instantiate(slashObject, 
-            SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
-             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
+        GameObject go = Instantiate(slashObject,
+            SkillManager.instance.player.skillSpawnPos[(int)ESkillType.ComboSlash].position + Vector3.up * 1.5f, // 살짝 위에서 날라가야 한다.
+             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.ComboSlash].rotation);
 
-        go.GetComponent<Projectile_UpperSlash>().SetDamage((int)(damage));
-        go.GetComponent<Projectile_UpperSlash>().SetTarget(targetMask);
+        go.GetComponent<Projectile_ComboSlash>().SetDamage((int)(damage));
+        go.GetComponent<Projectile_ComboSlash>().SetTarget(targetMask);
 
     }
 

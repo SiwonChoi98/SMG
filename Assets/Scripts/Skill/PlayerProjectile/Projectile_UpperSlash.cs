@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Needle : MonoBehaviour
+public class Projectile_UpperSlash : MonoBehaviour // UpperSlash는 16.5 속도 , 0.7 제거
 {
     public LayerMask TargetMask;
 
@@ -23,7 +23,7 @@ public class Needle : MonoBehaviour
 
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 
-        Destroy(this.gameObject, DestroyTime); // 맞지 않더라도 일정 시간 지나면 제거
+        Destroy(this.gameObject, DestroyTime);
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -31,8 +31,10 @@ public class Needle : MonoBehaviour
         if (1 << collision.transform.gameObject.layer == TargetMask)
         {
             //Debug.Log("collision.gameObject.layer : " + collision.gameObject.layer);
+            collision.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
             collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx);
-            Destroy(this.gameObject); // 맞으면 바로 제거
+            collision.gameObject.GetComponent<Monster>()?.KnockBack(6f);  // 임시
+
         }
 
 
@@ -48,3 +50,4 @@ public class Needle : MonoBehaviour
         TargetMask = layerMask;
     }
 }
+

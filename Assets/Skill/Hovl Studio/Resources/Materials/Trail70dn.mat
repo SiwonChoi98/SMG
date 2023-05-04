@@ -96,7 +96,7 @@ Material:
     - _Dissolvecolor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolvespeedXY: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Maincolor: {r: 0.32700956, g: 0.9622642, b: 0.24056605, a: 1}
-    - _Noisecolor: {r: 0.33333337, g: 1, b: 0.5167987, a: 1}
+    - _Maincolor: {r: 0.21465907, g: 0.8113208, b: 0.14159843, a: 1}
+    - _Noisecolor: {r: 0.12237452, g: 0.4716981, b: 0.33258694, a: 1}
     - _NoisespeedXYEmissonZPowerW: {r: 0, g: 0, b: 4, a: 1}
   m_BuildTextureStacks: []

@@ -123,6 +123,24 @@ public class SkillManager : MonoBehaviour
 
             }
 
+            else if (skillType == ESkillType.ComboSlash)
+            {
+                GameObject ComboSlashSkill = Instantiate(playerSkills[(int)ESkillType.ComboSlash],
+                       player.skillSpawnPos[(int)ESkillType.ComboSlash].position,
+                       player.skillSpawnPos[(int)ESkillType.ComboSlash].rotation);
+
+
+                ParticleSystem[] particleSystems = ComboSlashSkill.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (ParticleSystem particle in particleSystems)
+                {
+                    particle.Play(); // 각 위치에 맞게 
+                }
+
+                Destroy(ComboSlashSkill, 5f);
+
+            }
+
         }
 
     }

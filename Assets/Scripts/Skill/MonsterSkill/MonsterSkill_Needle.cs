@@ -18,8 +18,8 @@ public class MonsterSkill_Needle : BaseSkill
 
         GameObject go = Instantiate(needle, startPoint.position, startPoint.rotation);
 
-        go.GetComponent<Needle>().SetDamage((int)(damage));
-        go.GetComponent<Needle>().SetTarget(targetMask);
+        go.GetComponent<Projectile_Needle>().SetDamage((int)(damage));
+        go.GetComponent<Projectile_Needle>().SetTarget(targetMask);
 
     }
 
