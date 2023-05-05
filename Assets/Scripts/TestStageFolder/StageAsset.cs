@@ -24,8 +24,11 @@ public abstract class StageAsset : ScriptableObject
     }
     public virtual void Initialize()
     {
-        GameManager.instance.currentStageMonsterCount = monsterCount;
+        GameManager.instance.currentMonsterCount = monsterCount;
+        GameManager.instance.spawnCount = monsterCount;
+
         GameManager.instance.currentStageRespawnTime = respawnTime;
+        
     }
 
     public abstract bool IsClear(); //클리어 조건

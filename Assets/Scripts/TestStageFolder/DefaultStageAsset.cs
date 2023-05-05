@@ -16,7 +16,7 @@ public class DefaultStageAsset : StageAsset
     }
     public override bool IsClear()
     {
-        if(GameManager.instance.currentStageMonsterCount > 0)
+        if(GameManager.instance.currentMonsterCount > 0)
         {
             return false;
         }

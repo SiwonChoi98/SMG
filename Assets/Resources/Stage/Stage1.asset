@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Stage1
   m_EditorClassIdentifier: 
   gameMode: 0
-  monsterCount: 10
+  monsterCount: 6
   monsters:
-  - {fileID: 1236143151, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
-  - {fileID: 1236143151, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
-  respawnTime: 2
+  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
+  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
+  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
+  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
+  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
+  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
+  respawnTime: 3

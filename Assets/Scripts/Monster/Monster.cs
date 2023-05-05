@@ -121,6 +121,7 @@ public class Monster : MonoBehaviour, IDamageable
         if(_curHealth <= 0) 
         {
             stateMachine.ChangeState<DeadState>();
+            GameManager.instance.currentMonsterCount--;
         }
 
     }

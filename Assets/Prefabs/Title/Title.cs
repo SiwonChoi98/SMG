@@ -12,9 +12,9 @@ public class Title : MonoBehaviour
     }
     public void StartButton()
     {
-        StartCoroutine(Start11());
+        StartCoroutine(StartStage());
     }
-    private IEnumerator Start11()
+    private IEnumerator StartStage()
     {
         titleAnim.SetTrigger("isStartMotion");
         StageManager.instance.SetCurrent(1);
