@@ -194,7 +194,7 @@ public class Player : MonoBehaviour, IDamageable
 
             dodgeCoolTime = 0f;
             dodgeVec = transform.forward;
-            speed *= 2;
+            speed = 10f;
             anim.SetTrigger("DoDodge");
             isDodging = true;
 
@@ -218,7 +218,7 @@ public class Player : MonoBehaviour, IDamageable
             dodgeCoolTime = 0f;
             dodgeVec = moveVec;
             transform.rotation = Quaternion.LookRotation(-moveVec).normalized;
-            speed *= 2;
+            speed = 10f;
             anim.SetTrigger("DoCombatDodge");
 
 
@@ -226,10 +226,16 @@ public class Player : MonoBehaviour, IDamageable
         }
     }
 
-
     private void DodgeOut()
     {
-        speed *= 0.5f;
+        if (isSpeedBuff)
+        {
+            speed = 10f;
+        }
+        else
+        {
+            speed = 5f;
+        }    
         isDodging = false;
 
         // Dodge에서 PlayerAttackEnd()를 해줬지만, 애니메이션 Transition 탈출할 때 AttackEnable을 거쳐서 나오면 다시 AttackEnable이 True가 된다.
@@ -239,7 +245,15 @@ public class Player : MonoBehaviour, IDamageable
 
     private void CombatDodgeOut()
     {
-        speed *= 0.5f;
+        if (isSpeedBuff)
+        {
+            speed = 10f;
+        }
+        else
+        {
+            speed = 5f;
+        }
+
         isDodging = false;
     }
 

@@ -54,7 +54,7 @@ public class BuffManager : MonoBehaviour
             {
                 speedBuffTime = 0;
                 player.isSpeedBuff = false;
-                player.Speed = (int)(player.Speed * 0.5f);
+                player.Speed = 5f;
                 GameObject speedAura = GameObject.Find("SpeedAura(Clone)");
                 Destroy(speedAura);
             }
@@ -131,7 +131,7 @@ public class BuffManager : MonoBehaviour
 
                 if (!player.isSpeedBuff) // 스피드 버프를 받고 있지 않은 경우에만 스피드를 2배로 해준다.
                 {
-                    player.Speed *= 2;
+                    player.Speed = 10f;
 
                     player.isSpeedBuff = true;
 

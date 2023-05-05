@@ -36,7 +36,7 @@ public class AttackState : State<Monster>
                 {
                     context.anim.SetBool("SkillEnd", false); 
                     animator.SetTrigger("doAttack"); // 공격을 시키고
-                    animator.SetInteger("SkillNumber", 0); // 첫번째 스킬 애니메이션을 실행해준다.
+                    animator.SetInteger("SkillNumber", 2); // 첫번째 스킬 애니메이션을 실행해준다.
                     context.Shoot();
                     context.isAttack = false;
                 }
@@ -45,22 +45,22 @@ public class AttackState : State<Monster>
                 {
                     context.anim.SetBool("SkillEnd", false);
                     animator.SetTrigger("doAttack"); // 공격을 시키고
-                    animator.SetInteger("SkillNumber", 1); // 두번째 스킬 애니메이션을 실행해준다.
+                    animator.SetInteger("SkillNumber", 2); // 두번째 스킬 애니메이션을 실행해준다.
                     context.Shoot();
                     context.isAttack = false;
                 }
 
                 else // 15퍼센트
                 {
+                    // 이 부분을 수정해서 잠시동안 애니메이션이 멈추게 해보자.
                     context.anim.SetBool("SkillEnd", false);
                     animator.SetTrigger("doAttack"); // 공격을 시키고
                     animator.SetInteger("SkillNumber", 2); // 세번째 스킬 애니메이션을 실행해준다.
                     context.Shoot();
                     context.isAttack = false;
                 }
-
-                return;
             }
+
             if (context.isHit) // 플레이어에게 맞으면 무조건 Hit, 몬스터 종류에 따라 안넘어갈수도 있다.
             {
                 context.anim.SetBool("SkillEnd", true); // 하던 공격을 취소해준다.

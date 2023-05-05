@@ -15,10 +15,7 @@ public class BossSkill_Howling : BaseSkill
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
-        ExcuteParticleSystem();
-
         StartCoroutine(SpawnWolf());
-
 
     }
 

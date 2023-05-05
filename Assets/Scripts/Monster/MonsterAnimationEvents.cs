@@ -29,4 +29,10 @@ public class MonsterAnimationEvents : MonoBehaviour
 
     }
 
+
+    public void M_SkillCharge() // 스킬 차지에 필요한 부분
+    {
+        GetComponent<Monster>()?.MonsterSkillCharge();
+    }
+
 }

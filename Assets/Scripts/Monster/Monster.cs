@@ -18,7 +18,8 @@ public class Monster : MonoBehaviour, IDamageable
     [SerializeField] protected int _speed; //현재는 네비게이션안에 speed 써서 speed는 따로 정의가 필요없다. 추후에 바꿀예정
     // 이 부분에서 각각의 몬스터마다 speed를 받아올 수 있도록하자.
 
-    [SerializeField] protected float _attackRange; //공격 거리
+    [SerializeField] protected float _attackRange; // 기본적인 공격 거리, 보스를 제외한 몬스터들은 대부분 하나만을 가진다.
+    [SerializeField] protected float _attackRange2; // 보스의 스킬 공격 거리, 근접 공격을 하다가 이 거리로 공격을 한다. 일반이나 엘리트는 기본적으로 0이다.
     [SerializeField] protected float _attackTime; //공격 쿨타임
     [SerializeField] public float _hitTime; // 피격 쿨타임
     public List<BaseSkill> monsterSkills = new List<BaseSkill>(); // 새로추가한 부분, 가능한 공격 및 스킬을 담은 리스트
@@ -46,8 +47,13 @@ public class Monster : MonoBehaviour, IDamageable
     public bool isHitEnd = true; // 공격 받고 있는 상태가 아닌지 체크 변수 
     public bool isHitbySkill = false; // 스킬에 의한 공격을 받았는지 체크 변수
 
-    public bool isAttackingMove = false; // 몬스터 애니메이션 시 움직이는 경우 체크 변수
-    protected float dir; // 몬스터 애니메이션 시 움직임의 방향 및 크기
+    // 보스 전용 변수
+    protected bool isAttackingMove = false; // 몬스터 애니메이션 시 움직이는 경우 체크 변수
+    protected bool isAttackingTurn = false; // 몬스터 애니메이션 시 회전하는 경우 체크 변수
+    protected float dir; // 몬스터 애니메이션 시 움직임의 방향 및 크기 
+    public GameObject chargeObject;
+    public GameObject projectileObject;
+
 
     private float _distance; //플레이어(타겟)과의 거리
     protected float _initialAttackTime; //공격 쿨타임 초기화
@@ -164,11 +170,17 @@ public class Monster : MonoBehaviour, IDamageable
     // 거리 체크해서 공격할 수 있는 상태만들기
 
     #region Attack Methods
-    public bool AttackDistanceCheak()
+    public bool AttackDistanceCheak() // 이제 이 부분을 AttackRange1 과 AttackRange2로 나눌 것이다. 보스는 이 공격을 주로 
     {
-        _distance = Vector3.Distance(this.transform.position, target.transform.position); // 나중에 플레이어와 몬스터의 키를 뺴준다.
+        Vector3 thisPos = transform.position; 
+        Vector3 targetPos = target.position;
+
+        thisPos.y = 0;
+        targetPos.y = 0;
+
+        _distance = Vector3.Distance(thisPos, targetPos); // 나중에 플레이어와 몬스터의 키를 뺴준다. 완료
         
-        if (_distance < _attackRange) // 만약 플레이어가 공격 사거리 내로 들어왔다면,
+        if (_distance < _attackRange) // 만약 플레이어가 공격 사거리1 내로 들어왔다면,
         {
             return isAttackRange = true;
         }
@@ -212,15 +224,17 @@ public class Monster : MonoBehaviour, IDamageable
     }
 
     // 애니메이션 이벤트 호출 부분
-    public void MonsterSKillStart(float degree)
+    public void MonsterSKillStart(float degree) 
     {
         isAttackingMove = true;
         dir = degree;
+        isAttackingTurn = true;
     }
 
     public void MonsterSKillEnable()
     {
         isAttackingMove = false;
+        isAttackingTurn = false;
     }
 
     public virtual void MonsterSKill(int index) // 실제 공격이 나가거나 투사체가 나가야하는 타이밍, projectilePoint가 있는 경우 저기서 스킬이 나갈 것이다.
@@ -238,11 +252,16 @@ public class Monster : MonoBehaviour, IDamageable
         }
     }
 
+    public virtual void MonsterSkillCharge() // 애니메이션 중간에 기를 모으거나 투사체를 모음
+    {
+
+    }
+
     #endregion Attack Methods
 
     private void LateUpdate()
     {
-        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
+        //healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
     }
 
 }
