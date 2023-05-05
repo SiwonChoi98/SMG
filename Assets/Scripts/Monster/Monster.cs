@@ -131,14 +131,14 @@ public class Monster : MonoBehaviour, IDamageable
         isHitbySkill = isSKill;
     }
     // y값을 빼줘야 정상적으로 밀린다.
-    public void KnockBack(float attackForce)
+    public void KnockBack(float knockBackForce)
     {
         if(mType == EMonsterType.Common) // 몬스터가 일반 몬스터면 무조건 밀린다.
         {
             Vector3 dir = target.position - transform.position;
             dir.y = 0;
-            Debug.Log("attackForce : " + attackForce);
-            rigid.AddForce(dir.normalized * -1 * attackForce, ForceMode.Impulse);
+            Debug.Log("Knockback : " + knockBackForce);
+            rigid.AddForce(dir.normalized * -1 * knockBackForce, ForceMode.Impulse);
         }
         else if(mType == EMonsterType.Elite) // 몬스터가 엘리트면 스킬 공격에만 밀린다.
         {
@@ -146,8 +146,8 @@ public class Monster : MonoBehaviour, IDamageable
             {
                 Vector3 dir = target.position - transform.position;
                 dir.y = 0;
-                Debug.Log("attackForce : " + attackForce);
-                rigid.AddForce(dir.normalized * -1 * attackForce, ForceMode.Impulse);
+                Debug.Log("attackForce : " + knockBackForce);
+                rigid.AddForce(dir.normalized * -1 * knockBackForce, ForceMode.Impulse);
                 isHitbySkill = false;
             }
         }

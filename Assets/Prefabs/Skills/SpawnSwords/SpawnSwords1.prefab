@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5671042096339282476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5671042096339282483}
+  - component: {fileID: 5671042096339282482}
+  m_Layer: 0
+  m_Name: SpawnSwords1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5671042096339282483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671042096339282476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7808407000969714153}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5671042096339282482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671042096339282476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce5a92bfb6f5404ba8fce3c72f3eb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystems: []
+  damage: 14
+  attackForce: 0
+  mSkillType: 8
+  mParticleType: 1
+  coolTime: 0
+  calcCoolTime: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  effectPrefab: {fileID: 0}
+  swordObject: {fileID: 6570769750421030602, guid: 277ca93a5ea42df4f9c00958a1585a47, type: 3}
+--- !u!1001 &6953037197968985197
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5671042096339282483}
+    m_Modifications:
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344541273940273320, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+      propertyPath: m_Name
+      value: HolyAura
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+--- !u!4 &7808407000969714153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 874594111145760132, guid: e893d426f72999c4e81503ee70b7c2ff, type: 3}
+  m_PrefabInstance: {fileID: 6953037197968985197}
+  m_PrefabAsset: {fileID: 0}

@@ -10,8 +10,11 @@ public class BuffManager : MonoBehaviour
 
     public GameObject[] BuffAuras;
 
-    public float strengthBuffTime;
+    public float strengthBuffTime = 0f;
     public float strengthBuffTimeMax;
+
+    public float speedBuffTime = 0f;
+    public float speedBuffTimeMax;
 
     private void Awake()
     {
@@ -25,7 +28,6 @@ public class BuffManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        strengthBuffTime = 0;
     }
 
     public void Update()
@@ -43,7 +45,21 @@ public class BuffManager : MonoBehaviour
                 Destroy(strengthAura);
             }
         }
-      
+
+        if (player.isSpeedBuff)  // 플레이어의 속도가 빨라진 상태라면
+        {
+            speedBuffTime += Time.deltaTime;
+
+            if (speedBuffTime > speedBuffTimeMax)
+            {
+                speedBuffTime = 0;
+                player.isSpeedBuff = false;
+                player.Speed = (int)(player.Speed * 0.5f);
+                GameObject speedAura = GameObject.Find("SpeedAura(Clone)");
+                Destroy(speedAura);
+            }
+        }
+
     }
     // 현재 체력은 25만큼, 힘은 2배만큼 증가. 힘은 추후에 먹으면 시간 늘리는 방식으로 수정할 예정
     public void Buff(EBuffType buffType, GameObject gameObject, float buffTimeMax = 0)
@@ -106,6 +122,37 @@ public class BuffManager : MonoBehaviour
 
 
         }
+
+        else if (buffType == EBuffType.SpeedBuff)
+        {
+            if (gameObject.CompareTag("Player")) // 받는 대상이 플레이어인 경우
+            {
+                Player player = gameObject.GetComponent<Player>();
+
+                if (!player.isSpeedBuff) // 스피드 버프를 받고 있지 않은 경우에만 스피드를 2배로 해준다.
+                {
+                    player.Speed *= 2;
+
+                    player.isSpeedBuff = true;
+
+                    speedBuffTimeMax = buffTimeMax;
+                }
+
+                GameObject SpeedBuff = Instantiate(BuffAuras[(int)EBuffType.SpeedBuff],
+                             gameObject.transform.position, gameObject.transform.rotation,
+                             gameObject.transform);
+
+                ParticleSystem[] particleSystems = SpeedBuff.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (ParticleSystem particle in particleSystems)
+                {
+                    particle.Play(); // 각 위치에 맞게 
+                }
+
+            }
+
+
+        }
     }
 
     // 같은 버프를 먹었을 때 버프 리셋
@@ -114,7 +161,11 @@ public class BuffManager : MonoBehaviour
         if(buffType == EBuffType.StrengthBuff) 
         {
             strengthBuffTime = 0f;
-        }    
+        }
+        else if(buffType == EBuffType.SpeedBuff) 
+        {
+            speedBuffTime = 0f;
+        }
     }
 
 }

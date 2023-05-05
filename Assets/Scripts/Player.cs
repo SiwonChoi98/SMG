@@ -23,9 +23,11 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private int curHealth; // 현재 체력
     [SerializeField] private int maxHealth; // 최대 체력
     [SerializeField] private int strength; // 플레이어의 공격력, 추후에 이 수치를 각 스킬들에게 전달할 예정
+    [SerializeField] private float speed; // 플레이어의 이동속도
     public int CurHealth { get => curHealth; set => curHealth = value; }
     public int MaxHealth { get => maxHealth; set => maxHealth = value; }
     public int Strength { get => strength; set => strength = value; }
+    public float Speed { get => speed; set => speed = value; }
     //--------------------------------------------------------------------
 
     private Camera cameraMain;
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour, IDamageable
     private Vector3 dodgeVec;
     private Vector3 moveVec;
 
-    private float speed; // 캐릭터의 스피드
+    
 
     // 임시적으로 확인하기 위해서 public으로 해두었다.
     public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트, 이제는 오직 기본 공격을 위한 리스트로 변경해도 되지만, slotskill도 여기에 넣어버리자.
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour, IDamageable
     public int ShieldCount; // 쉴드 스킬 시 생성하는 보호막 개수
 
     public bool isStrengthBuff; // 힘 버프를 받고 있는가?
+    public bool isSpeedBuff; // 스피드 버프를 받고 있는가?
 
     private EPlayerSkillType playerCurrentSkill; // 플레이어가 현재 수행하고 있는 스킬 타입
 
@@ -249,9 +252,9 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (isAttacking || isCasting) // 공격하거나 캐스팅의 경우, 공격할 때는 playerSkills의 정보대로, isCasting일 때는 sloy의 정보대로로 바꿔야 한다.
         {
-            if (isAttackingMove) // 만약 공격 행동을 실행하여 살짝 이동해야 한다면,
+            if (isAttackingMove) // 만약 공격 행동을 실행하여 살짝 이동해야 한다면, 5f는 원래 스피드값
             {
-                transform.position += transform.forward * speed * Time.deltaTime *
+                transform.position += transform.forward * 5f * Time.deltaTime *
                                playerSkills[(int)playerCurrentSkill].attackForce; 
             }
         }   

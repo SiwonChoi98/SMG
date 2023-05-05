@@ -8,14 +8,7 @@ public class Skill_ComboSlash : BaseSkill
     GameObject slashObject;
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
-    {
-        Vector3 vec = transform.position;
-
-        if (startPoint)
-        {
-            vec = startPoint.position;
-        }
-
+    {       
         GameObject go = Instantiate(slashObject,
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.ComboSlash].position + Vector3.up * 1.5f, // 살짝 위에서 날라가야 한다.
              SkillManager.instance.player.skillSpawnPos[(int)ESkillType.ComboSlash].rotation);

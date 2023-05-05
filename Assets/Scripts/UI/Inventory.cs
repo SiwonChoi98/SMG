@@ -60,6 +60,7 @@ public class Inventory : MonoBehaviour
 
         else if (_item.itemType == Item.EItemType.Buff) // 획득한 아이템이 버프인 경우
         {
+            
             for(int i = 0; i < buffSlots.Length; i++) // 슬롯에 이미 같은 버프가 있는 경우 SetSlotTime으로 해당 시간을 다시 초기화 시켜준다.
             {
                 if (buffSlots[i].item != null) 

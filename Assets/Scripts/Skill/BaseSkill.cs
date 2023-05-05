@@ -20,6 +20,7 @@ public enum ESkillType : int
     Baldo,
     SpawnEagle,
     ComboSlash,
+    SpawnSwords,
     NormalAttack
 }
 

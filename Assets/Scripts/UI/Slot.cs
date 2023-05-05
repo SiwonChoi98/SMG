@@ -39,7 +39,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
         player = SkillManager.instance.player; // 스킬 매니저로부터 플레이어를 받아온다.
 
         player_DefualtStrength = player.Strength; // 원래 플레이어의 공격력 수치 초기값을 받아온다.
-      
+        
     }
 
     private void Update()

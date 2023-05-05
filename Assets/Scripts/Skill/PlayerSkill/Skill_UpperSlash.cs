@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
 {
-
     [SerializeField]
     GameObject slashObject;
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
-        Vector3 vec = transform.position;
-
-        if (startPoint)
-        {
-            vec = startPoint.position;
-        }
-
         GameObject go = Instantiate(slashObject, 
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
              SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
