@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 public class Title : MonoBehaviour
 {
     public Animator titleAnim;
@@ -9,6 +10,7 @@ public class Title : MonoBehaviour
     private void Awake()
     {
         titleAnim = titlePlayer.GetComponentInChildren<Animator>();
+        
     }
     public void StartButton()
     {
@@ -18,7 +20,9 @@ public class Title : MonoBehaviour
     {
         titleAnim.SetTrigger("isStartMotion");
         StageManager.instance.SetCurrent(1);
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Scenes/Demo_Scene/InGame");
+        yield return new WaitForSeconds(1f);
+        LoadingSceneController.Instance.LoadScene("InGame");
+        //SceneManager.LoadScene("Scenes/Demo_Scene/InGame");
     }
+
 }

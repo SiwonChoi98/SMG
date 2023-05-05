@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Stage")]
     public Stage stage;
-
+    public List<Monster> monsters;
     public int currentMonsterCount; //몬스터 죽을때 줄여줄 카운트
     public int spawnCount; //현재 스테이지 스폰 몬스터 수
     private int spawnIndex; 
@@ -26,13 +26,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
     
-
+    public void BackSceneButton()
+    {
+        LoadingSceneController.Instance.LoadScene("Title");
+    }
     public void NextGame() 
     {
         StageManager.instance.SetCurrent(++StageManager.instance.currentStageIndex);
         currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
-        player.transform.position = outPortalPos.position; //시작위치조정
-        SceneManager.LoadSceneAsync("InGame");
+        LoadingSceneController.Instance.LoadScene("InGame");
     }
     private void Awake()
     {
@@ -40,13 +42,21 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-    }
+        monsters = new List<Monster>();
+}
     private void Start()
     {
         spawnIndex = 0;
         currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
         player.transform.position = outPortalPos.position; //시작위치조정
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
+        for(int i=0; i<stage.asset.monsters.Count; i++) //스테이지 별 풀 저장
+        {
+            monsters.Add(stage.asset.monsters[i]);
+            monsters[i] = Instantiate(monsters[i]);
+            monsters[i].gameObject.SetActive(false);
+        }
+        
     }
     private void Update()
     {
@@ -73,8 +83,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 currentStageRespawnTime = stage.asset.respawnTime;
-                Monster monster = Instantiate(stage.asset.monsters[spawnIndex]); //소환
-                monster.transform.position = monsterSpawnPos.position;
+                monsters[spawnIndex].gameObject.SetActive(true);
+                monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos.position;
                 spawnCount--;
                 spawnIndex++;
             }
