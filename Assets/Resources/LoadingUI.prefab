@@ -130,6 +130,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 7126085445624775571}
   progressBar: {fileID: 7126085445710716570}
+  sprites:
+  - {fileID: 21300000, guid: 1d179b1e37ee84735b6bbdd14d103c45, type: 3}
+  - {fileID: 21300000, guid: 6a1a7fde736a84a9d8af2f4d3703b390, type: 3}
+  - {fileID: 21300000, guid: 20139ec4278d94cd9bccc2e0cf48c564, type: 3}
+  - {fileID: 21300000, guid: c35594f53a6cc4fc5b6618df47ccbdb2, type: 3}
+  - {fileID: 21300000, guid: afe1c07d72489427288d4f8a8433c635, type: 3}
+  - {fileID: 21300000, guid: a4958eb9049ed431e825715b00dd2bb3, type: 3}
+  - {fileID: 21300000, guid: 443374bce58f04b96af0eabee47073c2, type: 3}
+  - {fileID: 21300000, guid: 9067deb90b5e24a64aff4f8708f39948, type: 3}
+  - {fileID: 21300000, guid: 51f43ef4bf864458496e8d6223439c1a, type: 3}
+  - {fileID: 21300000, guid: 35bb76c5876844e25a73002f1dd61090, type: 3}
+  - {fileID: 21300000, guid: e133007768a7e4709916222476dd5df8, type: 3}
+  - {fileID: 21300000, guid: 782342f2ae2ee4edabd79a9b5bfb2427, type: 3}
+  - {fileID: 21300000, guid: bdcec7d6a65f04293ac778854afd3f42, type: 3}
+  - {fileID: 21300000, guid: c56af5d502b7c4edb9f402c40bc48420, type: 3}
+  - {fileID: 21300000, guid: 8c105bdb98b3243dd839d5e3d9b78d08, type: 3}
 --- !u!1 &7126085445710716573
 GameObject:
   m_ObjectHideFlags: 0

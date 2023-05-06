@@ -10,7 +10,6 @@ public class Title : MonoBehaviour
     private void Awake()
     {
         titleAnim = titlePlayer.GetComponentInChildren<Animator>();
-        
     }
     public void StartButton()
     {
@@ -22,7 +21,6 @@ public class Title : MonoBehaviour
         StageManager.instance.SetCurrent(1);
         yield return new WaitForSeconds(1f);
         LoadingSceneController.Instance.LoadScene("InGame");
-        //SceneManager.LoadScene("Scenes/Demo_Scene/InGame");
     }
 
 }
