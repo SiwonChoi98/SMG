@@ -1203,8 +1203,8 @@ MonoBehaviour:
   _hitTime: 0
   monsterSkills:
   - {fileID: 1839289766}
-  - {fileID: 481927830}
   - {fileID: 6130400002037692470}
+  - {fileID: 481927830}
   rigid: {fileID: 0}
   anim: {fileID: 0}
   target: {fileID: 0}

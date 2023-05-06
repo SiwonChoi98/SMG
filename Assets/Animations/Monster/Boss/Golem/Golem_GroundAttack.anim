@@ -49124,7 +49124,7 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 4eb818bbd055aa0489f03e9a2429493e, type: 3}
     floatParameter: 0
-    intParameter: 2
+    intParameter: 1
     messageOptions: 0
   - time: 1.0416666
     functionName: M_SkillCharge

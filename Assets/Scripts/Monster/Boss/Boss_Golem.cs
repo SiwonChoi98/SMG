@@ -69,16 +69,17 @@ public class Boss_Golem : Monster
     {
         int skillNum = anim.GetInteger("SkillNumber");
 
-        if (skillNum == 1) // 만약 첫번째 돌 던지는 공격이라면
+        
+        if(skillNum == 1) // 바닥에서 패턴 나오는 공격이라면
+        {
+            StartCoroutine(ChargeGroundAttack());
+        }
+        else if (skillNum == 2) // 돌 던지는 공격이라면
         {
             StartCoroutine(ChargeRocks()); // 기를 모아준다.
             StartCoroutine(ChargeBarrier()); // 장벽을 생성해준다. 장벽을 생성하면서 플레이어를 넉백시킨다.
         }
-        else if(skillNum == 2) // 두번째 바닥에서 패턴 나오는 공격이라면
-        {
-            StartCoroutine(ChargeGroundAttack());
-        }
-     
+
     }
 
     IEnumerator ChargeRocks() // 돌을 모아준다.

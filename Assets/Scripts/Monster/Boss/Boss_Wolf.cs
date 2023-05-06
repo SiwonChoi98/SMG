@@ -23,7 +23,7 @@ public class Boss_Wolf : Monster
         base.Update();
 
         AttackingMove();
-
+        AttackingTurn();
     }
 
     private void AttackingMove()
@@ -31,6 +31,19 @@ public class Boss_Wolf : Monster
         if (isAttackingMove) // 만약 공격 행동을 실행하여 살짝 이동해야 한다면,
         {
             transform.position += transform.forward * _speed *  dir * Time.deltaTime;
+        }
+    }
+
+    private void AttackingTurn()
+    {
+        if (isAttackingTurn) // 만약 시전 시간동안 플레이어를 쳐다봐야 한다면,
+        {
+            Vector3 t_dir = (target.position - transform.position).normalized;
+            Quaternion from = transform.rotation;
+
+            Quaternion to = Quaternion.LookRotation(t_dir);
+
+            transform.rotation = Quaternion.Lerp(from, to, Time.fixedDeltaTime * 2f);
         }
     }
     public override void Shoot()
