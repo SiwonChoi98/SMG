@@ -51,8 +51,6 @@ public class Monster : MonoBehaviour, IDamageable
     protected bool isAttackingMove = false; // 몬스터 애니메이션 시 움직이는 경우 체크 변수
     protected bool isAttackingTurn = false; // 몬스터 애니메이션 시 회전하는 경우 체크 변수
     protected float dir; // 몬스터 애니메이션 시 움직임의 방향 및 크기 
-    public GameObject chargeObject;
-    public GameObject projectileObject;
 
 
     private float _distance; //플레이어(타겟)과의 거리

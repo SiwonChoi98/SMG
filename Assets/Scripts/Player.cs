@@ -494,7 +494,14 @@ public class Player : MonoBehaviour, IDamageable
         }
 
     }
+    public void KnockBack(float knockBackForce, Vector3 dir)
+    {
 
+        rigid.AddForce(dir.normalized * knockBackForce, ForceMode.Impulse);
+        // 보스면 밀리지 않는다.
+        //this.GetComponent<NavMeshAgent>().enabled = true;
+        //rigidbody.AddForce(transform.up, ForceMode2D.Impulse);
+    }
     #endregion IDamageable Methods
 
     private bool PlayerStateCheck() // 여기 부분에 나중에 isDamage 같은 플레이어 피격 상태도 넣어야 할듯

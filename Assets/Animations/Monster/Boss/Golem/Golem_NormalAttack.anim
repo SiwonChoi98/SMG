@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GolemAttack1
+  m_Name: Golem_NormalAttack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -47284,13 +47284,13 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.29166666
-    functionName: M_SKill
+    functionName: M_Skill
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 4eb818bbd055aa0489f03e9a2429493e, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.2916666
+  - time: 1.25
     functionName: M_SkillEnd
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 4eb818bbd055aa0489f03e9a2429493e, type: 3}

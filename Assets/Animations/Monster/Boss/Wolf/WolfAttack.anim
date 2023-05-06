@@ -38880,7 +38880,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5
-    functionName: M_SKill
+    functionName: M_Skill
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 4eb818bbd055aa0489f03e9a2429493e, type: 3}
     floatParameter: 0

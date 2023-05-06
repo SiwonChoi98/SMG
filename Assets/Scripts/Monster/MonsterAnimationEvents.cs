@@ -18,7 +18,7 @@ public class MonsterAnimationEvents : MonoBehaviour
         GetComponent<Monster>()?.MonsterSKillEnable();
     }
 
-    public void M_SKill(int index)
+    public void M_Skill(int index)
     {
         GetComponent<Monster>()?.MonsterSKill(index);
     }
