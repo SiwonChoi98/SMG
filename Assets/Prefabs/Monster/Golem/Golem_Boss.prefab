@@ -824,7 +824,7 @@ MonoBehaviour:
     m_Bits: 64
   effectPrefab: {fileID: 0}
   monsterAttackCollision: {fileID: 599953144}
-  summonExplosion: {fileID: 5728238444154825403, guid: 7ea477008f9c5764db0232a08a9916bf, type: 3}
+  summonExplosion: {fileID: 8704438019918659289, guid: 8742cbe634765a8469292c52aa838e30, type: 3}
 --- !u!1 &4848288491799147615
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,8 +18,6 @@ public class ActionController : MonoBehaviour
     // 필요한 컴포넌트
 
     [SerializeField]
-    private Text actionText;
-    [SerializeField]
     private Inventory theInventory;
 
     // Update is called once per frame
@@ -79,8 +77,7 @@ public class ActionController : MonoBehaviour
     private void ItemInfoAppear() 
     {
         pickupActivated = true;
-        actionText.gameObject.SetActive(true);
-        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 획득 " + "<color=yellow>" + "(E)" + "</color>"; // 이렇게 하면 마지막 E키만 노란 글자로 나온다.
+       
 
 
     }
@@ -89,7 +86,7 @@ public class ActionController : MonoBehaviour
     private void InfoDisappear()
     {
         pickupActivated = false;
-        actionText.gameObject.SetActive(false);
+      
     }
 
     private void OnDrawGizmos()

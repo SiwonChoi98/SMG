@@ -53,7 +53,7 @@ public class BossSkill_GroundAttack : BaseSkill
 
             yield return new WaitForSeconds(0.7f); // 0.7초 만큼 텀을 둔다.
 
-            Destroy(explosion); // 소환된 폭발을 제거해준다.
+            Destroy(explosion, 0.5f); // 소환된 폭발을 제거해준다.
         }
 
 
