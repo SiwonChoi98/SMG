@@ -10,6 +10,7 @@ public class Title : MonoBehaviour
     private void Awake()
     {
         titleAnim = titlePlayer.GetComponentInChildren<Animator>();
+        //SoundManager.instance.BgmPlaySound(0); //테스트
     }
     public void StartButton()
     {
