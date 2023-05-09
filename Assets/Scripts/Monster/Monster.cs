@@ -60,6 +60,9 @@ public class Monster : MonoBehaviour, IDamageable
     protected float _attackSpeed; //나가는 속도
 
     public Image healthImage;
+    public GameObject dmgText;
+    public Transform dmgTextPos;
+    private string _dmgTextFolderName = "DamageText/dmgText";
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -75,6 +78,9 @@ public class Monster : MonoBehaviour, IDamageable
     } 
     protected virtual void Start()
     {
+        dmgTextPos = this.gameObject.transform;
+        dmgText = (GameObject)Resources.Load(_dmgTextFolderName);
+
         stateMachine = new StateMachine<Monster>(this, new IdleState()); //현재 상태입력
         AddState();//여러 상태 삽입
     }
@@ -107,8 +113,9 @@ public class Monster : MonoBehaviour, IDamageable
         }
 
         _curHealth -= damage;
+        DamageText(damage); //데미지 텍스트
         //SoundManager.instance.SfxPlaySound(0); //테스트
-        if(mType == EMonsterType.Common) // 만약 일반 몬스터라면 바로 hit 처리
+        if (mType == EMonsterType.Common) // 만약 일반 몬스터라면 바로 hit 처리
         {
             isHit = true; // 데미지 깎이면서 isHit을 true로
         }
@@ -257,6 +264,12 @@ public class Monster : MonoBehaviour, IDamageable
 
     #endregion Attack Methods
 
+    public void DamageText(int dmg)
+    {
+        GameObject dmgtext1 = Instantiate(dmgText, dmgTextPos.position + new Vector3(0,2,0), Quaternion.Euler(70, 0, 0)); //Quaternion.identity 원래 가지고있는 각도로 생성
+        dmgtext1.GetComponentInChildren<Text>().text = dmg.ToString();//자식텍스트로 들어가서 //dmg는 int니까 string형태로 바꿔주기
+        Destroy(dmgtext1, 0.7f);
+    }
     private void LateUpdate()
     {
         //healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력

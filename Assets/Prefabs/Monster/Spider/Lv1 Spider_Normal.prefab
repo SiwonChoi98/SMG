@@ -626,6 +626,7 @@ MonoBehaviour:
   _curHealth: 0
   _speed: 0
   _attackRange: 0
+  _attackRange2: 0
   _attackTime: 0
   _hitTime: 0
   monsterSkills:
@@ -641,10 +642,11 @@ MonoBehaviour:
   isHit: 0
   isHitEnd: 1
   isHitbySkill: 0
-  isAttackingMove: 0
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 355748807}
+  dmgText: {fileID: 0}
+  dmgTextPos: {fileID: 0}
 --- !u!114 &3009770090547666186
 MonoBehaviour:
   m_ObjectHideFlags: 0
