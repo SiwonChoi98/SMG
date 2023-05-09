@@ -9581,7 +9581,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4109514637228484499}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 2.5
   simulationSpeed: 1.5
   stopAction: 0
   cullingMode: 0
@@ -35851,6 +35851,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8704438019918160633}
+  - component: {fileID: 7691131745857928693}
+  - component: {fileID: 2298600744459702832}
   m_Layer: 0
   m_Name: Golem_Thunder
   m_TagString: Untagged
@@ -35883,6 +35885,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7691131745857928693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704438019918659289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b54c433e8b064a4eb2bdbcb8858694d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 6
+  hitFx: {fileID: 0}
+--- !u!135 &2298600744459702832
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704438019918659289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8704438019918659291
 GameObject:
   m_ObjectHideFlags: 0

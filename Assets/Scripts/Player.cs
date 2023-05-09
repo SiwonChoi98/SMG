@@ -498,9 +498,7 @@ public class Player : MonoBehaviour, IDamageable
     {
 
         rigid.AddForce(dir.normalized * knockBackForce, ForceMode.Impulse);
-        // 보스면 밀리지 않는다.
-        //this.GetComponent<NavMeshAgent>().enabled = true;
-        //rigidbody.AddForce(transform.up, ForceMode2D.Impulse);
+
     }
     #endregion IDamageable Methods
 

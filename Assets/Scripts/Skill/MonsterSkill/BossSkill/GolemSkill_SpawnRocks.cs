@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossSkill_SpawnRocks : BaseSkill
+public class GolemSkill_SpawnRocks : BaseSkill
 {
     [SerializeField]
     GameObject[] rockObjects;

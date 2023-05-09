@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossSkill_Howling : BaseSkill
+public class WolfSkill_Howling : BaseSkill
 {
     [SerializeField]
     GameObject summonWolf;

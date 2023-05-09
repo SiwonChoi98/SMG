@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrier : MonoBehaviour
+public class Golem_Barrier : MonoBehaviour
 {
 
     private void OnTriggerStay(Collider other)

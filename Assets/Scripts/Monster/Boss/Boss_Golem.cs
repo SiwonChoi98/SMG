@@ -65,12 +65,12 @@ public class Boss_Golem : Monster
         monsterSkills[index].ExcuteAttack(target.gameObject);
     }
 
-    public override void MonsterSkillCharge() // 일정 타이밍마다 돌을 소환시켜준다. 또는 바닥에 떨어져있는 돌을 떙겨올 수는 없나? 또는 랜덤한 값을 줘서 각자 다른 크기의 돌을 모으자
+    public override void MonsterSkillCharge() // 몬스터 충전 공격 시 다른 패턴을 수행한다. 
     {
         int skillNum = anim.GetInteger("SkillNumber");
 
         
-        if(skillNum == 1) // 바닥에서 패턴 나오는 공격이라면
+        if(skillNum == 1) // 번개가 떨어지는 공격이라면
         {
             StartCoroutine(ChargeGroundAttack());
         }
