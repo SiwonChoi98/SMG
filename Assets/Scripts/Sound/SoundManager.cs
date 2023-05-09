@@ -40,10 +40,12 @@ public class SoundManager : MonoBehaviour
     {
         bgmAudioSource.clip = bgmSoundList[index].clip;
         bgmAudioSource.Play();
+        
     }
     public void SfxPlaySound(int index)
     {
         sfxAudioSource.clip = sfxSoundList[index].clip;
-        sfxAudioSource.Play();
+        //sfxAudioSource.Play();
+        sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
     }
 }
