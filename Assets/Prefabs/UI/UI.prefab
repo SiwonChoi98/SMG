@@ -3795,7 +3795,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: feecf4d4b8589444583ba7b82bb10df1, type: 3}
     - target: {fileID: 4785415072830060048, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4785415072940818174, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_Sprite
@@ -3819,15 +3819,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4785415073341502887, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4785415073755159438, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4785415073823229461, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4785415073872392069, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3883,7 +3883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4785415074667710712, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4785415074667710715, guid: c98d3801f63e7004ea44a49c6bd39c82, type: 3}
       propertyPath: m_Pivot.x
