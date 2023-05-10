@@ -13,6 +13,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     private int itemMaxCount = 4; //획득한 아이템의 최대 개수
     public Image itemCountImage; //획득한 아이템의 개수 보여주는 이미지
     public float maxBuffTime; // 버프 타임의 최대값
+    public float cloneMaxButtTime; //버프타임 이미지의 최대값
     public Image itemImage; // 아이템의 이미지
     public BaseSkill slotSkill; // Slot에 들어가는 스킬 정보, 스킬을 얻은 경우에만 추가
     public BaseBuff slotBuff; // Buff에 들어가는 버프 정보, 버프를 얻은 경우에만 추가 
@@ -24,7 +25,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     [SerializeField]
     private GameObject go_CountImage; // 스킬 사용 횟수 뒤에 보이는 배경 이미지
     [SerializeField]
-    private GameObject go_BuffTimeImage; // 버프 지속 시간 뒤에 보이는 배경 이미지
+    private Image go_BuffTimeImage; // 버프 지속 시간 뒤에 보이는 배경 이미지
     [SerializeField]
     private Text text_Count; // 스킬 사용 횟수 Text
     [SerializeField]
@@ -50,6 +51,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
             {
                 maxBuffTime -= Time.deltaTime;
                 text_BuffTime.text = ((int)maxBuffTime).ToString();
+                go_BuffTimeImage.fillAmount -= (float)1 / (int)cloneMaxButtTime * Time.deltaTime;
                 // Debug.Log("버프 타임 : " + maxBuffTime);
             }
             else
@@ -91,8 +93,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
             slotBuff = _item.buff;
             maxBuffTime = slotBuff.buffTimeMax; // 각 버프의 버프 시간만큼 버프를 준다.
             slotBuff.ExcuteBuff(player.gameObject); // 해당 버프에 있는 ExcuteBuff 를 실행하면, 버프매니저로 실행. 중복해서 먹었을 때 버프가 중복해서 걸리지 않도록 하기 위함.
-            go_BuffTimeImage.SetActive(true);
+            go_BuffTimeImage.gameObject.SetActive(true);
+            go_BuffTimeImage.fillAmount = 1;
             text_BuffTime.text = ((int)maxBuffTime).ToString(); // 시간은 float 형태가 아닌 우선 int 형태로 출력하게 함
+            cloneMaxButtTime = maxBuffTime;
         }
 
         SetColor(1);
@@ -148,7 +152,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
         SetColor(0);
 
         text_BuffTime.text = "0";
-        go_BuffTimeImage.SetActive(false);
+        go_BuffTimeImage.gameObject.SetActive(false);
+        go_BuffTimeImage.fillAmount = 1;
     }
 
     // 이 부분을 나중에 마우스 클릭이 아닌 모바일 터치로 바꿔보자.

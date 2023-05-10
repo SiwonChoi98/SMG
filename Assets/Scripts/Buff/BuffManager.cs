@@ -10,6 +10,7 @@ public class BuffManager : MonoBehaviour
 
     public GameObject[] BuffAuras;
 
+
     public float strengthBuffTime = 0f;
     public float strengthBuffTimeMax;
 
