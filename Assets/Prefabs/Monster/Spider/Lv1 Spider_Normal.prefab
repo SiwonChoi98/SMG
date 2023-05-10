@@ -1612,10 +1612,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterHealthCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4210044361493774911, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
 --- !u!114 &355748807 stripped
