@@ -16,12 +16,13 @@ public class GameManager : MonoBehaviour
     [Header("Stage")]
     public Stage stage;
     public List<Monster> monsters;
+
     public int currentMonsterCount; //몬스터 죽을때 줄여줄 카운트
     public int spawnCount; //현재 스테이지 스폰 몬스터 수
     private int spawnIndex; 
     public float currentStageRespawnTime; //현재 스테이지 리스폰타임
     [SerializeField] private Transform monsterSpawnPos; //몬스터 나오는 위치
-    [SerializeField] private Text currentStageTxt; //현재 스테이지 텍스트
+    [SerializeField] private TextMeshProUGUI currentStageTxt; //현재 스테이지 텍스트
     [SerializeField] private TextMeshProUGUI currentMonsterCountTxt; //현재 몬스터 수 텍스트
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
         for(int i=0; i<stage.asset.monsters.Count; i++) //스테이지 별 풀 저장
         {
-            monsters.Add(stage.asset.monsters[i]);
+            monsters.Add(stage.asset.monsters[i]); //몬스터 
             monsters[i] = Instantiate(monsters[i]);
             monsters[i].gameObject.SetActive(false);
         }
@@ -83,8 +84,10 @@ public class GameManager : MonoBehaviour
             else
             {
                 currentStageRespawnTime = stage.asset.respawnTime;
+
                 monsters[spawnIndex].gameObject.SetActive(true);
                 monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos.position;
+
                 spawnCount--;
                 spawnIndex++;
             }
