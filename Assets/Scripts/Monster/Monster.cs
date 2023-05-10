@@ -35,6 +35,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     protected StateMachine<Monster> stateMachine;
 
+    public Transform hitEffectPoint; // 피격 시 피격 이펙트가 생성되는 부분
     public Transform projectilePoint; // 투사체가 나가는 방향
     
     [Header("상태 체크 변수")]
@@ -113,8 +114,10 @@ public class Monster : MonoBehaviour, IDamageable
         }
 
         _curHealth -= damage;
+
+        HitEffect(hittEffectPrefab); // 피격 이펙트 생성
         DamageText(damage); //데미지 텍스트
-        //SoundManager.instance.SfxPlaySound(0); //테스트
+        SoundManager.instance.SfxPlaySound(0); //테스트
         if (mType == EMonsterType.Common) // 만약 일반 몬스터라면 바로 hit 처리
         {
             isHit = true; // 데미지 깎이면서 isHit을 true로
@@ -263,6 +266,21 @@ public class Monster : MonoBehaviour, IDamageable
     }
 
     #endregion Attack Methods
+
+    public void HitEffect(GameObject hitEffectPrefab) // 피격 시 피격 이펙트 생성
+    {
+        if(hitEffectPrefab != null)
+        {
+            float randPosX = Random.Range(-0.5f, 0.5f);
+            float randPosY = Random.Range(0f, 0.5f);
+
+            Vector3 randVec = new Vector3(randPosX, randPosY, 0);
+
+            GameObject hitEffect = Instantiate(hitEffectPrefab, hitEffectPoint.position + randVec, hitEffectPoint.rotation);
+
+            Destroy(hitEffect, 0.7f);
+        }
+    }
 
     public void DamageText(int dmg)
     {

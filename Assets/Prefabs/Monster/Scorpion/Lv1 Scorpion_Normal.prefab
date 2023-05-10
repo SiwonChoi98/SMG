@@ -1932,7 +1932,6 @@ GameObject:
   - component: {fileID: 4078040617677602302}
   - component: {fileID: 5612708675704469175}
   - component: {fileID: 8690742158624508662}
-  - component: {fileID: 1236143149}
   - component: {fileID: 1236143151}
   - component: {fileID: 7675965074039033444}
   m_Layer: 7
@@ -1960,6 +1959,7 @@ Transform:
   - {fileID: 1227752238}
   - {fileID: 285283019}
   - {fileID: 314669328}
+  - {fileID: 1871810403178555623}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2013,28 +2013,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1383057, y: 0.6147688, z: 1.8213196}
   m_Center: {x: -0.03073123, y: 0.55063707, z: 0.41065973}
---- !u!195 &1236143149
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4165656594251625110}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 360
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &1236143151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,6 +2030,7 @@ MonoBehaviour:
   _curHealth: 0
   _speed: 0
   _attackRange: 0
+  _attackRange2: 0
   _attackTime: 0
   _hitTime: 0
   monsterSkills:
@@ -2059,6 +2038,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   anim: {fileID: 0}
   target: {fileID: 0}
+  hitEffectPoint: {fileID: 1871810403178555623}
   projectilePoint: {fileID: 0}
   mType: 0
   isMove: 0
@@ -2067,10 +2047,11 @@ MonoBehaviour:
   isHit: 0
   isHitEnd: 1
   isHitbySkill: 0
-  isAttackingMove: 0
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 1008184783}
+  dmgText: {fileID: 0}
+  dmgTextPos: {fileID: 0}
 --- !u!114 &7675965074039033444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,3 +2292,34 @@ Transform:
   m_Father: {fileID: 4162477975128355356}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 56.542217, y: 122.07883, z: -26.689589}
+--- !u!1 &4745131436078070158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1871810403178555623}
+  m_Layer: 7
+  m_Name: HitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1871810403178555623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745131436078070158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.469, z: 0.194}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4162476869067681818}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

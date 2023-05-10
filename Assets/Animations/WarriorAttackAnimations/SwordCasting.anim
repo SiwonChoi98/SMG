@@ -90274,20 +90274,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.7
-    functionName: Skill
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 545de3f548190c84d889bba8f15e29d5, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.7333333
-    functionName: Skill
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 545de3f548190c84d889bba8f15e29d5, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 1.7666667
     functionName: Skill
     data: 
@@ -90295,14 +90281,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.8
+  - time: 1.8666667
     functionName: Skill
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 545de3f548190c84d889bba8f15e29d5, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.8333334
+  - time: 1.9666667
+    functionName: Skill
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 545de3f548190c84d889bba8f15e29d5, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.0666666
+    functionName: Skill
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 545de3f548190c84d889bba8f15e29d5, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.1666667
     functionName: Skill
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 545de3f548190c84d889bba8f15e29d5, type: 3}

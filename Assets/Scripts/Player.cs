@@ -91,15 +91,19 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     private void Update()
+    {   
+        //AttackKey();
+        //JoystickMove();
+        //UseSlotSkill();
+    }
+
+    private void FixedUpdate() // 움직임 및 rigid를 사용하는 부분은 여기에 구현
     {
         GetInput();
         Move();
         AttackingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
         Turn();
         Dodge();
-        //AttackKey();
-        //JoystickMove();
-        //UseSlotSkill();
     }
 
     // 플레이어의 입력을 받아온다.
@@ -144,14 +148,14 @@ public class Player : MonoBehaviour, IDamageable
 
         if (!isAttacking && !isCasting) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우
         {
-            transform.position += moveVec * speed * Time.deltaTime;
+            rigid.MovePosition(transform.position + moveVec * speed * Time.deltaTime);
 
             anim.SetBool("IsRun", moveVec != Vector3.zero);
         }
         //turn
         if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
+            rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
         }
 
     } //조이스틱 이동
@@ -163,8 +167,8 @@ public class Player : MonoBehaviour, IDamageable
             moveVec = dodgeVec;
 
         if (!isAttacking && !isCasting) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우
-        {   
-            transform.position += moveVec * speed * Time.deltaTime;
+        {
+            rigid.MovePosition(transform.position + moveVec * speed * Time.deltaTime);
 
             anim.SetBool("IsRun", moveVec != Vector3.zero);
         }
@@ -177,7 +181,7 @@ public class Player : MonoBehaviour, IDamageable
 
         if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
+            rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
         } 
             
     }
@@ -268,8 +272,8 @@ public class Player : MonoBehaviour, IDamageable
         {
             if (isAttackingMove) // 만약 공격 행동을 실행하여 살짝 이동해야 한다면, 5f는 원래 스피드값
             {
-                transform.position += transform.forward * 5f * Time.deltaTime *
-                               playerSkills[(int)playerCurrentSkill].attackForce; 
+                rigid.MovePosition(transform.position + 
+                    transform.forward * 5f * Time.deltaTime * playerSkills[(int)playerCurrentSkill].attackForce);
             }
         }   
     }
