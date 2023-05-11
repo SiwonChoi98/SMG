@@ -34,7 +34,11 @@ public class GameManager : MonoBehaviour
     public void NextGame() 
     {
         StageManager.instance.SetCurrent(++StageManager.instance.currentStageIndex);
-        currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
+        LoadingSceneController.Instance.LoadScene("InGame");
+    }
+    public void ReplayGame()
+    {
+        StageManager.instance.SetCurrent(StageManager.instance.currentStageIndex);
         LoadingSceneController.Instance.LoadScene("InGame");
     }
     public void PauseGame()
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
 }
     private void Start()
     {
+        PlayGame();
         spawnIndex = 0;
         currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
         player.transform.position = outPortalPos.position; //시작위치조정
