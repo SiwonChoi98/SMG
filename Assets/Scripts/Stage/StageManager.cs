@@ -27,11 +27,13 @@ public class StageManager : MonoBehaviour
         DontDestroyOnLoad(this);        
 
         stageAssets = new List<StageAsset>();
+       
 
-        
     }
     private void Start()
     {
+        //PlayerPrefs.SetInt(CURRENT_STAGE_KEY, lastStageIndex = 0); //최고기록 초기화
+        lastStageIndex = PlayerPrefs.GetInt(CURRENT_STAGE_KEY);
         foreach (var stage in Resources.LoadAll(_folderName))
         {
             stageAssets.Add((StageAsset)stage);
