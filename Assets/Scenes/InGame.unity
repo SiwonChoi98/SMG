@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028466, g: 0.22571518, b: 0.30692518, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802844, g: 0.22571479, b: 0.30692443, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -39882,6 +39882,7 @@ MonoBehaviour:
   currentMonsterCountTxt: {fileID: 1129728171424832673}
   outPortalPos: {fileID: 600545938}
   clearPortal: {fileID: 1031291463}
+  gameOverPanel: {fileID: 4501108671187683480}
 --- !u!4 &2007805269
 Transform:
   m_ObjectHideFlags: 0
@@ -42497,6 +42498,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1943652330}
+    - target: {fileID: 3592394433222382359, guid: c6fdbb218f9daee419f78d27086d97e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2007805268}
     - target: {fileID: 5729042021990621884, guid: c6fdbb218f9daee419f78d27086d97e7, type: 3}
       propertyPath: player
       value: 
@@ -42618,6 +42623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f305a96336ee97b4ebe191ef49c4d788, type: 3}
+--- !u!1 &4501108671187683480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3592394434191676472, guid: c6fdbb218f9daee419f78d27086d97e7, type: 3}
+  m_PrefabInstance: {fileID: 1129728171424832672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4645584676187464164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3062636064616549626, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}

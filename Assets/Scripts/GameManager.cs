@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentMonsterCountTxt; //현재 몬스터 수 텍스트
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
-    
+    [SerializeField] private GameObject gameOverPanel;
     public void BackSceneButton()
     {
         LoadingSceneController.Instance.LoadScene("Title");
@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour
         StageManager.instance.SetCurrent(++StageManager.instance.currentStageIndex);
         currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
         LoadingSceneController.Instance.LoadScene("InGame");
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void PlayGame()
+    {
+        Time.timeScale = 1;
     }
     private void Awake()
     {
@@ -63,13 +71,12 @@ public class GameManager : MonoBehaviour
     {
         if (stage.asset.IsClear())
         {
-            Debug.Log("StageClear");
             clearPortal.SetActive(true);
-
         }
         if (stage.asset.IsOver())
         {
-            Debug.Log("GameOver");
+            gameOverPanel.SetActive(true);
+            PauseGame();
         }
         MonsterSpwan();
     }

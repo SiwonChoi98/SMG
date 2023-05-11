@@ -12,6 +12,7 @@ public class Title : MonoBehaviour
     public bool isStart = false;
     private void Awake()
     {
+        Time.timeScale = 1;
         isStart = false;
         titleAnim = titlePlayer.GetComponentInChildren<Animator>();
         //SoundManager.instance.BgmPlaySound(0); //테스트
