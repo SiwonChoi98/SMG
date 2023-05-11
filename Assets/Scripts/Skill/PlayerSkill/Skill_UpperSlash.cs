@@ -9,6 +9,8 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
+        SoundManager.instance.SfxPlaySound(7);
+
         GameObject go = Instantiate(slashObject, 
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
              SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
@@ -23,6 +25,7 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
+        
     }
 
     public override void ExitParticleSystem()

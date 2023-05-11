@@ -8,6 +8,7 @@ public class ClearPortal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            StageManager.instance.LastStageUp();
             GameManager.instance.NextGame();
         }
     }

@@ -31,6 +31,7 @@ public class Skill_Baldo : BaseSkill // 89 프레임, 12프레임부터 파티�
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
+        SoundManager.instance.SfxPlaySound(4);
     }
 
     public override void ExitParticleSystem()

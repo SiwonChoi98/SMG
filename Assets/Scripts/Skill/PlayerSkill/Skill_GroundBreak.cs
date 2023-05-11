@@ -9,6 +9,8 @@ public class Skill_GroundBreak : BaseSkill
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
+        SoundManager.instance.SfxPlaySound(9);
+
         ManualCollision collision = GameObject.Find("GroundBreak_Area").GetComponent<ManualCollision>(); // 만약 할당이 안된 상태라면 저장해준다.
 
         groundBreakAttackCollision = collision;
@@ -30,7 +32,7 @@ public class Skill_GroundBreak : BaseSkill
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
-
+        SoundManager.instance.SfxPlaySound(10);
     }
 
     public override void ExitParticleSystem()

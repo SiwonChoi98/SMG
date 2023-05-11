@@ -117,7 +117,7 @@ public class Monster : MonoBehaviour, IDamageable
 
         HitEffect(hittEffectPrefab); // 피격 이펙트 생성
         DamageText(damage); //데미지 텍스트
-        SoundManager.instance.SfxPlaySound(0); //테스트
+        SoundManager.instance.SfxPlaySound(0, 0.5f); //테스트
         if (mType == EMonsterType.Common) // 만약 일반 몬스터라면 바로 hit 처리
         {
             isHit = true; // 데미지 깎이면서 isHit을 true로

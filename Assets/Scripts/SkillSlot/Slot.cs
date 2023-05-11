@@ -125,6 +125,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
         maxBuffTime = _time; // 더해주는 것이 아닌 다시 초기화
         BuffManager.instance.SlotBuffReset(slotBuff.mBuffType);
         text_BuffTime.text = ((int)maxBuffTime).ToString();
+        go_BuffTimeImage.fillAmount = 1;
     }
 
     // 스킬 슬롯 초기화

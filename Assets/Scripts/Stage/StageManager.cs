@@ -5,16 +5,18 @@ using System.Linq;
 public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
+    private const string CURRENT_STAGE_KEY = "CURRENT_STAGE"; 
 
     public List<StageAsset> stageAssets;
     public StageAsset currentStage;
-    public int currentStageIndex;
-
+    public int currentStageIndex; //현재스테이지
+    public int lastStageIndex; //제일 마지막 스테이지
     [SerializeField]
     private string _folderName = "Stage";
     private void Awake()
     {
-        if(instance == null)
+       
+        if (instance == null)
         {
             instance = this;
         }
@@ -22,7 +24,7 @@ public class StageManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);        
 
         stageAssets = new List<StageAsset>();
 
@@ -36,9 +38,15 @@ public class StageManager : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
+    public void LastStageUp()
     {
-        
+        if (currentStageIndex >= lastStageIndex)
+        {
+            lastStageIndex = currentStageIndex;
+            PlayerPrefs.SetInt(CURRENT_STAGE_KEY, lastStageIndex);
+        }
+
+
     }
     public StageAsset GetCurrentStage()
     {

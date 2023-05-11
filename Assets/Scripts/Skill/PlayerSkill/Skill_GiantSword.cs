@@ -35,6 +35,7 @@ public class Skill_GiantSword : BaseSkill
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
+        SoundManager.instance.SfxPlaySound(8, 0.5f);
     }
 
     public override void ExitParticleSystem()

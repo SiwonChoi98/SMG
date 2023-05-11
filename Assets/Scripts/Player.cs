@@ -277,6 +277,7 @@ public class Player : MonoBehaviour, IDamageable
             }
         }   
     }
+
     
 
     #endregion Move Methods
@@ -291,7 +292,7 @@ public class Player : MonoBehaviour, IDamageable
                 isAttacking = true;
                 anim.SetTrigger("DoAttack"); // 애니메이터에서 Attack 서브스테이트 머신으로 들어가게 만들고
                 anim.SetBool("AttackEnd", false); // AttackEnd를 다시 False로 해준다.
-
+                SoundManager.instance.SfxPlaySound(1);
                 playerCurrentSkill = 
                     EPlayerSkillType.NormalAttack1; // 현재 공격 상태를 기본 공격 1로 해준다.
 
@@ -300,7 +301,7 @@ public class Player : MonoBehaviour, IDamageable
 
             // bool을 변수로 뺐더니 오류 발생
 
-            if (isAttacking && !isDodging && !isCasting && anim.GetBool("AttackEnable"))  // 공격 상태인 경우 && 회피 중이지 않은 경우  && 스킬 시전 상태도 아닌 경우 그리고 다음 공격 애니메이션이 가능한 경우 
+            else if (isAttacking && !isDodging && !isCasting && anim.GetBool("AttackEnable"))  // 공격 상태인 경우 && 회피 중이지 않은 경우  && 스킬 시전 상태도 아닌 경우 그리고 다음 공격 애니메이션이 가능한 경우 
             {
                 int attackComboNum = anim.GetInteger("AttackCombo");
 
@@ -309,7 +310,7 @@ public class Player : MonoBehaviour, IDamageable
                     case 1:
                         {
                             anim.SetInteger("AttackCombo", 2);
-
+                            SoundManager.instance.SfxPlaySound(2);
                             playerCurrentSkill = 
                                 EPlayerSkillType.NormalAttack2; // 현재 공격 상태를 기본 공격 2로 해준다.
 
@@ -319,17 +320,17 @@ public class Player : MonoBehaviour, IDamageable
                     case 2:
                         {
                             anim.SetInteger("AttackCombo", 3);
-
+                            SoundManager.instance.SfxPlaySound(3);
                             playerCurrentSkill = 
                                 EPlayerSkillType.NormalAttack3; // 현재 공격 상태를 기본 공격 3으로 해준다.
 
-                            playerSkills[(int)EPlayerSkillType.NormalAttack3].ExcuteParticleSystem();
+                            playerSkills[(int)EPlayerSkillType.NormalAttack3].ExcuteParticleSystem();     
                             break;
                         }
                     case 3:
                         {
                             anim.SetInteger("AttackCombo", 1);
-
+                            SoundManager.instance.SfxPlaySound(1);
                             playerCurrentSkill = 
                                 EPlayerSkillType.NormalAttack1; // 현재 공격 상태를 기본 공격 1로 해준다.
 
@@ -404,7 +405,6 @@ public class Player : MonoBehaviour, IDamageable
 
     }
 
-
     #endregion Attack Methods
 
     #region Skill Methods
@@ -420,8 +420,9 @@ public class Player : MonoBehaviour, IDamageable
             isCasting = true;
             anim.SetTrigger("DoSkill");
             anim.SetInteger("SkillNumber", (int)_skill.mSkillType); // 스킬의 mSkill 번호대로 스킬 애니메이션을 실행해준다.
-            
-            
+
+          
+
             anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
             playerCurrentSkill = EPlayerSkillType.SlotSkill;
 

@@ -17,6 +17,8 @@ public class Skill_Shield : BaseSkill
     public override void ExcuteParticleSystem()
     {
         SkillManager.instance.AttachParticle(mSkillType, mParticleType);
+
+        SoundManager.instance.SfxPlaySound(6);
     }
 
     public override void ExitParticleSystem()

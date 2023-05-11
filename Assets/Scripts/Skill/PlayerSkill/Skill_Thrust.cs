@@ -33,6 +33,8 @@ public class Skill_Thrust : BaseSkill
     public override void ExcuteParticleSystem()
     {
         SkillManager.instance.AttachParticle(mSkillType, mParticleType);
+
+        SoundManager.instance.SfxPlaySound(5);
     }
 
     public override void ExitParticleSystem()
