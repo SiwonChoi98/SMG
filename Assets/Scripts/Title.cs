@@ -9,8 +9,10 @@ public class Title : MonoBehaviour
     public Animator titleAnim;
     public GameObject titlePlayer;
     public Text bestScoreTxt;
+    public bool isStart = false;
     private void Awake()
     {
+        isStart = false;
         titleAnim = titlePlayer.GetComponentInChildren<Animator>();
         //SoundManager.instance.BgmPlaySound(0); //테스트
     }
@@ -20,7 +22,9 @@ public class Title : MonoBehaviour
     }
     public void StartButton()
     {
-        StartCoroutine(StartStage());
+        if(!isStart)
+            StartCoroutine(StartStage());
+        isStart = true;
     }
     private IEnumerator StartStage()
     {
