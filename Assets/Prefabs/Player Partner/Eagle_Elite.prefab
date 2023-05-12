@@ -54,7 +54,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 3787948534291352549, guid: 64334a9893f92ff4c889c359a04888a9, type: 3}
 --- !u!1 &7622367260684954445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7623390334688072925
 GameObject:

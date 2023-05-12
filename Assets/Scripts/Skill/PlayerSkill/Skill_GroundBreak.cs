@@ -32,7 +32,7 @@ public class Skill_GroundBreak : BaseSkill
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
-        SoundManager.instance.SfxPlaySound(10);
+        SoundManager.instance.SfxPlaySound(10, 0.7f);
     }
 
     public override void ExitParticleSystem()
@@ -40,4 +40,5 @@ public class Skill_GroundBreak : BaseSkill
 
 
     }
+
 }

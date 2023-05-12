@@ -9,7 +9,7 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
-        SoundManager.instance.SfxPlaySound(7);
+        SoundManager.instance.SfxPlaySound(7, 0.5f);
 
         GameObject go = Instantiate(slashObject, 
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
@@ -17,6 +17,7 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
 
         go.GetComponent<Projectile_UpperSlash>().SetDamage((int)(damage));
         go.GetComponent<Projectile_UpperSlash>().SetTarget(targetMask);
+        go.GetComponent<Projectile_UpperSlash>().SetHitEffect(effectPrefab);
 
     }
 

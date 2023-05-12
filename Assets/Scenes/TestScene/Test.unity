@@ -15272,7 +15272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165656594251625110, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
@@ -19676,6 +19676,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4499918589133206, guid: 820e03ebeca7c414f80ca3385e1db17c, type: 3}
   m_PrefabInstance: {fileID: 1047456914}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &919751163
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.0275373
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.1294136
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.1611953
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732291, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
 --- !u!1001 &921785364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29823,7 +29880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165656594251625110, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
@@ -32310,7 +32367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165656594251625110, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
@@ -44227,6 +44284,7 @@ MonoBehaviour:
   currentMonsterCountTxt: {fileID: 0}
   outPortalPos: {fileID: 0}
   clearPortal: {fileID: 0}
+  gameOverPanel: {fileID: 0}
 --- !u!4 &2007805269
 Transform:
   m_ObjectHideFlags: 0

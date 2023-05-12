@@ -155,7 +155,8 @@ public class Player : MonoBehaviour, IDamageable
         //turn
         if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
         {
-            rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
+            //rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
         }
 
     } //조이스틱 이동
@@ -181,7 +182,8 @@ public class Player : MonoBehaviour, IDamageable
 
         if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
         {
-            rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
+            //rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
         } 
             
     }
@@ -320,7 +322,7 @@ public class Player : MonoBehaviour, IDamageable
                     case 2:
                         {
                             anim.SetInteger("AttackCombo", 3);
-                            SoundManager.instance.SfxPlaySound(3);
+                            SoundManager.instance.SfxPlaySound(3, 0.6f);
                             playerCurrentSkill = 
                                 EPlayerSkillType.NormalAttack3; // 현재 공격 상태를 기본 공격 3으로 해준다.
 

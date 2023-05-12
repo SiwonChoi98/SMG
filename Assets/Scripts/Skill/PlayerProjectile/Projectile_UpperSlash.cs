@@ -49,5 +49,10 @@ public class Projectile_UpperSlash : MonoBehaviour // UpperSlash는 16.5 속도 
     {
         TargetMask = layerMask;
     }
+
+    public void SetHitEffect(GameObject hitEffect)
+    {
+        hitFx = hitEffect;
+    }    
 }
 

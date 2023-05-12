@@ -23,6 +23,7 @@ public class Skill_SpawnEagle : BaseSkill
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
+        SoundManager.instance.SfxPlaySound(12, 0.5f);
     }
 
     public override void ExitParticleSystem()

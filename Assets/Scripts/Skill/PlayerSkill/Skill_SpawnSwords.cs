@@ -20,6 +20,7 @@ public class Skill_SpawnSwords : BaseSkill
 
             go.GetComponent<Projectile_SpawnSwords>().SetDamage((int)(damage));
             go.GetComponent<Projectile_SpawnSwords>().SetTarget(targetMask);
+            go.GetComponent<Projectile_SpawnSwords>().SetHitEffect(effectPrefab);
         }
         
 
@@ -30,6 +31,7 @@ public class Skill_SpawnSwords : BaseSkill
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
+        SoundManager.instance.SfxPlaySound(11, 0.5f);
     }
 
     public override void ExitParticleSystem()

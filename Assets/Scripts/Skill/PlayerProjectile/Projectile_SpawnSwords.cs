@@ -40,7 +40,7 @@ public class Projectile_SpawnSwords : MonoBehaviour
             transform.position += transform.up * currentSpeed * Time.deltaTime;
 
             Vector3 t_dir = (target.position - transform.position).normalized; // 몬스터의 transform이 다 바닥에 있어서 살짝 위로 날아가야 한다.
-            transform.up = Vector3.Lerp(transform.up, t_dir, 0.3f); // 값이 클수록 적에게 빨리 회전해서 날아간다.
+            transform.up = Vector3.Lerp(transform.up, t_dir, 0.7f); // 값이 클수록 적에게 빨리 회전해서 날아간다.
         }
         
     }
@@ -69,6 +69,10 @@ public class Projectile_SpawnSwords : MonoBehaviour
         TargetMask = layerMask;
     }
 
+    public void SetHitEffect(GameObject hitEffect)
+    {
+        hitFx = hitEffect;
+    }
     void SearchEnemy()
     {
         Collider[] t_cols = Physics.OverlapSphere(transform.position, 100f, TargetMask);

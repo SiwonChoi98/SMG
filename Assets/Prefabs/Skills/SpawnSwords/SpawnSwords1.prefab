@@ -55,7 +55,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 3787948534291352549, guid: 8acb1e2c84af6854886575a2dd8aa89f, type: 3}
   swordObject: {fileID: 6570769750421030602, guid: 277ca93a5ea42df4f9c00958a1585a47, type: 3}
 --- !u!1001 &6953037197968985197
 PrefabInstance:

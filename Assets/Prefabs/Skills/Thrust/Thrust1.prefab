@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d48dc0e3d4f3f4e8d69a8d4d18bd82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid_Player: {fileID: 0}
   particleSystems: []
   damage: 4
   attackForce: 1.5
@@ -56,7 +55,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 3787948534291352549, guid: b1d0d9c164ab5c44caa7cf1cf2133a54, type: 3}
   thrustAttackCollision: {fileID: 0}
 --- !u!1 &6843833554349116319
 GameObject:

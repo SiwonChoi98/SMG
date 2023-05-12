@@ -49,4 +49,9 @@ public class Projectile_ComboSlash : MonoBehaviour
     {
         TargetMask = layerMask;
     }
+
+    public void SetHitEffect(GameObject hitEffect)
+    {
+        hitFx = hitEffect;
+    }
 }

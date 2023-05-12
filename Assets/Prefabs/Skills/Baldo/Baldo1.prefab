@@ -56,7 +56,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 3787948534291352549, guid: 8dd4f11075192c843a53d222c69b7bc8, type: 3}
   BaldoAttackCollision: {fileID: 0}
 --- !u!1001 &896609735060721145
 PrefabInstance:

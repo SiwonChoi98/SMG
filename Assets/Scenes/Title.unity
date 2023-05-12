@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12283,7 +12283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781891342}
   m_LocalRotation: {x: 0, y: 0.4382849, z: 0, w: 0.89883614}
-  m_LocalPosition: {x: -4.9082823, y: 3.205606, z: -5.5469394}
+  m_LocalPosition: {x: -7.4509993, y: 1.01, z: -8.161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30588,6 +30588,7 @@ MonoBehaviour:
   titleAnim: {fileID: 0}
   titlePlayer: {fileID: 1706455313225877237}
   bestScoreTxt: {fileID: 1767907750}
+  isStart: 0
 --- !u!1001 &1862218107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34902,10 +34903,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2984878219490151898, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2984878220450732290, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -34953,106 +34950,6 @@ PrefabInstance:
     - target: {fileID: 2984878220450732291, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
       propertyPath: m_Name
       value: SoundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: bgmSoundList.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f9c246560a91944e828452d8788859c, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: bgmSoundList.Array.data[0].name
-      value: Test)TitleSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 281d6d6ce8ed0594e8920c05b8c979c6, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[0].name
-      value: 0)MonsterHitSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3689d148034d92641a7c45736c34bd39, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[1].name
-      value: 1)PlayerNormalAttack1Sound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3689d148034d92641a7c45736c34bd39, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[2].name
-      value: 2)PlayerNormalAttack2Sound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9b180809af0442d41966ea0fa35d6535, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[3].name
-      value: 3)PlayerNormalAttack3Sound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 650f6f967dac50d44a321b428ea340cc, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[4].name
-      value: 4)SkillBaldoSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 809a50eb36cfdde4f8afeec163ac90c8, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[5].name
-      value: 5)SkillThrustSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4ec491a0500aac449a6524cdbc7757d8, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[6].name
-      value: 6)SkillShieldSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 57d564288f171d14193ef24205251a7c, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[7].name
-      value: 7)SkillUpperSlashSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0d3d81e05c786354491b6e88233eaaad, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[8].name
-      value: 8)SkillGiantSwordSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[9].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ec1306974a54a63428535340491a03db, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[9].name
-      value: 9)SkillGroundBreakSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[10].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: bb5b5edcaa0b9b74b87f4b55bbec7af2, type: 3}
-    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
-      propertyPath: sfxSoundList.Array.data[10].name
-      value: 10)SkillGroundBreakJumpSound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}

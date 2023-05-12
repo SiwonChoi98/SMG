@@ -38,7 +38,8 @@ public class MoveState : State<Monster>
                     return;
                 }
             }
-            context.transform.position = Vector3.MoveTowards(context.transform.position, context.target.position, Time.deltaTime * 2.5f);
+            context.rigid.MovePosition(Vector3.MoveTowards(context.transform.position, context.target.position, Time.deltaTime * 2.5f));
+            //context.transform.position = Vector3.MoveTowards(context.transform.position, context.target.position, Time.deltaTime * 2.5f);
             context.transform.LookAt(context.target.position);
         }
     }

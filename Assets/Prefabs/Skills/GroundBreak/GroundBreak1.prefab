@@ -55,7 +55,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 3787948534291352549, guid: 8c887a28846a3ba4f8d0173330266be5, type: 3}
   groundBreakAttackCollision: {fileID: 0}
 --- !u!1001 &6636937870616184369
 PrefabInstance:
