@@ -57,6 +57,7 @@ public class Player : MonoBehaviour, IDamageable
     
     public List<Transform> skillSpawnPos = new List<Transform>(); // 스킬들을 스폰할 위치를 담은 리스트
 
+    public bool isShield; // 쉴드 상태인가?
     public int ShieldCount; // 쉴드 스킬 시 생성하는 보호막 개수
 
     public bool isStrengthBuff; // 힘 버프를 받고 있는가?

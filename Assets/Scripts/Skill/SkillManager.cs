@@ -31,10 +31,16 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    //private void Update()
-    //{
-
-    //}
+    private void Update()
+    {
+        if (player.ShieldCount <= 0 && player.isShield)  // 쉴드 카운트가 0이 된 경우 && 그전까지 쉴드 상태였던 경우
+        {
+            Debug.Log("쉴드 상태 제거");
+            player.isShield = false;
+            GameObject shield = GameObject.Find("Shield1(Clone)"); // 일단 임시로 이렇게 제거하도록 하였다.
+            Destroy(shield);
+        }
+    }
 
     public void SpawnParticle(ESkillType skillType, ESkillParticleType particleType) // 레벨은 나중에 넣든지 하자.
     {
@@ -199,8 +205,6 @@ public class SkillManager : MonoBehaviour
                     particle.Play(); // 각 위치에 맞게 
                 }
 
-
-                Destroy(ShieldSkill, 3f);
             }
 
            

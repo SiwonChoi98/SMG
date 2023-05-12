@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Skill_Shield : BaseSkill
 {
@@ -8,16 +9,23 @@ public class Skill_Shield : BaseSkill
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
-        // 이 부분에 DefenseCount를 3으로 해서, 맞을 때마다 까이는 식으로 하는 건 어떤지? 중첩 때문에 이런 방식이 나을 것 같다.
-        SkillManager.instance.player.ShieldCount += 3; 
-        
+ 
     }
 
 
     public override void ExcuteParticleSystem()
     {
-        SkillManager.instance.AttachParticle(mSkillType, mParticleType);
+        Player _player = SkillManager.instance.player;
 
+        _player.ShieldCount += 3;
+
+        if (_player.isShield == false) // 쉴드가 없는 경우에만 파티클 생성
+        {
+            _player.isShield = true;
+
+            SkillManager.instance.AttachParticle(mSkillType, mParticleType);
+        }
+       
         SoundManager.instance.SfxPlaySound(6);
     }
 

@@ -23,12 +23,19 @@ public class DeadState : State<Monster>
 
     public override void OnExit()
     { 
+
     }
 
     IEnumerator DeadStateAnim()
     {
         animator?.SetTrigger("doDead");
+
+        context.gameObject.layer = 14; // MonsterDeath 레이어로 바꿔준다.
+        
         yield return new WaitForSeconds(1.6f);
+
+        
         context.gameObject.SetActive(false);
+
     }
 }
