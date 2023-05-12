@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentMonsterCountTxt; //현재 몬스터 수 텍스트
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
-    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gameOverPanel; //게임오버 판넬
     public void BackSceneButton()
     {
         LoadingSceneController.Instance.LoadScene("Title");
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         PlayGame();
         spawnIndex = 0;
-        currentStageTxt.text = StageManager.instance.currentStageIndex.ToString();
+        currentStageTxt.text = StageManager.instance.currentStageIndex.ToString(); //현 스테이지 보여주기
         player.transform.position = outPortalPos.position; //시작위치조정
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
         for(int i=0; i<stage.asset.monsters.Count; i++) //스테이지 별 풀 저장
