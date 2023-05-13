@@ -17,8 +17,9 @@ public class Skill_Shield : BaseSkill
     {
         Player _player = SkillManager.instance.player;
 
-        _player.ShieldCount += 3;
-
+        _player.ShieldCount = 3; //+= 3이 아닌 =으로 수정
+        GameManager.instance.playerShieldImage.fillAmount = 1;
+        GameManager.instance.playerShieldImage.gameObject.SetActive(true);
         if (_player.isShield == false) // 쉴드가 없는 경우에만 파티클 생성
         {
             _player.isShield = true;

@@ -6,6 +6,7 @@ using Cinemachine;
 using UnityEngine.UI;
 public class Title : MonoBehaviour
 {
+    public Slider[] volumeSlider;
     public Animator titleAnim;
     public GameObject titlePlayer;
     public Text bestScoreTxt;
@@ -20,6 +21,9 @@ public class Title : MonoBehaviour
     private void Start()
     {
         bestScoreTxt.text = StageManager.instance.lastStageIndex.ToString() + " STAGE";
+
+        volumeSlider[0].value = SoundManager.instance.bgmAudioSource.volume; //볼륨조절
+        volumeSlider[1].value = SoundManager.instance.sfxAudioSource.volume;
     }
     public void StartButton()
     {
@@ -34,5 +38,5 @@ public class Title : MonoBehaviour
         yield return new WaitForSeconds(1f);
         LoadingSceneController.Instance.LoadScene("InGame");
     }
-
+    
 }

@@ -485,6 +485,11 @@ public class Player : MonoBehaviour, IDamageable
         if (ShieldCount > 0)
         {
             ShieldCount -= 1;
+            GameManager.instance.playerShieldImage.fillAmount = (float)1 / 3;
+            if (ShieldCount == 0)
+            {
+                GameManager.instance.playerShieldImage.gameObject.SetActive(false);
+            }
             return;
         }
 
@@ -513,14 +518,6 @@ public class Player : MonoBehaviour, IDamageable
     private bool PlayerStateCheck() // 여기 부분에 나중에 isDamage 같은 플레이어 피격 상태도 넣어야 할듯
     {
         return (!isAttacking && !isDodging && !isCasting);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Clear"))
-        {
-
-        }
     }
 }
 

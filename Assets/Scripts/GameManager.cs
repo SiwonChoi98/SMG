@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerHealthImageTrans;
     [SerializeField] private Image playerHealthImage;
     [SerializeField] private Image playerCanvasHealthImage;
+    public Image playerShieldImage;
 
     [Header("Stage")]
     public Stage stage;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
     [SerializeField] private GameObject gameOverPanel; //게임오버 판넬
+    public Slider[] volumeSlider; //볼륨조절
     public void BackSceneButton()
     {
         LoadingSceneController.Instance.LoadScene("Title");
@@ -63,6 +65,8 @@ public class GameManager : MonoBehaviour
         spawnIndex = 0;
         currentStageTxt.text = StageManager.instance.currentStageIndex.ToString(); //현 스테이지 보여주기
         player.transform.position = outPortalPos.position; //시작위치조정
+        volumeSlider[0].value = SoundManager.instance.bgmAudioSource.volume; //볼륨조절
+        volumeSlider[1].value = SoundManager.instance.sfxAudioSource.volume;
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
         for(int i=0; i<stage.asset.monsters.Count; i++) //스테이지 별 풀 저장
         {
