@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 6206119591223704755}
   - component: {fileID: 6206119591223704757}
   - component: {fileID: 6206119591223704756}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX_Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5081,7 +5081,7 @@ GameObject:
   - component: {fileID: 6206119591736258749}
   - component: {fileID: 6206119591736258751}
   - component: {fileID: 6206119591736258750}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10089,7 +10089,7 @@ GameObject:
   - component: {fileID: 6206119592094974915}
   - component: {fileID: 6206119592094974917}
   - component: {fileID: 6206119592094974916}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX_Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14971,7 +14971,7 @@ GameObject:
   - component: {fileID: 6206119592156620356}
   - component: {fileID: 6206119592156620358}
   - component: {fileID: 6206119592156620357}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX_ExplosionGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24783,7 +24783,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &605234525520035991
 MonoBehaviour:
@@ -24822,7 +24822,7 @@ GameObject:
   - component: {fileID: 6206119592382894946}
   - component: {fileID: 6206119592382894948}
   - component: {fileID: 6206119592382894947}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX_AmbienceGlint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29731,7 +29731,7 @@ GameObject:
   - component: {fileID: 6206119592544459017}
   - component: {fileID: 6206119592544459019}
   - component: {fileID: 6206119592544459018}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX_GroundGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34640,7 +34640,7 @@ GameObject:
   - component: {fileID: 6206119592998925242}
   - component: {fileID: 6206119592998925244}
   - component: {fileID: 6206119592998925243}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX_ExplosionTrails
   m_TagString: Untagged
   m_Icon: {fileID: 0}

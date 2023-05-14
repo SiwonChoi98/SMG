@@ -171,8 +171,18 @@ public class Player : MonoBehaviour, IDamageable
         if (!isAttacking && !isCasting) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우
         {
             rigid.MovePosition(transform.position + moveVec * speed * Time.deltaTime);
-
-            anim.SetBool("IsRun", moveVec != Vector3.zero);
+            
+            if(isSpeedBuff) // 만약 스피드 버프가 켜져있는 상황이라면 다른 모션이 나오도록 한다.
+            {
+                anim.SetBool("IsRun", false);
+                anim.SetBool("IsSprint", moveVec != Vector3.zero);
+            }
+            else
+            {
+                anim.SetBool("IsSprint", false);
+                anim.SetBool("IsRun", moveVec != Vector3.zero);
+            }
+           
         }
     
     }

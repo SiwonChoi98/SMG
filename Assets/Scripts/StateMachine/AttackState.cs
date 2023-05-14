@@ -67,11 +67,6 @@ public class AttackState : State<Monster>
                 stateMachine.ChangeState<HitState>();
                 return;
             }
-            if (!context.isAttackRange && context.anim.GetBool("SkillEnd")) // 공격 사거리 내에 들어와있지 않다면 Idle로 이동 && 공격 애니메이션이 다 끝나면 Idle로 이동
-            {
-                stateMachine.ChangeState<IdleState>();
-                return;
-            }
             if (context.isAttack) //공격할수있으면 다시 공격
             {
                 context.anim.SetBool("SkillEnd", false);
@@ -81,6 +76,12 @@ public class AttackState : State<Monster>
                 context.isAttack = false;
                 return;
             }
+            if (!context.isAttackRange && context.anim.GetBool("SkillEnd")) // 공격 사거리 내에 들어와있지 않다면 Idle로 이동 && 공격 애니메이션이 다 끝나면 Idle로 이동
+            {
+                stateMachine.ChangeState<IdleState>();
+                return;
+            }
+          
            
         }
 

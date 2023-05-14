@@ -35,7 +35,7 @@ public class Eagle : MonoBehaviour
     private void Update()
     {
       
-        if(target != null) // 타겟이 있다면
+        if(target != null && target.IsAlive) // 타겟이 있다면 && 그리고 살아있다면
         {
             Attack();
         }
@@ -43,23 +43,29 @@ public class Eagle : MonoBehaviour
         CheckCoolTime();
     }
 
-    //public void AttackDistanceCheak()
-    //{
-    //    Collider[] cols = Physics.OverlapSphere(transform.position, _attackRange, targetMask);
+    public void AttackDistanceCheck()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, _attackRange, targetMask);
 
-    //    if(cols.Length > 0) // 몬스터가 하나라도 있으면
-    //    {
-    //        for (int i = 0; i < cols.Length; i++)
-    //        {
-    //           target = cols[i].gameObject.GetComponent<Monster>();
-    //            break;
-    //        }
-    //    }
-    //}
+        if (cols.Length > 0) // 몬스터가 하나라도 있으면
+        {
+            for (int i = 0; i < cols.Length; i++)
+            {
+                
+                target = cols[i].gameObject.GetComponent<Monster>();
+                
+                if (target.IsAlive)
+                {
+                    break;
+                }
+               
+            }
+        }
+    }
 
     private void Attack()
     {
-        if(isAttack && target.IsAlive) // 공격 가능하고 타겟이 살아있다면
+        if(isAttack && target.IsAlive) // 공격 가능하고 타겟이 활성화되어있다면
         {
             anim.SetBool("SkillEnd", false);
             anim?.SetTrigger("doAttack");
@@ -112,12 +118,20 @@ public class Eagle : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.CompareTag("Monster") && target == null)
+        if (other.gameObject.CompareTag("Monster"))
         {
-            Debug.Log("Monster 탐지 중");
+            AttackDistanceCheck();
 
-            target = other.gameObject.GetComponent<Monster>();
+            //if (target == null) // 소환되자마자는 타겟이 없으므로 할당시켜준다.
+            //{
+            //    Debug.Log("Monster 첫 탐지");
 
+            //    target = other.gameObject.GetComponent<Monster>();
+            //}
+            //else if (target != null && !target.enabled) // 타겟이 비활성화되면 다시 타겟을 찾아준다.
+            //{
+            //    AttackDistanceCheck();
+            //}
             //AttackDistanceCheak();
         }
     }

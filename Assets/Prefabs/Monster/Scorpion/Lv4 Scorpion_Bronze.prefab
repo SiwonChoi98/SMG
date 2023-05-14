@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 1370363543}
   - component: {fileID: 1370363542}
   - component: {fileID: 6713715530846700225}
+  - component: {fileID: -5771701184617926828}
   m_Layer: 7
   m_Name: Lv4 Scorpion_Bronze
   m_TagString: Monster
@@ -354,6 +355,7 @@ MonoBehaviour:
   _curHealth: 0
   _speed: 0
   _attackRange: 0
+  _attackRange2: 0
   _attackTime: 0
   _hitTime: 0
   monsterSkills:
@@ -361,6 +363,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   anim: {fileID: 0}
   target: {fileID: 0}
+  hitEffectPoint: {fileID: 0}
   projectilePoint: {fileID: 350741469}
   mType: 1
   isMove: 0
@@ -369,10 +372,11 @@ MonoBehaviour:
   isHit: 0
   isHitEnd: 1
   isHitbySkill: 0
-  isAttackingMove: 0
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 0}
+  dmgText: {fileID: 0}
+  dmgTextPos: {fileID: 0}
 --- !u!114 &6713715530846700225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +389,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb818bbd055aa0489f03e9a2429493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5771701184617926828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044438554098634528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0c31f969457a0429681ddd0095ca20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 6206119592252485752, guid: 055a76fb6ff85a1449f2cebf120795f7, type: 3}
+  - {fileID: 6627727196369006612, guid: cecff7a3096b99e479f66a6f55252514, type: 3}
+  - {fileID: 3361580167769461230, guid: 89f55c518dcf3da4bb93d9070559844f, type: 3}
+  - {fileID: 2535240879249773164, guid: 5652860eb0959854794b2ec3c8abad91, type: 3}
+  - {fileID: 5833526019795273807, guid: 6bc2d169ecf8df544bcd9735eaed7524, type: 3}
+  - {fileID: 6627727196369006612, guid: aa19c42c80cd50f4bb545f95ff04b8db, type: 3}
+  - {fileID: 4875708143829087916, guid: d8e738f07055fd74aa333bc693b82958, type: 3}
+  - {fileID: 4057380587987758503, guid: b62ef1a4a57eaf348b40226af92dce38, type: 3}
+  - {fileID: 5836010528509476273, guid: 90460256d6bb01c4c996fcd8fc5880fe, type: 3}
+  - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
+  - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
+  - {fileID: 5488552528309554052, guid: 4806499bd812b634389e6ae37baf21ae, type: 3}
 --- !u!1 &7044831252438515740
 GameObject:
   m_ObjectHideFlags: 0

@@ -14787,9 +14787,9 @@ GameObject:
   - component: {fileID: 7708128328811888477}
   - component: {fileID: 7708128328811888476}
   - component: {fileID: 8959706502863850438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBuffSample
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19717,7 +19717,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &8959706502863850438
 BoxCollider:

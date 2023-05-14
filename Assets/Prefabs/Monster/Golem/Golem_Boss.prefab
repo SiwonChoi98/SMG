@@ -1104,6 +1104,7 @@ GameObject:
   - component: {fileID: 1860097753}
   - component: {fileID: 1860097755}
   - component: {fileID: 3087162897707441572}
+  - component: {fileID: 5758206516390668892}
   m_Layer: 7
   m_Name: Golem_Boss
   m_TagString: Monster
@@ -1119,7 +1120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010599331836152760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: -25.26}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1209,6 +1210,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   anim: {fileID: 0}
   target: {fileID: 0}
+  hitEffectPoint: {fileID: 0}
   projectilePoint: {fileID: 0}
   mType: 2
   isMove: 0
@@ -1220,6 +1222,8 @@ MonoBehaviour:
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 0}
+  dmgText: {fileID: 0}
+  dmgTextPos: {fileID: 0}
   chargePoint: {fileID: 2089774894}
   barrierPoint: {fileID: 216880535}
   groundAttackPoint: {fileID: 3989116197266017583}
@@ -1236,6 +1240,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb818bbd055aa0489f03e9a2429493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5758206516390668892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010599331836152760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0c31f969457a0429681ddd0095ca20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 6206119592252485752, guid: 055a76fb6ff85a1449f2cebf120795f7, type: 3}
+  - {fileID: 6627727196369006612, guid: cecff7a3096b99e479f66a6f55252514, type: 3}
+  - {fileID: 3361580167769461230, guid: 89f55c518dcf3da4bb93d9070559844f, type: 3}
+  - {fileID: 2535240879249773164, guid: 5652860eb0959854794b2ec3c8abad91, type: 3}
+  - {fileID: 5833526019795273807, guid: 6bc2d169ecf8df544bcd9735eaed7524, type: 3}
+  - {fileID: 6627727196369006612, guid: aa19c42c80cd50f4bb545f95ff04b8db, type: 3}
+  - {fileID: 4875708143829087916, guid: d8e738f07055fd74aa333bc693b82958, type: 3}
+  - {fileID: 4057380587987758503, guid: b62ef1a4a57eaf348b40226af92dce38, type: 3}
+  - {fileID: 5836010528509476273, guid: 90460256d6bb01c4c996fcd8fc5880fe, type: 3}
+  - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
+  - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
+  - {fileID: 5488552528309554052, guid: 4806499bd812b634389e6ae37baf21ae, type: 3}
 --- !u!1 &5010602422704843740
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class DefaultMeleeMonster : Monster
         _name = "DefaultMeleeMonster";
         MaxHealth = 70;
         CurHealth = 70;
-        _speed = 5;
+        _speed = 3;
         _attackRange = 3f; // 엘리트 몬스터 같은 경우는 크기가 있어서 어느정도 거리가 더 떨어져 있어야 한다.
         _attackTime = 2f;
         _hitTime = 1f;

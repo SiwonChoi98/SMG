@@ -31,11 +31,16 @@ public class DeadState : State<Monster>
         animator?.SetTrigger("doDead");
 
         context.gameObject.layer = 14; // MonsterDeath 레이어로 바꿔준다.
+
+        context.GetComponent<DropItems>().DropItem(); // 몬스터 타입에 맞게 아이템을 떨어뜨려준다.
         
         yield return new WaitForSeconds(1.6f);
 
-        
         context.gameObject.SetActive(false);
+
+
+        context.gameObject.layer = 7; // Monster 레이어로 바꿔준다.
+
 
     }
 }
