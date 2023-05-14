@@ -82,7 +82,7 @@ public class Eagle : MonoBehaviour
             _attackTime -= Time.deltaTime;
             if (_attackTime < 0 && anim.GetBool("SkillEnd"))
             {
-                _attackTime = _initialAttackTime;
+                _attackTime = 2.5f;
                 isAttack = true;
             }
         }
@@ -95,7 +95,7 @@ public class Eagle : MonoBehaviour
         if(coolTime >= coolTimeMax && anim.GetBool("SkillEnd")) 
         {
             coolTime = 0; // 다시 못들어오게 해준다.
-            _attackTime = _initialAttackTime; // 떠나는 중에는 공격도 초기화해 공격도 못하게 해준다.
+            _attackTime = 10f; // 떠나는 중에는 공격도 초기화해 공격도 못하게 해준다.
             anim.SetTrigger("doLeave");
         }
     }
