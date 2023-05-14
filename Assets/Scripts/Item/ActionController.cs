@@ -23,63 +23,25 @@ public class ActionController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        TryAction();
-    }
-
-    private void TryAction()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            CheckItem();
-            CanPickUp();
-        }
-
-        
+        //TryAction();
     }
 
     // 현재 방식은 플레이어에서 발사하는 Raycast가 거리 내에 닿으면 아이템 정보 뜸 , 이것을 그냥 플레이어 쪽으로 옮겨되 돌 것 같다.
-    private void CheckItem() 
+    
+    private void CheckItem(GameObject _item) 
     {
-        if (Physics.Raycast(transform.position + Vector3.up * 0.1f, transform.forward, 
-            out hitInfo, range, layerMask)) // transform.TransformDirection(Vector3.forward)는 transfrom.forward와 같은 역할이다.
-        {
-            if (hitInfo.transform.CompareTag("Item"))
-            {
-      
-                ItemInfoAppear(); 
-            }
-        }
-
-        else
-        {
-            InfoDisappear();
-        }
-
+        
+        theInventory.AcquireItem(_item.GetComponent<ItemPickUp>().item, _item);
     }
 
     // 실제로 아이템을 흭득하는 부분, 인벤토리에 AcquireItem을 해주면서 넣어준다.
-    private void CanPickUp() 
-    {
-        if (pickupActivated)
-        {
-            if (hitInfo.transform != null)
-            {
-                Debug.Log(hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 획득했습니다.");
-                theInventory.AcquireItem(hitInfo.transform.GetComponent<ItemPickUp>().item);
-                Destroy(hitInfo.transform.gameObject); // 정보 제거
-                InfoDisappear();
-            }
-        }
-     
-    }
+   
 
     // 아이템 정보 생성
     private void ItemInfoAppear() 
     {
         pickupActivated = true;
        
-
-
     }
 
     // 아이템 정보 제거
@@ -94,4 +56,14 @@ public class ActionController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position + Vector3.up * 0.1f, transform.forward * range);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            CheckItem(other.gameObject);
+            //CanPickUp();
+        }
+    }
+    
 }
