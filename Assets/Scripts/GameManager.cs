@@ -17,12 +17,13 @@ public class GameManager : MonoBehaviour
     [Header("Stage")]
     public Stage stage;
     public List<Monster> monsters;
-
+    [SerializeField] private List<Transform> monsterSpawnPos; //몬스터 나오는 위치
+    [SerializeField] private GameObject monsterSpawn; //몬스터 위치 부모
     public int currentMonsterCount; //몬스터 죽을때 줄여줄 카운트
     public int spawnCount; //현재 스테이지 스폰 몬스터 수
     private int spawnIndex; 
     public float currentStageRespawnTime; //현재 스테이지 리스폰타임
-    [SerializeField] private Transform monsterSpawnPos; //몬스터 나오는 위치
+    
     [SerializeField] private TextMeshProUGUI currentStageTxt; //현재 스테이지 텍스트
     [SerializeField] private TextMeshProUGUI currentMonsterCountTxt; //현재 몬스터 수 텍스트
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
@@ -61,6 +62,13 @@ public class GameManager : MonoBehaviour
 }
     private void Start()
     {
+        Init(); //시작할때 정보들 저장
+        MonsterSpawnDataSave(); //몬스터 풀 저장
+        MonsterPosDataSave(); //몬스터 위치 저장
+
+    }
+    private void Init()
+    {
         PlayGame();
         spawnIndex = 0;
         currentStageTxt.text = StageManager.instance.currentStageIndex.ToString(); //현 스테이지 보여주기
@@ -68,13 +76,22 @@ public class GameManager : MonoBehaviour
         volumeSlider[0].value = SoundManager.instance.bgmAudioSource.volume; //볼륨조절
         volumeSlider[1].value = SoundManager.instance.sfxAudioSource.volume;
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
-        for(int i=0; i<stage.asset.monsters.Count; i++) //스테이지 별 풀 저장
+    }
+    private void MonsterSpawnDataSave()
+    {
+        for (int i = 0; i < stage.asset.monsters.Count; i++) //스테이지 별 풀 저장
         {
             monsters.Add(stage.asset.monsters[i]); //몬스터 
             monsters[i] = Instantiate(monsters[i]);
             monsters[i].gameObject.SetActive(false);
         }
-        
+    }
+    private void MonsterPosDataSave()
+    {
+        for(int i=1; i< monsterSpawn.GetComponentsInChildren<Transform>().Length; i++)
+        {
+            monsterSpawnPos.Add(monsterSpawn.GetComponentsInChildren<Transform>()[i]);
+        }
     }
     private void Update()
     {
@@ -102,7 +119,8 @@ public class GameManager : MonoBehaviour
                 currentStageRespawnTime = stage.asset.respawnTime;
 
                 monsters[spawnIndex].gameObject.SetActive(true);
-                monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos.position;
+                int spawnRan = Random.Range(0, monsterSpawnPos.Count);
+                monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos[spawnRan].position;
 
                 spawnCount--;
                 spawnIndex++;
