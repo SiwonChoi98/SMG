@@ -362,3 +362,5 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7069d37a0e6177843ab3d7d4931c1843, type: 3}
   - name: 14)SkillComboSlashJumpSound
     clip: {fileID: 8300000, guid: 8a27ebb569340a345be2f1571cd2aa0b, type: 3}
+  - name: 15)UIClickSound
+    clip: {fileID: 8300000, guid: 624314f760efe4b42a80ed7cf30f9310, type: 3}

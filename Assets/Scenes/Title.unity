@@ -12127,7 +12127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781891342}
   m_LocalRotation: {x: 0, y: 0.4382849, z: 0, w: 0.89883614}
-  m_LocalPosition: {x: -4.9082823, y: 3.205606, z: -5.5469394}
+  m_LocalPosition: {x: -7.4509993, y: 1.01, z: -8.161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34303,6 +34303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2984878220450732301, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
+      propertyPath: sfxSoundList.Array.data[15].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c270144458fed4d4d9be458ce06000be, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b73a559d91dd6469cb9e603c9327a9, type: 3}
 --- !u!1001 &3922777442001054404

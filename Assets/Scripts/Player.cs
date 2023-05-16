@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using UnityEditorInternal;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 // 플레이어의 SkillType들, 일단 일반 공격은 0, 1, 2 로 고정, 한번에 딱 하나의 스킬만 사용 가능하다. 만약 유지형 스킬이 있다면, 그건 이쪽이 아닌 다른 쪽에서 처리해야 할듯
 public enum EPlayerSkillType : int
@@ -66,6 +66,10 @@ public class Player : MonoBehaviour, IDamageable
     private EPlayerSkillType playerCurrentSkill; // 플레이어가 현재 수행하고 있는 스킬 타입
 
     public bool IsPlayerCanUseSkill => PlayerStateCheck(); // 플레이어가 현재 스킬을 사용할 수 있는지 슬롯에서 누를 때 전달해주는 bool값
+
+    public GameObject dmgText;
+    public Transform dmgTextPos;
+    private string _dmgTextFolderName = "DamageText/dmgText";
     #region Unity Methods
 
     private void Awake()
@@ -73,7 +77,6 @@ public class Player : MonoBehaviour, IDamageable
         cameraMain = Camera.main;
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
-       
     }
 
     private void Start()
@@ -89,6 +92,9 @@ public class Player : MonoBehaviour, IDamageable
         strength = 10;
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;
+
+        dmgTextPos = this.gameObject.transform;
+        dmgText = (GameObject)Resources.Load(_dmgTextFolderName);
     }
 
     private void Update()
@@ -504,7 +510,7 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         curHealth -= damage;
-
+        DamageText(damage); //데미지 텍스트
         Debug.Log("Damage : " + damage);
 
         if (IsAlive)
@@ -528,6 +534,13 @@ public class Player : MonoBehaviour, IDamageable
     private bool PlayerStateCheck() // 여기 부분에 나중에 isDamage 같은 플레이어 피격 상태도 넣어야 할듯
     {
         return (!isAttacking && !isDodging && !isCasting);
+    }
+    public void DamageText(int dmg)
+    {
+        GameObject dmgtext1 = Instantiate(dmgText, dmgTextPos.position + new Vector3(0, 2, 0), Quaternion.Euler(70, 0, 0)); //Quaternion.identity 원래 가지고있는 각도로 생성
+        dmgtext1.GetComponentInChildren<Text>().text = dmg.ToString();//자식텍스트로 들어가서 //dmg는 int니까 string형태로 바꿔주기
+        dmgtext1.GetComponentInChildren<Text>().color = Color.red;
+        Destroy(dmgtext1, 0.7f);
     }
 }
 

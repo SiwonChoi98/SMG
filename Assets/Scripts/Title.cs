@@ -37,6 +37,7 @@ public class Title : MonoBehaviour
     {
         titleAnim.SetTrigger("isStartMotion");
         StageManager.instance.SetCurrent(1);
+        SoundManager.instance.SfxPlaySound(15);
         yield return new WaitForSeconds(1f);
         LoadingSceneController.Instance.LoadScene("InGame");
     }
