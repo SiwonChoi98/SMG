@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         Init(); //시작할때 정보들 저장
         MonsterSpawnDataSave(); //몬스터 풀 저장
         MonsterPosDataSave(); //몬스터 위치 저장
-
+        
     }
     private void Init()
     {

@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: Stage2
   m_EditorClassIdentifier: 
   gameMode: 0
-  monsterCount: 10
+  monsterCount: 13
   monsters:
-  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
-  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
-  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
-  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
-  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
-  - {fileID: 3009770090547666182, guid: 841c21d1112186c408262651cc5a8135, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
   respawnTime: 3

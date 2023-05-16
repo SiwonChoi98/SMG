@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166d5cf480f6d1445b2b645d3d0c7d42, type: 3}
+  m_Name: Stage9
+  m_EditorClassIdentifier: 
+  gameMode: 0
+  monsterCount: 23
+  monsters:
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: 7793072925410777457, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: 4970866962008381030, guid: 58c37d11df65f974799fc41729830b40, type: 3}
+  - {fileID: -1902502430377738899, guid: 94ac74ca50da8034e8e656d7daf124fc, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: 7793072925410777457, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: 7793072925410777457, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
+  - {fileID: 95844266031951848, guid: b5039eafc167c874a86eae61743ab5ea, type: 3}
+  - {fileID: 7793072925410777457, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
+  - {fileID: 7793072925410777457, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
+  - {fileID: 7793072925410777457, guid: c50b50dadb7a12a4a9bb6a7642679ade, type: 3}
+  - {fileID: 8636183669051236363, guid: 59e537c31b240e4408bc3e82e3c09aef, type: 3}
+  - {fileID: 8636183669051236363, guid: 59e537c31b240e4408bc3e82e3c09aef, type: 3}
+  - {fileID: 8636183669051236363, guid: 59e537c31b240e4408bc3e82e3c09aef, type: 3}
+  - {fileID: 1370363542, guid: a28516d132f222f4f86cfaa479f737d4, type: 3}
+  respawnTime: 2.4
