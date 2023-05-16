@@ -11,11 +11,13 @@ public class MonsterSkill_NormalAttack : BaseSkill // 이거는 진짜 평타만
     {
         Collider[] colliders = monsterAttackCollision?.CheckOverlapBox(targetMask);
 
-
+        
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {
-            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(damage), effectPrefab);
+            float randDamage = Random.Range(damage, damage + (damage * 0.2f));
+
+            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(randDamage), effectPrefab);
         }
 
 

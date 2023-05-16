@@ -18,7 +18,9 @@ public class Skill_SpawnSwords : BaseSkill
 
             go.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f, ForceMode.Impulse); // 순간적으로 위로 퉁 올림
 
-            go.GetComponent<Projectile_SpawnSwords>().SetDamage((int)(damage));
+            int RandDamage = Random.Range(19, 25);
+
+            go.GetComponent<Projectile_SpawnSwords>().SetDamage((int)(RandDamage));
             go.GetComponent<Projectile_SpawnSwords>().SetTarget(targetMask);
             go.GetComponent<Projectile_SpawnSwords>().SetHitEffect(effectPrefab);
         }

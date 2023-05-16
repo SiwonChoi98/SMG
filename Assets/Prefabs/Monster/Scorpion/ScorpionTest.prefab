@@ -1328,7 +1328,7 @@ GameObject:
   - component: {fileID: 7309219688906940203}
   - component: {fileID: -4274695313099163713}
   m_Layer: 7
-  m_Name: Lv3 Scorpion_Elite
+  m_Name: ScorpionTest
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1420,7 +1420,6 @@ MonoBehaviour:
   _curHealth: 0
   _speed: 0
   _attackRange: 0
-  _attackRange2: 0
   _attackTime: 0
   _hitTime: 0
   monsterSkills:
@@ -1440,6 +1439,7 @@ MonoBehaviour:
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 0}
+  HealthBar: {fileID: 0}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
 --- !u!195 &7309219688906940200
@@ -1500,7 +1500,7 @@ MonoBehaviour:
   - {fileID: 5836010528509476273, guid: 90460256d6bb01c4c996fcd8fc5880fe, type: 3}
   - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
   - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
-  - {fileID: 5488552528309554052, guid: 4806499bd812b634389e6ae37baf21ae, type: 3}
+  - {fileID: 2785357774869610249, guid: 0d572866f3479704aad64a94db82bdb4, type: 3}
 --- !u!1 &364516272375389163
 GameObject:
   m_ObjectHideFlags: 0

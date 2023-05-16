@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 3009770090547666186}
   - component: {fileID: 378306076599782820}
   m_Layer: 7
-  m_Name: Lv1 Spider_Normal
+  m_Name: SpiderTest
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ Transform:
   m_GameObject: {fileID: 3540956261841486207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3544612083917518437}
@@ -169,14 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c286e20bce5ee194a8c6ac7306081619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _maxHealth: 0
-  _curHealth: 0
-  _speed: 0
-  _attackRange: 0
-  _attackRange2: 0
-  _attackTime: 0
-  _hitTime: 0
+  _name: Lv1 Spider Test
+  _maxHealth: 70
+  _curHealth: 70
+  _speed: 3
+  _attackRange: 1.8
+  _attackTime: 2.5
+  _hitTime: 1
   monsterSkills:
   - {fileID: 3009770090547666185}
   rigid: {fileID: 0}
@@ -194,6 +193,7 @@ MonoBehaviour:
   _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 355748807}
+  HealthBar: {fileID: 1991121901}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
 --- !u!114 &3009770090547666186
@@ -232,7 +232,7 @@ MonoBehaviour:
   - {fileID: 5836010528509476273, guid: 90460256d6bb01c4c996fcd8fc5880fe, type: 3}
   - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
   - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
-  - {fileID: 5488552528309554052, guid: 4806499bd812b634389e6ae37baf21ae, type: 3}
+  - {fileID: 2785357774869610249, guid: 0d572866f3479704aad64a94db82bdb4, type: 3}
 --- !u!1 &3540959154173793141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1501,11 @@ MonoBehaviour:
 --- !u!224 &1621577742 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4210044361493774908, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
+  m_PrefabInstance: {fileID: 4210044359889801778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1991121901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4210044361124104671, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 4210044359889801778}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8466230018265754771

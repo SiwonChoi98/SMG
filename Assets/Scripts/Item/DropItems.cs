@@ -42,7 +42,7 @@ public class DropItems : MonoBehaviour
             
             if(randNum >= 0 && randNum < 70) // 70 퍼센트의 확률로 스킬 생성
             {
-                int normalSkillNum = Random.Range(0, 6); // 0부터 3까지 나오면 해당 스킬 생성, 4부터 5까지 나오면 해당 스킬 생성 안함 
+                int normalSkillNum = Random.Range(0, 5); // 0부터 3까지 나오면 해당 스킬 생성, 4부터 5까지 나오면 해당 스킬 생성 안함 
                 
                 if (normalSkillNum >= 0 && normalSkillNum <= 3) 
                 {

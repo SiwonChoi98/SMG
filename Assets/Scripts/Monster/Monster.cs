@@ -15,19 +15,23 @@ public class Monster : MonoBehaviour, IDamageable
     [SerializeField] protected string _name;
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _curHealth;
-    [SerializeField] protected int _speed; //현재는 네비게이션안에 speed 써서 speed는 따로 정의가 필요없다. 추후에 바꿀예정
+    [SerializeField] protected float _speed; //현재는 네비게이션안에 speed 써서 speed는 따로 정의가 필요없다. 추후에 바꿀예정
     // 이 부분에서 각각의 몬스터마다 speed를 받아올 수 있도록하자.
 
     [SerializeField] protected float _attackRange; // 기본적인 공격 거리, 보스를 제외한 몬스터들은 대부분 하나만을 가진다.
-    [SerializeField] protected float _attackRange2; // 보스의 스킬 공격 거리, 근접 공격을 하다가 이 거리로 공격을 한다. 일반이나 엘리트는 기본적으로 0이다.
-    [SerializeField] protected float _attackTime; //공격 쿨타임
-    [SerializeField] public float _hitTime; // 피격 쿨타임
+    protected float _attackTime; //공격 쿨타임 돌아가는 것
+    public float _hitTime; // 피격 쿨타임 돌아가는 것
+    
+    [SerializeField] public float _initialSpeed; // 초기 스피드
+    [SerializeField] public float _initialAttackTime; //공격 쿨타임 초기화 및 쿨타임 간격
+    [SerializeField] public float _initialHitTime; // 피격 쿨타임 초기화 및 쿨타임 간격
+    
     public List<BaseSkill> monsterSkills = new List<BaseSkill>(); // 새로추가한 부분, 가능한 공격 및 스킬을 담은 리스트
 
     public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
     public int CurHealth { get => _curHealth; set => _curHealth = value; }
 
-    public int Speed { get => _speed; set => _speed = value; }
+    public float Speed { get => _speed; set => _speed = value; }
     public Rigidbody rigid;
     public Animator anim;
 
@@ -55,12 +59,11 @@ public class Monster : MonoBehaviour, IDamageable
 
 
     private float _distance; //플레이어(타겟)과의 거리
-    protected float _initialAttackTime; //공격 쿨타임 초기화
-    public float _initialHitTime; // 피격 쿨타임 초기화
     public GameObject attackPrefab; //임시) 원거리 공격 오브젝트
     protected float _attackSpeed; //나가는 속도
 
     public Image healthImage;
+    public GameObject HealthBar;
     public GameObject dmgText;
     public Transform dmgTextPos;
     private string _dmgTextFolderName = "DamageText/dmgText";
@@ -290,7 +293,9 @@ public class Monster : MonoBehaviour, IDamageable
     }
     private void LateUpdate()
     {
-        //healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
+        
+        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
+
     }
 
 }

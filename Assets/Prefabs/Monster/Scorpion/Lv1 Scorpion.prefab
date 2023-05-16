@@ -431,51 +431,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1227752237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1227752238}
-  - component: {fileID: 1227752239}
-  m_Layer: 0
-  m_Name: SkillArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1227752238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227752237}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.62, z: 1.512}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4162476869067681818}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1227752239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227752237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e42213e3017c141bb248e70f6340e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxSize: {x: 1.5, y: 1, z: 1}
 --- !u!1 &2144531729
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144531730}
-  - component: {fileID: 2144531731}
+  - component: {fileID: 7503330499267803398}
   m_Layer: 0
   m_Name: Skill
   m_TagString: Untagged
@@ -508,7 +463,7 @@ Transform:
   m_Father: {fileID: 4162476869067681818}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2144531731
+--- !u!114 &7503330499267803398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -517,11 +472,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2144531729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f495d63bcf56143b64b907dc800d10, type: 3}
+  m_Script: {fileID: 11500000, guid: a6f074147f6d6f243a8a0e7c1384a13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystems: []
-  damage: 10
+  damage: 6
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -531,7 +486,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
-  monsterAttackCollision: {fileID: 1227752239}
+  needle: {fileID: 3314736332434616090, guid: ced079834f311c64c8c4a6644215175e, type: 3}
 --- !u!1 &4163750781686426092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,11 +1887,11 @@ GameObject:
   - component: {fileID: 4078040617677602302}
   - component: {fileID: 5612708675704469175}
   - component: {fileID: 8690742158624508662}
-  - component: {fileID: 1236143151}
+  - component: {fileID: 7793072925410777457}
   - component: {fileID: 7675965074039033444}
   - component: {fileID: 984943783042572362}
   m_Layer: 7
-  m_Name: Lv1 Scorpion_Normal
+  m_Name: Lv1 Scorpion
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1951,13 +1906,13 @@ Transform:
   m_GameObject: {fileID: 4165656594251625110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4169035125098454744}
   - {fileID: 4168784385037204090}
   - {fileID: 2144531730}
-  - {fileID: 1227752238}
+  - {fileID: 6742750636265243639}
   - {fileID: 285283019}
   - {fileID: 314669328}
   - {fileID: 1871810403178555623}
@@ -2014,7 +1969,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1383057, y: 0.6147688, z: 1.8213196}
   m_Center: {x: -0.03073123, y: 0.55063707, z: 0.41065973}
---- !u!114 &1236143151
+--- !u!114 &7793072925410777457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2023,24 +1978,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4165656594251625110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c286e20bce5ee194a8c6ac7306081619, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b376f5f251afd044920ceab534ef44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _maxHealth: 0
-  _curHealth: 0
-  _speed: 0
-  _attackRange: 0
-  _attackRange2: 0
-  _attackTime: 0
+  _name: Lv1 Scorpion
+  _maxHealth: 60
+  _curHealth: 60
+  _speed: 2
+  _attackRange: 4
   _hitTime: 0
+  _initialAttackTime: 3
+  _initialHitTime: 1
   monsterSkills:
-  - {fileID: 2144531731}
+  - {fileID: 7503330499267803398}
   rigid: {fileID: 0}
   anim: {fileID: 0}
   target: {fileID: 0}
   hitEffectPoint: {fileID: 1871810403178555623}
-  projectilePoint: {fileID: 0}
+  projectilePoint: {fileID: 6742750636265243639}
   mType: 0
   isMove: 0
   isAttackRange: 0
@@ -2048,9 +2003,9 @@ MonoBehaviour:
   isHit: 0
   isHitEnd: 1
   isHitbySkill: 0
-  _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 1008184783}
+  HealthBar: {fileID: 699109072}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
 --- !u!114 &7675965074039033444
@@ -2089,7 +2044,7 @@ MonoBehaviour:
   - {fileID: 5836010528509476273, guid: 90460256d6bb01c4c996fcd8fc5880fe, type: 3}
   - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
   - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
-  - {fileID: 5488552528309554052, guid: 4806499bd812b634389e6ae37baf21ae, type: 3}
+  - {fileID: 2785357774869610249, guid: 0d572866f3479704aad64a94db82bdb4, type: 3}
 --- !u!1 &4165670842776326948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,4 +2303,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4162476869067681818}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7918199614029511505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6742750636265243639}
+  m_Layer: 0
+  m_Name: SkillArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6742750636265243639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918199614029511505}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.9299999, z: 2.2679996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4162476869067681818}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

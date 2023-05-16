@@ -15,7 +15,9 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
              SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
 
-        go.GetComponent<Projectile_UpperSlash>().SetDamage((int)(damage));
+        int RandDamage = Random.Range(19, 25);
+
+        go.GetComponent<Projectile_UpperSlash>().SetDamage((int)(RandDamage));
         go.GetComponent<Projectile_UpperSlash>().SetTarget(targetMask);
         go.GetComponent<Projectile_UpperSlash>().SetHitEffect(effectPrefab);
 

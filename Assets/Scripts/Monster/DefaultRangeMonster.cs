@@ -6,16 +6,17 @@ public class DefaultRangeMonster : Monster
 {
     protected override void InitStat()
     {
-        _name = "DefaultRangeMonster";
-        MaxHealth = 70;
-        CurHealth = 70;
-        _speed = 5;
-        _attackRange = 7f;
-        _attackTime = 2.5f;
-        _hitTime = 1.5f;
-        _initialAttackTime = _attackTime;
-        _initialHitTime= _hitTime;
-        _attackSpeed = 10f;
+        //_name = "DefaultRangeMonster";
+        //MaxHealth = 70;
+        //CurHealth = 70;
+        //_speed = 5;
+        //_attackRange = 7f;
+        //_attackTime = 2.5f;
+        //_hitTime = 1.5f;
+        //_initialAttackTime = _attackTime;
+
+        _hitTime = _initialHitTime;
+        //_attackSpeed = 10f;
     } //임시 능력치 셋팅
 
     public override void Shoot()

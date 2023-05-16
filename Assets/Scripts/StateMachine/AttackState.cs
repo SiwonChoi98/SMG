@@ -36,7 +36,7 @@ public class AttackState : State<Monster>
                 {
                     context.anim.SetBool("SkillEnd", false); 
                     animator.SetTrigger("doAttack"); // 공격을 시키고
-                    animator.SetInteger("SkillNumber", 2); // 첫번째 스킬 애니메이션을 실행해준다.
+                    animator.SetInteger("SkillNumber", 0); // 첫번째 스킬 애니메이션을 실행해준다.
                     context.Shoot();
                     context.isAttack = false;
                 }
@@ -45,7 +45,7 @@ public class AttackState : State<Monster>
                 {
                     context.anim.SetBool("SkillEnd", false);
                     animator.SetTrigger("doAttack"); // 공격을 시키고
-                    animator.SetInteger("SkillNumber", 2); // 두번째 스킬 애니메이션을 실행해준다.
+                    animator.SetInteger("SkillNumber", 1); // 두번째 스킬 애니메이션을 실행해준다.
                     context.Shoot();
                     context.isAttack = false;
                 }
