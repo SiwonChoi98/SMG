@@ -305,8 +305,32 @@ MonoBehaviour:
   bgmAudioSource: {fileID: 2984878219813095466}
   sfxAudioSource: {fileID: 2984878219490151898}
   bgmSoundList:
-  - name: Test)TitleSound
-    clip: {fileID: 8300000, guid: 4f9c246560a91944e828452d8788859c, type: 3}
+  - name: 0)Title
+    clip: {fileID: 8300000, guid: c3bc5e6b36c864c10b8525ff36798a55, type: 3}
+  - name: 1)Title
+    clip: {fileID: 8300000, guid: e542bde6a639249be830b47253c9209a, type: 3}
+  - name: 2)Title
+    clip: {fileID: 8300000, guid: f871d8687eb43451eb8f834e3b78e707, type: 3}
+  - name: 3)Title
+    clip: {fileID: 8300000, guid: e44166eb056e844eeb2746ffa6d954e4, type: 3}
+  - name: 4)InGame
+    clip: {fileID: 8300000, guid: 98399876c1ed54121b03840b441ca64b, type: 3}
+  - name: 5)InGame
+    clip: {fileID: 8300000, guid: 7cfe88749f40947adab9f6792e99ee8f, type: 3}
+  - name: 6)InGame
+    clip: {fileID: 8300000, guid: 44e74b22576eb4988b89eb1a036718ff, type: 3}
+  - name: 7)InGame
+    clip: {fileID: 8300000, guid: 052f4fd2ac3ec4d90b65462991e3e7ee, type: 3}
+  - name: 8)BossInGame
+    clip: {fileID: 8300000, guid: 196dbea8f2ebc495ea2e4c2de898b628, type: 3}
+  - name: 9)BossInGame
+    clip: {fileID: 8300000, guid: a56ab194835dd4a71bc4f37270842dff, type: 3}
+  - name: 10)StageClear
+    clip: {fileID: 8300000, guid: 75644fd1473a343aebdd7fb30b6b4664, type: 3}
+  - name: 11)GameOver
+    clip: {fileID: 8300000, guid: 2a19231a1933340fbba83c3a5df3b921, type: 3}
+  - name: 12)GameOver
+    clip: {fileID: 8300000, guid: 9eb4eb16c8a4542f5bf83b467616344b, type: 3}
   sfxSoundList:
   - name: 0)MonsterHitSound
     clip: {fileID: 8300000, guid: 281d6d6ce8ed0594e8920c05b8c979c6, type: 3}

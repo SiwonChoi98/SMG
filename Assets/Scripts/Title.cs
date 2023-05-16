@@ -16,7 +16,9 @@ public class Title : MonoBehaviour
         Time.timeScale = 1;
         isStart = false;
         titleAnim = titlePlayer.GetComponentInChildren<Animator>();
-        //SoundManager.instance.BgmPlaySound(0); //테스트
+
+        int ran = Random.Range(0,4);
+        SoundManager.instance.BgmPlaySound(ran); //0~3번까지 타이틀 사운드 후보
     }
     private void Start()
     {
