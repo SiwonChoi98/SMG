@@ -33,70 +33,85 @@ public class DropItems : MonoBehaviour
         mMonsterType = this.GetComponent<Monster>().mType;
     }
 
-    public void DropItem()
+    public void DropSkill()
     {   
-
         if(mMonsterType == EMonsterType.Common) // 일반 몬스터인 경우
         { 
-            int randNum = Random.Range(0, 100);
+            int randNum1 = Random.Range(0, 100);
             
-            if(randNum >= 0 && randNum < 70) // 70 퍼센트의 확률로 스킬 생성
+            if(randNum1 >= 0 && randNum1 < 30) // 30 퍼센트의 확률로 스킬 생성
             {
-                int normalSkillNum = Random.Range(0, 5); // 0부터 3까지 나오면 해당 스킬 생성, 4부터 5까지 나오면 해당 스킬 생성 안함 
+                int randNum2 = Random.Range(0, 100);
                 
-                if (normalSkillNum >= 0 && normalSkillNum <= 3) 
+                if( randNum2 >= 0 && randNum2 < 80) // 80퍼 : 일반 스킬 생성
                 {
+                    int normalSkillNum = Random.Range(0, 4); 
+
                     Instantiate(items[normalSkillNum], this.transform.position, this.transform.rotation);
                 }
-
-                else
+                else  // 20퍼 : 에픽 스킬 생성
                 {
-                    return;
+                    int  epicSkillNum = Random.Range(4, 7); 
+
+                    Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
                 }
+
             }
 
-            else
-            { 
-                int buffNum = Random.Range(9, 13); // 9부터 10까지는 버프 생성, 11부터 12까지는 생성 안함
-
-                if(buffNum >= 9 && buffNum <= 10)
-                {
-                    Instantiate(items[buffNum], this.transform.position, this.transform.rotation);
-                }
-
-                else
-                {
-                    return;
-                }
-            }
 
         }
 
         else if(mMonsterType == EMonsterType.Elite)
         {
-            int randNum = Random.Range(0, 100);
+            // 엘리트는 무조건 스킬 하나는 생성
 
-            if (randNum >= 0 && randNum < 70) // 70 퍼센트의 확률로 스킬 생성
+            int randNum3 = Random.Range(0, 100);
+
+            if (randNum3 >= 0 && randNum3 < 70) // 70퍼 : 에픽 스킬 생성
             {
-                int eliteSkillNum = Random.Range(4, 7); // 4부터 6까지 나오면 해당 스킬 생성
-                
-                Instantiate(items[eliteSkillNum], this.transform.position, this.transform.rotation);
-            }
+                int epicSkillNum = Random.Range(4, 7); 
 
-            else
+                Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
+            }
+            else  // 30퍼 : 유니크 스킬 생성
             {
-                int buffNum = Random.Range(9, 12); // 9부터 11까지는 버프 생성
+                int epicSkillNum = Random.Range(7, 9); 
 
-                Instantiate(items[buffNum], this.transform.position, this.transform.rotation);
+                Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
             }
+          
         }
 
         else if (mMonsterType == EMonsterType.Boss)
         {
-            int specialSkillNum = Random.Range(7, 9); // 7부터 8까지 나오면 해당 스킬 생성
+            // 보스는 확률적으로 여러개를 생성
 
-            Instantiate(items[specialSkillNum], this.transform.position, this.transform.rotation);
+            int scrollNum = Random.Range(1, 4); // 1개부터 3까지 생성
+
+            for(int i = 0; i < scrollNum; i++) 
+            {
+                int randNum4 = Random.Range(0, 100);
+
+                if(randNum4 >= 0 && randNum4 < 30) // 30퍼 : 에픽 스킬 생성
+                {
+                    int epicSkillNum = Random.Range(4, 7);
+
+                    Instantiate(items[epicSkillNum], this.transform.position + new Vector3(0, 0, -i), this.transform.rotation); // 임시
+                }
+                else // 70퍼 : 유니크 스킬 생성
+                {
+                    int specialSkillNum = Random.Range(7, 9); // 7부터 8까지 나오면 해당 스킬 생성
+
+                    Instantiate(items[specialSkillNum], this.transform.position + new Vector3(0, 0, -i), this.transform.rotation); // 임시
+                }
+            }
+          
 
         }
+    }
+
+    public void DropBuff()
+    {
+
     }
 }

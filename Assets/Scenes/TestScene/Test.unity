@@ -44867,6 +44867,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 311229042, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 311229043, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.88
@@ -44878,6 +44882,14 @@ PrefabInstance:
     - target: {fileID: 311229044, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: boxSize.z
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 327235353, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 560483839, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.85
       objectReference: {fileID: 0}
     - target: {fileID: 769432675, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44899,6 +44911,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 896133991, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2130333881, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: actionText
       value: 
@@ -44918,6 +44934,10 @@ PrefabInstance:
     - target: {fileID: 1314576598527425079, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801558534424366833, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6593125676169337200, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: joy
