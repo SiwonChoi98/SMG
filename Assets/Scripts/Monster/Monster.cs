@@ -19,7 +19,7 @@ public class Monster : MonoBehaviour, IDamageable
     // 이 부분에서 각각의 몬스터마다 speed를 받아올 수 있도록하자.
 
     [SerializeField] protected float _attackRange; // 기본적인 공격 거리, 보스를 제외한 몬스터들은 대부분 하나만을 가진다.
-    protected float _attackTime = 0f; //공격 쿨타임 돌아가는 것
+    protected float _attackTime; //공격 쿨타임 돌아가는 것
     public float _hitTime; // 피격 쿨타임 돌아가는 것
     
     [SerializeField] public float _initialSpeed; // 초기 스피드

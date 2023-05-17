@@ -31,7 +31,8 @@ public abstract class BaseSkill : MonoBehaviour
 
     public ParticleSystem[] particleSystems; // 일반 공격에서 사용하는 파티클 시스템,
 
-    public int damage; // 플레이어가 
+    public int damage; // 플레이어의 공격력을 받아와서 정해줘야 한다.
+    public float damageMult; // 스킬의 배수
 
     [SerializeField]
     public float attackForce; // 해당 공격 행동을 할 때 나아가는 방향에 곱해주는 정도.
@@ -61,6 +62,7 @@ public abstract class BaseSkill : MonoBehaviour
     protected virtual void Awake() 
     {
         particleSystems = GetComponentsInChildren<ParticleSystem>(); // 자식들로부터 ParticleSystem 들을 받아온다.
+        
     }
 
 

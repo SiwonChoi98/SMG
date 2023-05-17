@@ -19,6 +19,8 @@ public class SkillManager : MonoBehaviour
     
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         if (null == instance)
         {
             instance = this;

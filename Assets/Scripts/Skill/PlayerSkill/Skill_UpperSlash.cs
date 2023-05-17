@@ -15,9 +15,9 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
              SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
 
-        int RandDamage = Random.Range(19, 25);
+        
 
-        go.GetComponent<Projectile_UpperSlash>().SetDamage((int)(RandDamage));
+        go.GetComponent<Projectile_UpperSlash>().SetDamage((int)(damage));
         go.GetComponent<Projectile_UpperSlash>().SetTarget(targetMask);
         go.GetComponent<Projectile_UpperSlash>().SetHitEffect(effectPrefab);
 
@@ -28,7 +28,9 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
-        
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        damage = (int)(player.Strength * damageMult);
     }
 
     public override void ExitParticleSystem()

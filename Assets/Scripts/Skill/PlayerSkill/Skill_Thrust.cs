@@ -18,13 +18,15 @@ public class Skill_Thrust : BaseSkill
 
         Collider[] colliders = thrustAttackCollision?.CheckOverlapBox(targetMask);
 
-        int RandDamage = Random.Range(19, 25);
+        
 
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {
+            float randDamage = Random.Range(damage, damage + damage * 0.2f);
+
             collider.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
-            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(RandDamage), effectPrefab);
+            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(randDamage), effectPrefab);
             collider.gameObject.GetComponent<Monster>()?.KnockBack(25f);  // 임시 이정도는 해야 좀 밀린다.
         }
 
@@ -34,6 +36,10 @@ public class Skill_Thrust : BaseSkill
 
     public override void ExcuteParticleSystem()
     {
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        damage = (int)(player.Strength * damageMult);
+
         SkillManager.instance.AttachParticle(mSkillType, mParticleType);
 
         SoundManager.instance.SfxPlaySound(5);

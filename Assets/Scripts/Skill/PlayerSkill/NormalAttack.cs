@@ -16,12 +16,14 @@ public class NormalAttack : BaseSkill
     {
         Collider[] colliders = normalAttackCollision?.CheckOverlapBox(targetMask);
 
-        int RandDamage = Random.Range(15, 21);
+        
 
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {
-            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(RandDamage, effectPrefab);
+            float randDamage = Random.Range(damage, damage + damage * 0.2f);
+
+            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)randDamage, effectPrefab);
             collider.gameObject.GetComponent<Monster>()?.KnockBack(5f); // 임시
         }
         
@@ -31,10 +33,16 @@ public class NormalAttack : BaseSkill
 
     public override void ExcuteParticleSystem()
     {
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        damage = (int)(player.Strength * damageMult);
+
         foreach (ParticleSystem particles in particleSystems)
         {
             particles.Play();
         }
+
+        
     }
 
     public override void ExitParticleSystem()

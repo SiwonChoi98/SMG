@@ -56,8 +56,10 @@ public class Projectile_SpawnSwords : MonoBehaviour
         if (1 << collision.transform.gameObject.layer == TargetMask)
         {
             //Debug.Log("collision.gameObject.layer : " + collision.gameObject.layer);
+            float randDamage = Random.Range(damage, damage + damage * 0.2f);
+
             collision.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
-            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx);
+            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)randDamage, hitFx);
             collision.gameObject.GetComponent<Monster>()?.KnockBack(6f);  // 임시
             Destroy(gameObject);
 

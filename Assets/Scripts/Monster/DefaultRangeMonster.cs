@@ -14,7 +14,7 @@ public class DefaultRangeMonster : Monster
         //_attackTime = 2.5f;
         //_hitTime = 1.5f;
         //_initialAttackTime = _attackTime;
-
+        _attackTime = 0f;
         _hitTime = _initialHitTime;
         //_attackSpeed = 10f;
     } //임시 능력치 셋팅

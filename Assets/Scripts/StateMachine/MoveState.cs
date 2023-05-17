@@ -6,6 +6,9 @@ public class MoveState : State<Monster>
 {
     public Animator animator;
 
+    public float randPosX;
+    public float randPosZ;
+
     public override void OnInitialized()
     {
         animator = context.GetComponent<Animator>();
@@ -15,6 +18,10 @@ public class MoveState : State<Monster>
     {
         animator?.SetBool("isMove", true);
         Debug.Log("Move 상태로 진입");
+
+        randPosX = Random.Range(-0.7f, 0.7f);
+        randPosZ = Random.Range(-0.7f, 0.7f);
+        Debug.Log("x 위치 " + randPosX+ ", " + "z 위치 : " + randPosZ);
         // 이 부분을 context.Speed로 바꿔줘야한다.
         //context.GetComponent<NavMeshAgent>().speed = 2.5f; 
     }
@@ -38,9 +45,10 @@ public class MoveState : State<Monster>
                     return;
                 }
             }
-            context.rigid.MovePosition(Vector3.MoveTowards(context.transform.position, context.target.position, Time.deltaTime * context.Speed));
+            
+            context.rigid.MovePosition(Vector3.MoveTowards(context.transform.position, context.target.position + new Vector3(randPosX, 0, randPosZ) , Time.deltaTime * context.Speed));
             //context.transform.position = Vector3.MoveTowards(context.transform.position, context.target.position, Time.deltaTime * 2.5f);
-            context.transform.LookAt(context.target.position);
+            context.transform.LookAt(context.target.position + new Vector3(randPosX, 0, randPosZ));
         }
     }
 

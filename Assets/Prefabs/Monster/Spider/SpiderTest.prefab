@@ -174,8 +174,10 @@ MonoBehaviour:
   _curHealth: 70
   _speed: 3
   _attackRange: 1.8
-  _attackTime: 2.5
   _hitTime: 1
+  _initialSpeed: 0
+  _initialAttackTime: 2.5
+  _initialHitTime: 0
   monsterSkills:
   - {fileID: 3009770090547666185}
   rigid: {fileID: 0}
@@ -190,7 +192,6 @@ MonoBehaviour:
   isHit: 0
   isHitEnd: 1
   isHitbySkill: 0
-  _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 355748807}
   HealthBar: {fileID: 1991121901}

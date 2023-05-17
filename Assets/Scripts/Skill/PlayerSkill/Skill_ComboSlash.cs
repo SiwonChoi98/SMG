@@ -22,6 +22,10 @@ public class Skill_ComboSlash : BaseSkill
 
     public override void ExcuteParticleSystem()
     {
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        damage = (int)(player.Strength * damageMult);
+
         SoundManager.instance.SfxPlaySound(14);
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);

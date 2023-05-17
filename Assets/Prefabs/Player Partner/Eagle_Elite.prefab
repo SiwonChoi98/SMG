@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystems: []
-  damage: 50
+  damage: 0
+  damageMult: 2.5
   attackForce: 0
   mSkillType: 0
   mParticleType: 0

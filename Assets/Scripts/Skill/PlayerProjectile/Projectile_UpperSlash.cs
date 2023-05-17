@@ -30,9 +30,10 @@ public class Projectile_UpperSlash : MonoBehaviour // UpperSlash는 16.5 속도 
     {
         if (1 << collision.transform.gameObject.layer == TargetMask)
         {
+            float randDamage = Random.Range(damage, damage + damage * 0.2f);
             //Debug.Log("collision.gameObject.layer : " + collision.gameObject.layer);
             collision.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
-            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx);
+            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)randDamage, hitFx);
             collision.gameObject.GetComponent<Monster>()?.KnockBack(6f);  // 임시
 
         }
