@@ -9,6 +9,7 @@ public class Title : MonoBehaviour
     public Slider[] volumeSlider;
     public Animator titleAnim;
     public GameObject titlePlayer;
+    public ParticleSystem titlePlayerAura;
     public Text bestScoreTxt;
     public bool isStart = false;
     private void Awake()
@@ -36,6 +37,7 @@ public class Title : MonoBehaviour
     private IEnumerator StartStage()
     {
         titleAnim.SetTrigger("isStartMotion");
+        titlePlayerAura.Play();
         StageManager.instance.SetCurrent(1);
         SoundManager.instance.SfxPlaySound(15);
         yield return new WaitForSeconds(1f);
