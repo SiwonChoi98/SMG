@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 14
+  damageMult: 0
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -648,8 +649,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.94767886, z: 1.6457523}
-  m_Center: {x: 0, y: 0.6323797, z: 0.3228758}
+  m_Size: {x: 1, y: 0.84706575, z: 1.7096509}
+  m_Center: {x: 0, y: 0.582073, z: 0.35482496}
 --- !u!114 &1370363542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +669,7 @@ MonoBehaviour:
   _speed: 2
   _attackRange: 5
   _hitTime: 0
+  _initialSpeed: 0
   _initialAttackTime: 2
   _initialHitTime: 1
   monsterSkills:

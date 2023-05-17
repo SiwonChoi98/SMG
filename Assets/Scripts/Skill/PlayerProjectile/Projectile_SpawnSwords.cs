@@ -51,7 +51,9 @@ public class Projectile_SpawnSwords : MonoBehaviour
         
         
     }
-    private void OnTriggerEnter(Collider collision)
+
+
+    private void OnCollisionEnter(Collision collision)
     {
         if (1 << collision.transform.gameObject.layer == TargetMask)
         {
@@ -64,8 +66,6 @@ public class Projectile_SpawnSwords : MonoBehaviour
             Destroy(gameObject);
 
         }
-
-
     }
 
     public void SetDamage(int i)

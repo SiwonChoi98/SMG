@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 10
+  damageMult: 0
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -513,7 +514,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3043652795690941913}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4087803, z: 3.1777039}
@@ -536,6 +537,7 @@ MonoBehaviour:
   _speed: 5
   _attackRange: 2.2
   _hitTime: 0
+  _initialSpeed: 0
   _initialAttackTime: 1.6
   _initialHitTime: 1
   monsterSkills:
@@ -985,7 +987,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3037821712883590233}
   - component: {fileID: 3161161882689898967}
-  - component: {fileID: 6829380706376969374}
   m_Layer: 7
   m_Name: Wolf
   m_TagString: Untagged
@@ -1092,19 +1093,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.42120385, y: -0.07387352, z: 0}
     m_Extent: {x: 2.039134, y: 1.2267272, z: 0.5122811}
   m_DirtyAABB: 0
---- !u!65 &6829380706376969374
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3044255415642317281}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7967704, y: 1.9639752, z: 0.9845843}
-  m_Center: {x: 0.009765625, y: 1.3200107, z: -0.060424805}
 --- !u!1 &3044263708972857325
 GameObject:
   m_ObjectHideFlags: 0

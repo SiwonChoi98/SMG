@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 8
+  damageMult: 0
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -570,7 +571,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8035106406906748392}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.757794, z: 2.0892093}
@@ -593,6 +594,7 @@ MonoBehaviour:
   _speed: 4
   _attackRange: 2
   _hitTime: 1
+  _initialSpeed: 0
   _initialAttackTime: 2.5
   _initialHitTime: 1
   monsterSkills:
@@ -755,7 +757,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8040637318099020514}
   - component: {fileID: 7953667774645544360}
-  - component: {fileID: 538241127845239818}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -861,19 +862,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000000059604645, y: 0.2768341, z: -0.017697692}
     m_Extent: {x: 1.0300596, y: 0.77888477, z: 1.2026013}
   m_DirtyAABB: 0
---- !u!65 &538241127845239818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8035200983070569600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7681711, y: 1.3803571, z: 0.8166068}
-  m_Center: {x: 0.03653391, y: 0.6867864, z: 0.102517284}
 --- !u!1 &8035208550454124568
 GameObject:
   m_ObjectHideFlags: 0

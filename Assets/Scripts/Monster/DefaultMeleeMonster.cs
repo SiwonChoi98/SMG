@@ -18,14 +18,12 @@ public class DefaultMeleeMonster : Monster
         _hitTime = _initialHitTime;
         _initialSpeed = Speed;
 
-
     } //임시 능력치 셋팅
 
     public override void Shoot()
     {
         transform.LookAt(target.position); // 때릴 때마다 플레이어 방향으로 돌려준다.
         Speed = Random.Range(_initialSpeed - 0.5f, _initialSpeed + 0.5f);
-        
     }
 
     public override void MonsterSKill(int index) // 실제 공격이 나가거나 투사체가 나가야하는 타이밍, projectilePoint가 있는 경우 저기서 스킬이 나갈 것이다.

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 10
+  damageMult: 0
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -1420,8 +1421,10 @@ MonoBehaviour:
   _curHealth: 0
   _speed: 0
   _attackRange: 0
-  _attackTime: 0
   _hitTime: 0
+  _initialSpeed: 0
+  _initialAttackTime: 0
+  _initialHitTime: 0
   monsterSkills:
   - {fileID: 223985313}
   rigid: {fileID: 0}
@@ -1436,7 +1439,6 @@ MonoBehaviour:
   isHit: 0
   isHitEnd: 1
   isHitbySkill: 0
-  _initialHitTime: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 0}
   HealthBar: {fileID: 0}

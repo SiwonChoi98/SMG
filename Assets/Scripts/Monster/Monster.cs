@@ -21,7 +21,7 @@ public class Monster : MonoBehaviour, IDamageable
     [SerializeField] protected float _attackRange; // 기본적인 공격 거리, 보스를 제외한 몬스터들은 대부분 하나만을 가진다.
     protected float _attackTime; //공격 쿨타임 돌아가는 것
     public float _hitTime; // 피격 쿨타임 돌아가는 것
-    
+
     [SerializeField] public float _initialSpeed; // 초기 스피드
     [SerializeField] public float _initialAttackTime; //공격 쿨타임 초기화 및 쿨타임 간격
     [SerializeField] public float _initialHitTime; // 피격 쿨타임 초기화 및 쿨타임 간격

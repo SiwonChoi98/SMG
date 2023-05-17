@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 25
+  damageMult: 0
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -726,6 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 10
+  damageMult: 0
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -814,6 +816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 15
+  damageMult: 0
   attackForce: 0
   mSkillType: 0
   mParticleType: 0
@@ -1178,7 +1181,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010599331836152760}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.132135, y: 3.7913113, z: 1.8521023}
