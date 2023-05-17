@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public Slider[] volumeSlider; //볼륨조절
     public void BackSceneButton()
     {
-        SoundManager.instance.SfxPlaySound(15);
+        ClickSound();
         LoadingSceneController.Instance.LoadScene("Title");
     }
     public void NextGame()
@@ -42,19 +42,22 @@ public class GameManager : MonoBehaviour
     }
     public void ReplayGame()
     {
-        SoundManager.instance.SfxPlaySound(15);
+        ClickSound();
         StageManager.instance.SetCurrent(StageManager.instance.currentStageIndex);
         LoadingSceneController.Instance.LoadScene("InGame");
     }
     public void PauseGame()
     {
-        SoundManager.instance.SfxPlaySound(15);
+        ClickSound();
         Time.timeScale = 0;
     }
     public void PlayGame()
     {
-        //SoundManager.instance.SfxPlaySound(15);
         Time.timeScale = 1;
+    }
+    public void ClickSound()
+    {
+        SoundManager.instance.SfxPlaySound(15);
     }
     private void Awake()
     {

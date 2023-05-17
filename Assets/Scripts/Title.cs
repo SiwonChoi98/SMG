@@ -41,5 +41,8 @@ public class Title : MonoBehaviour
         yield return new WaitForSeconds(1f);
         LoadingSceneController.Instance.LoadScene("InGame");
     }
-    
+    public void ClickSound()
+    {
+        SoundManager.instance.SfxPlaySound(15);
+    }
 }

@@ -48,5 +48,4 @@ public class SoundManager : MonoBehaviour
         sfxAudioSource.PlayOneShot(sfxAudioSource.clip, volume);
     }
 
-   
 }
