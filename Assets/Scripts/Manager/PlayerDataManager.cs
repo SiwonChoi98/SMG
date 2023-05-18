@@ -10,7 +10,6 @@ public class PlayerDataManager : MonoBehaviour
     public int playerMaxHealth;
     public int playerStrength;
 
-    public Slot[] skillSlots; // 스킬 슬롯들
     void Awake()
     {
         if (instance == null)

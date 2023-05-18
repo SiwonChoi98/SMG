@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentMonsterCountTxt; //현재 몬스터 수 텍스트
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
+    [SerializeField] private GameObject clearTxt; //클리어 텍스트
     [SerializeField] private GameObject gameOverPanel; //게임오버 판넬
+     
     public Slider[] volumeSlider; //볼륨조절
     public void BackSceneButton()
     {
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour
         if (stage.asset.IsClear())
         {
             clearPortal.SetActive(true);
+            clearTxt.SetActive(true);
         }
         if (stage.asset.IsOver())
         {
