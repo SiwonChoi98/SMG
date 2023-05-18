@@ -10,6 +10,7 @@ public class ClearPortal : MonoBehaviour
         {
             StageManager.instance.LastStageUp();
             PlayerDataManager.instance.PlayerStatSave(GameManager.instance.player.CurHealth, GameManager.instance.player.MaxHealth, GameManager.instance.player.Strength);
+            PlayerDataManager.instance.PlayerSkillsSave();
             GameManager.instance.NextGame();
         }
     }

@@ -64,7 +64,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
 
     }
     // 이미지의 투명도 조절
-    private void SetColor(float _alpha)
+    public void SetColor(float _alpha)
     {
         Color color = itemImage.color;
         color.a = _alpha;

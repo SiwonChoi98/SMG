@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
             player.CurHealth = PlayerDataManager.instance.playerCurHealth;
             player.MaxHealth = PlayerDataManager.instance.playerMaxHealth;
             player.Strength = PlayerDataManager.instance.playerStrength;
+            PlayerDataManager.instance.PlayerSkillsLoad();
         }
     }
     private void MonsterSpawnDataSave()
