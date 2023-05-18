@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance;
     public static bool inventoryActivated = false; // 인벤토리를 눌렀을 경우 다른 공격이나 이동 기능을 막는 것, 우리 게임에는 딱히..?, 왜냐하면 우리는 공격 버튼은 따로 있어서 괜찮을 것 같기도 하다.
 
     // 인벤토리 키를 눌렀을 경우 인벤토리 활성화, 필요한 컴포넌트
@@ -16,12 +17,21 @@ public class Inventory : MonoBehaviour
     private GameObject go_BuffSlot; // 버프 슬롯들의 부모 오브젝트
 
     [SerializeField]
-    private Slot[] skillSlots; // 스킬 슬롯들
+    public Slot[] skillSlots; // 스킬 슬롯들
     [SerializeField]
     private Slot[] buffSlots; // 버프 슬롯들
 
-
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         skillSlots = go_SkillSlot.GetComponentsInChildren<Slot>();

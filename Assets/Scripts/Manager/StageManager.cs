@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
     public int lastStageIndex; //제일 마지막 스테이지
     [SerializeField]
     private string _folderName = "Stage";
+
     private void Awake()
     {
        

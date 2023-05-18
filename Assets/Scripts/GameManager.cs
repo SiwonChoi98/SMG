@@ -66,12 +66,15 @@ public class GameManager : MonoBehaviour
         else
             Destroy(gameObject);
         monsters = new List<Monster>();
-}
+    }
     private void Start()
     {
         int ran = Random.Range(4, 8);
         SoundManager.instance.BgmPlaySound(ran); //4~7번까지 인게임 사운드 후보
-        Init(); //시작할때 정보들 저장
+
+        Init(); //각종 정보들
+        PlayerStatInit(); //플레이어 정보
+
         MonsterSpawnDataSave(); //몬스터 풀 저장
         MonsterPosDataSave(); //몬스터 위치 저장
         
@@ -85,6 +88,16 @@ public class GameManager : MonoBehaviour
         volumeSlider[0].value = SoundManager.instance.bgmAudioSource.volume; //볼륨조절
         volumeSlider[1].value = SoundManager.instance.sfxAudioSource.volume;
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
+        
+    }
+    private void PlayerStatInit()
+    {
+        if (StageManager.instance.currentStageIndex != 1)
+        {
+            player.CurHealth = PlayerDataManager.instance.playerCurHealth;
+            player.MaxHealth = PlayerDataManager.instance.playerMaxHealth;
+            player.Strength = PlayerDataManager.instance.playerStrength;
+        }
     }
     private void MonsterSpawnDataSave()
     {
@@ -111,10 +124,10 @@ public class GameManager : MonoBehaviour
         if (stage.asset.IsOver())
         {
             gameOverPanel.SetActive(true);
-            PauseGame();
         }
         MonsterSpwan();
     }
+  
     public void MonsterSpwan()
     {
         if(spawnCount > 0) //몬스터 생성 수가 0보다 클때만 생성 
