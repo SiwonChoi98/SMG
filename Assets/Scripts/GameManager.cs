@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
     [SerializeField] private GameObject clearTxt; //클리어 텍스트
+    private int clearTxtCount; //클리어 텍스트 출현 빈도 수
     [SerializeField] private GameObject gameOverPanel; //게임오버 판넬
      
     public Slider[] volumeSlider; //볼륨조절
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         volumeSlider[0].value = SoundManager.instance.bgmAudioSource.volume; //볼륨조절
         volumeSlider[1].value = SoundManager.instance.sfxAudioSource.volume;
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
-        
+        clearTxtCount = 1;
     }
     private void PlayerStatInit()
     {
@@ -122,7 +123,10 @@ public class GameManager : MonoBehaviour
         if (stage.asset.IsClear())
         {
             clearPortal.SetActive(true);
-            clearTxt.SetActive(true);
+            if (clearTxtCount > 0)
+            {
+                StartCoroutine(ClearTxt());
+            }
         }
         if (stage.asset.IsOver())
         {
@@ -130,7 +134,13 @@ public class GameManager : MonoBehaviour
         }
         MonsterSpwan();
     }
-  
+    private IEnumerator ClearTxt()
+    {
+        clearTxt.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        clearTxt.SetActive(false);
+        clearTxtCount--;
+    }
     public void MonsterSpwan()
     {
         if(spawnCount > 0) //몬스터 생성 수가 0보다 클때만 생성 
