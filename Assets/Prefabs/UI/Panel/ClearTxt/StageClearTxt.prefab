@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2405173004594438370}
   - component: {fileID: 8466791543297552823}
   - component: {fileID: 3451997673968364315}
+  - component: {fileID: 3987816842674289765}
   m_Layer: 5
   m_Name: StageClearTxt
   m_TagString: Untagged
@@ -135,3 +136,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!320 &3987816842674289765
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586935136548987821}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: e832dd87f73d36b40a832a5d9f5279e0, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 2
+  m_InitialTime: 2
+  m_SceneBindings:
+  - key: {fileID: 4264145836983566878, guid: e832dd87f73d36b40a832a5d9f5279e0, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Playables;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private GameObject clearPortal; //클리어 포탈
     [SerializeField] private GameObject clearTxt; //클리어 텍스트
+    [SerializeField] private PlayableDirector clearTimeLine;
     private int clearTxtCount; //클리어 텍스트 출현 빈도 수
     [SerializeField] private GameObject gameOverPanel; //게임오버 판넬
      
@@ -139,8 +141,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator ClearTxt()
     {
         clearTxt.SetActive(true);
+        clearTimeLine.Play();
         yield return new WaitForSeconds(2f);
         clearTxt.SetActive(false);
+        clearTimeLine.Stop();
         clearTxtCount--;
     }
     public void MonsterSpwan()
