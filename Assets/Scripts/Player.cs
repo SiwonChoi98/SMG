@@ -44,9 +44,9 @@ public class Player : MonoBehaviour, IDamageable
     private bool isCasting; // 스킬을 캐스팅하고 있는가?
 
     private bool isAttackingMove; // 공격할 때 이동시작
-    private bool isDodgeReady; // 회피 쿨타임이 다 초기화되서 다시 사용할 수 있는가?
-    private float dodgeCoolTime; // 회피 쿨타임
-    private float dodgeCoolTimeMax; // 회피 쿨타임 최대값
+    public bool isDodgeReady; // 회피 쿨타임이 다 초기화되서 다시 사용할 수 있는가?
+    public float dodgeCoolTime; // 회피 쿨타임
+    public float dodgeCoolTimeMax; // 회피 쿨타임 최대값
     private Vector3 dodgeVec;
     private Vector3 moveVec;
 
@@ -70,6 +70,7 @@ public class Player : MonoBehaviour, IDamageable
     public GameObject dmgText;
     public Transform dmgTextPos;
     private string _dmgTextFolderName = "DamageText/dmgText";
+   
     #region Unity Methods
 
     private void Awake()
