@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler // using UnityEngine.EventSystems 의 인터페이스 사용
+public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler // using UnityEngine.EventSystems 의 인터페이스 사용
 
 {
     private Vector3 orginPos; // 아이템의 원래 위치
@@ -160,24 +160,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     }
 
     // 이 부분을 나중에 마우스 클릭이 아닌 모바일 터치로 바꿔보자.
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(eventData.button == PointerEventData.InputButton.Right)
-        {
-            
-            if(item != null && item.itemType == Item.EItemType.Skill) // 슬롯에 들어있는 아이템이 스킬인 경우에만 사용
-            {
-                if (player.IsPlayerCanUseSkill) // 플레이어가 !isAttacking && !isDodging && !isCasting 인 상태이면
-                {
-                    Debug.Log(item.itemName + " 스킬을 사용했습니다.");
-
-                    SetSlotCount(-1);
-                    player.UseSlotSkill(slotSkill); // 플레이어에게 스킬 사용하게 만든다. 여기서 계속 오류가 났었는데, 위에 처럼 public 변수가 없어서 그랬던 것이다.
-                }
-            }
-        }
-    }
-
     public void SkillButton()
     {
         if (item != null && item.itemType == Item.EItemType.Skill) // 슬롯에 들어있는 아이템이 스킬인 경우에만 사용
@@ -193,37 +175,4 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
 
     }
 
-    //// 드래그를 시작할 때
-    //public void OnBeginDrag(PointerEventData eventData) 
-    //{
-    //    if(item != null) 
-    //    {
-    //        DragSlot.instance.dragSlot = this;
-    //        DragSlot.instance.DragSetImage(itemImage);
-
-    //        DragSlot.instance.transform.position = eventData.position;
-    //    }
-        
-    //}
-
-    //// 드래그 할 때
-    //public void OnDrag(PointerEventData eventData)
-    //{
-    //    if (item != null)
-    //    {
-    //        DragSlot.instance.transform.position = eventData.position;
-    //    }
-    //}
-
-    //// 드래그가 끝날 때
-    //public void OnEndDrag(PointerEventData eventData)
-    //{
-    //    DragSlot.instance.SetColor(0);
-    //    DragSlot.instance.dragSlot = null;
-    //}
-
-    //public void OnDrop(PointerEventData eventData)
-    //{
-       
-    //}
 }
