@@ -536,6 +536,7 @@ MonoBehaviour:
   _curHealth: 90
   _speed: 5
   _attackRange: 2.2
+  _attackTime: 0
   _hitTime: 0
   _initialSpeed: 0
   _initialAttackTime: 1.6
@@ -585,17 +586,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 6206119592252485752, guid: 055a76fb6ff85a1449f2cebf120795f7, type: 3}
-  - {fileID: 6627727196369006612, guid: cecff7a3096b99e479f66a6f55252514, type: 3}
+  - {fileID: 1850525415135862609, guid: 92162835104a261488ab14ce7f3bbbf8, type: 3}
   - {fileID: 3361580167769461230, guid: 89f55c518dcf3da4bb93d9070559844f, type: 3}
   - {fileID: 2535240879249773164, guid: 5652860eb0959854794b2ec3c8abad91, type: 3}
   - {fileID: 5833526019795273807, guid: 6bc2d169ecf8df544bcd9735eaed7524, type: 3}
-  - {fileID: 6627727196369006612, guid: aa19c42c80cd50f4bb545f95ff04b8db, type: 3}
+  - {fileID: 2326015053670647784, guid: ec6ee99d42b557b4592f52ab9b510707, type: 3}
   - {fileID: 4875708143829087916, guid: d8e738f07055fd74aa333bc693b82958, type: 3}
   - {fileID: 4057380587987758503, guid: b62ef1a4a57eaf348b40226af92dce38, type: 3}
   - {fileID: 5836010528509476273, guid: 90460256d6bb01c4c996fcd8fc5880fe, type: 3}
   - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
-  - {fileID: 3062636064616549623, guid: e1b2cd50b493da74db79c62aa32f54f7, type: 3}
   - {fileID: 2785357774869610249, guid: 0d572866f3479704aad64a94db82bdb4, type: 3}
+  - {fileID: 6864562594827888501, guid: 4806499bd812b634389e6ae37baf21ae, type: 3}
 --- !u!1 &3043653147763389201
 GameObject:
   m_ObjectHideFlags: 0

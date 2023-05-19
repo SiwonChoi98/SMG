@@ -24625,7 +24625,7 @@ GameObject:
   - component: {fileID: 8027387301997493990}
   - component: {fileID: 8027387301997493989}
   m_Layer: 8
-  m_Name: AttackBuffSample
+  m_Name: StrengthBuffSample
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
