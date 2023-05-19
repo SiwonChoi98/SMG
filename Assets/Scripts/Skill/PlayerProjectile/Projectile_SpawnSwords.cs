@@ -53,16 +53,16 @@ public class Projectile_SpawnSwords : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (1 << collision.transform.gameObject.layer == TargetMask)
+        if (1 << other.transform.gameObject.layer == TargetMask)
         {
             //Debug.Log("collision.gameObject.layer : " + collision.gameObject.layer);
             float randDamage = Random.Range(damage, damage + damage * 0.2f);
 
-            collision.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
-            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)randDamage, hitFx);
-            collision.gameObject.GetComponent<Monster>()?.KnockBack(6f);  // 임시
+            other.gameObject.GetComponent<Monster>()?.SetHitBySkill(true);
+            other.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)randDamage, hitFx);
+            other.gameObject.GetComponent<Monster>()?.KnockBack(6f);  // 임시
             Destroy(gameObject);
 
         }
@@ -89,6 +89,7 @@ public class Projectile_SpawnSwords : MonoBehaviour
         if(t_cols.Length > 0) 
         {
             target = t_cols[Random.Range(0, t_cols.Length)].transform;
+            this.GetComponent<BoxCollider>().isTrigger = true; // 칼들이 붙었다가 떨어지는 순간에 다시 트리거를 활성화 시켜준다.
         }
         else
         {

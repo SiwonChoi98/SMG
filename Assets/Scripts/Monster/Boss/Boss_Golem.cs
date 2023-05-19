@@ -12,16 +12,7 @@ public class Boss_Golem : Monster
 
     protected override void InitStat()
     {
-        _name = "Boss_Golem";
-        MaxHealth = 300;
-        CurHealth = 300;
-        _speed = 5;
-        _attackRange = 5f;
-        _attackTime = 2.5f;
-        _hitTime = 4f;
-        _initialAttackTime = _attackTime;
-        _initialHitTime = _hitTime;
-        _attackSpeed = 10f;
+
     } //임시 능력치 셋팅
 
     protected override void Update()

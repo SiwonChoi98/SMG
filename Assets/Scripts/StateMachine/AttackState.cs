@@ -26,8 +26,9 @@ public class AttackState : State<Monster>
     {
         if (context.target)
         {
-            
-            if(context.mType == EMonsterType.Boss && context.isAttack) // 만약 보스 타입이라면 && 그리고 공격할 수 있으면
+    
+
+            if (context.mType == EMonsterType.Boss && context.isAttack) // 만약 보스 타입이라면 && 그리고 공격할 수 있으면
             {
 
                 float ranNum = Random.Range(0f, 10f);
@@ -52,7 +53,6 @@ public class AttackState : State<Monster>
 
                 else // 15퍼센트
                 {
-                    // 이 부분을 수정해서 잠시동안 애니메이션이 멈추게 해보자.
                     context.anim.SetBool("SkillEnd", false);
                     animator.SetTrigger("doAttack"); // 공격을 시키고
                     animator.SetInteger("SkillNumber", 2); // 세번째 스킬 애니메이션을 실행해준다.
@@ -76,13 +76,12 @@ public class AttackState : State<Monster>
                 context.isAttack = false;
                 return;
             }
+
             if (!context.isAttackRange && context.anim.GetBool("SkillEnd")) // 공격 사거리 내에 들어와있지 않다면 Idle로 이동 && 공격 애니메이션이 다 끝나면 Idle로 이동
             {
                 stateMachine.ChangeState<IdleState>();
                 return;
             }
-          
-           
         }
 
     }

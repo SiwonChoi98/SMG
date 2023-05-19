@@ -21,8 +21,9 @@ public class MoveState : State<Monster>
 
         randPosX = Random.Range(-0.7f, 0.7f);
         randPosZ = Random.Range(-0.7f, 0.7f);
-        Debug.Log("x 위치 " + randPosX+ ", " + "z 위치 : " + randPosZ);
+
         // 이 부분을 context.Speed로 바꿔줘야한다.
+        context.Speed = Random.Range(context._initialSpeed - 0.5f, context._initialSpeed + 0.5f); // MoveState 진입 시 Speed에 차이를 준다.
         //context.GetComponent<NavMeshAgent>().speed = 2.5f; 
     }
 

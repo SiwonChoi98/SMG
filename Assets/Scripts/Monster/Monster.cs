@@ -19,7 +19,7 @@ public class Monster : MonoBehaviour, IDamageable
     // 이 부분에서 각각의 몬스터마다 speed를 받아올 수 있도록하자.
 
     [SerializeField] protected float _attackRange; // 기본적인 공격 거리, 보스를 제외한 몬스터들은 대부분 하나만을 가진다.
-    protected float _attackTime; //공격 쿨타임 돌아가는 것
+    public float _attackTime; //공격 쿨타임 돌아가는 것
     public float _hitTime; // 피격 쿨타임 돌아가는 것
 
     [SerializeField] public float _initialSpeed; // 초기 스피드
@@ -72,13 +72,14 @@ public class Monster : MonoBehaviour, IDamageable
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         target = GameObject.Find("Player").transform;
-        InitStat();
+        _hitTime = _initialHitTime;
+        _initialSpeed = Speed;
     }
 
     //임시 능력치 셋팅, 자식 몬스터들이 구현하도록 함
     protected virtual void InitStat()
     {
-    
+     
     } 
     protected virtual void Start()
     {
