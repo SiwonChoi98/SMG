@@ -211,7 +211,7 @@ public class Player : MonoBehaviour, IDamageable
 
         isDodgeReady = dodgeCoolTime >= dodgeCoolTimeMax;
 
-        if (dodge && moveVec != Vector3.zero 
+        if (moveVec != Vector3.zero 
             && !isAttacking &&!isCasting && isDodgeReady) // 회피 키를 눌렀을 경우 && 움직임이 있는 경우 && 공격 상태가 아닌 경우 && 스킬 시전도 아닌 경우 && 닷지 쿨타임이 충족하는 경우
         {
 
@@ -223,7 +223,7 @@ public class Player : MonoBehaviour, IDamageable
 
             Invoke("DodgeOut", 0.6f);
         }
-        else if (dodge && moveVec != Vector3.zero 
+        else if (moveVec != Vector3.zero 
             && isAttacking && !isCasting && isDodgeReady) // 회피 키를 눌렀을 경우 && 움직임이 있는 경우 && 공격 상태인 경우 && 스킬 시전도 아닌 경우&& 닷지 쿨타임이 충족하는 경우
         {
             // 하던 공격을 캔슬해야 하므로 취소해준다.
