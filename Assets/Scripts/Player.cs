@@ -110,7 +110,7 @@ public class Player : MonoBehaviour, IDamageable
         Move();
         AttackingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
         Turn();
-        Dodge();
+        DodgeCoolTime();
     }
 
     // 플레이어의 입력을 받아온다.
@@ -205,12 +205,15 @@ public class Player : MonoBehaviour, IDamageable
             
     }
 
-    private void Dodge()
+    public void DodgeCoolTime()
     {
         dodgeCoolTime += Time.deltaTime;
 
         isDodgeReady = dodgeCoolTime >= dodgeCoolTimeMax;
+    }
 
+    private void Dodge()
+    {  
         if (moveVec != Vector3.zero 
             && !isAttacking &&!isCasting && isDodgeReady) // 회피 키를 눌렀을 경우 && 움직임이 있는 경우 && 공격 상태가 아닌 경우 && 스킬 시전도 아닌 경우 && 닷지 쿨타임이 충족하는 경우
         {

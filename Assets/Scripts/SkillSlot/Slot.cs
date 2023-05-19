@@ -17,7 +17,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     public Image itemImage; // 아이템의 이미지
     public BaseSkill slotSkill; // Slot에 들어가는 스킬 정보, 스킬을 얻은 경우에만 추가
     public BaseBuff slotBuff; // Buff에 들어가는 버프 정보, 버프를 얻은 경우에만 추가 
-
+    
     [SerializeField]
     private Player player; // Slot에게 할당된 플레이어
     [SerializeField]
@@ -30,6 +30,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
     private Text text_Count; // 스킬 사용 횟수 Text
     [SerializeField]
     private Text text_BuffTime; // 버프 지속 시간 Text
+    [SerializeField]
+    private Button skillButton; // 스킬 버튼
 
     private void Start()
     {
@@ -174,6 +176,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler //IBeginDragHandler, IDr
                 }
             }
         }
+    }
+
+    public void SkillButton()
+    {
+        if (item != null && item.itemType == Item.EItemType.Skill) // 슬롯에 들어있는 아이템이 스킬인 경우에만 사용
+        {
+            if (player.IsPlayerCanUseSkill) // 플레이어가 !isAttacking && !isDodging && !isCasting 인 상태이면
+            {
+                Debug.Log(item.itemName + " 스킬을 사용했습니다.");
+
+                SetSlotCount(-1);
+                player.UseSlotSkill(slotSkill); // 플레이어에게 스킬 사용하게 만든다. 여기서 계속 오류가 났었는데, 위에 처럼 public 변수가 없어서 그랬던 것이다.
+            }
+        }
+
     }
 
     //// 드래그를 시작할 때
