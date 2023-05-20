@@ -16877,6 +16877,7 @@ GameObject:
   - component: {fileID: 807489612}
   - component: {fileID: 807489611}
   - component: {fileID: 807489610}
+  - component: {fileID: 807489616}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16898,6 +16899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   Offset: {x: 0, y: 7, z: -6}
+  isOnShake: 0
 --- !u!114 &807489611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16985,6 +16987,19 @@ Transform:
   m_Father: {fileID: 2003812605}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &807489616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807489609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200164dc1641f6b4c9a0d840fbca9a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
 --- !u!4 &808369483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4094873138116470, guid: 10bde8b4ebd3d434991c1438328f0ca6, type: 3}
@@ -29366,6 +29381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1943652331}
   Offset: {x: 0, y: 20, z: 0}
+  isOnShake: 0
 --- !u!4 &1364838394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4889624827350280, guid: 27f739ba4bdcfef49a33ba48220b020b, type: 3}
@@ -44638,6 +44654,7 @@ MonoBehaviour:
   playerHealthImageTrans: {fileID: 1260301074}
   playerHealthImage: {fileID: 922529300}
   playerCanvasHealthImage: {fileID: 1295745114}
+  playerDodgeCoolImage: {fileID: 0}
   playerShieldImage: {fileID: 0}
   stage: {fileID: 851055039}
   monsters: []
@@ -44652,6 +44669,7 @@ MonoBehaviour:
   outPortalPos: {fileID: 0}
   clearPortal: {fileID: 0}
   clearTxt: {fileID: 0}
+  clearTimeLine: {fileID: 0}
   gameOverPanel: {fileID: 0}
   volumeSlider: []
 --- !u!4 &2007805269

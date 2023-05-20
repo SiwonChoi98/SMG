@@ -15,7 +15,7 @@ public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].position,
              SkillManager.instance.player.skillSpawnPos[(int)ESkillType.UpperSlash].rotation);
 
-        
+        CameraShake.instance.OnShakeCamera(0.1f, 0.6f);
 
         go.GetComponent<Projectile_UpperSlash>().SetDamage((int)(damage));
         go.GetComponent<Projectile_UpperSlash>().SetTarget(targetMask);

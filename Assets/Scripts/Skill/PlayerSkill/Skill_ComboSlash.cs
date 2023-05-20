@@ -15,6 +15,8 @@ public class Skill_ComboSlash : BaseSkill
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.ComboSlash].position + Vector3.up * 1.5f, // 살짝 위에서 날라가야 한다.
              SkillManager.instance.player.skillSpawnPos[(int)ESkillType.ComboSlash].rotation);
 
+        CameraShake.instance.OnShakeCamera(0.1f, 0.5f);
+
         go.GetComponent<Projectile_ComboSlash>().SetDamage((int)(damage));
         go.GetComponent<Projectile_ComboSlash>().SetTarget(targetMask);
         go.GetComponent<Projectile_ComboSlash>().SetHitEffect(effectPrefab);

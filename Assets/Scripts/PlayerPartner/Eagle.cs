@@ -80,9 +80,10 @@ public class Eagle : MonoBehaviour
         if (!isAttack)
         {
             _attackTime -= Time.deltaTime;
+            
             if (_attackTime < 0 && anim.GetBool("SkillEnd"))
             {
-                _attackTime = 2.5f;
+                _attackTime = _initialAttackTime;
                 isAttack = true;
             }
         }

@@ -17,6 +17,8 @@ public class Skill_GroundBreak : BaseSkill
 
         Collider[] colliders = groundBreakAttackCollision?.CheckOverlapBox(targetMask);
 
+        CameraShake.instance.OnShakeCamera(0.1f, 0.6f);
+
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {

@@ -16,7 +16,10 @@ public class NormalAttack : BaseSkill
     {
         Collider[] colliders = normalAttackCollision?.CheckOverlapBox(targetMask);
 
-        
+        if(colliders.Length > 0)  // 타격 시에만 이펙트 처리
+        {
+            CameraShake.instance.OnShakeCamera(0.1f, 0.4f);
+        }
 
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)

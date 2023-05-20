@@ -8,10 +8,6 @@ public class ActionController : MonoBehaviour
     [SerializeField]
     private float range; // 습득 가능한 최대 거리.
 
-    private bool pickupActivated = false; // 습득 가능할 시 true
-
-    private RaycastHit hitInfo; // 충돌체의 정보 저장.
-
     [SerializeField]
     private LayerMask layerMask; // 아이템 레이어에만 반응하도록 레이어 마스크를 설정
 
@@ -36,21 +32,6 @@ public class ActionController : MonoBehaviour
 
     // 실제로 아이템을 흭득하는 부분, 인벤토리에 AcquireItem을 해주면서 넣어준다.
    
-
-    // 아이템 정보 생성
-    private void ItemInfoAppear() 
-    {
-        pickupActivated = true;
-       
-    }
-
-    // 아이템 정보 제거
-    private void InfoDisappear()
-    {
-        pickupActivated = false;
-      
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

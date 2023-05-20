@@ -17,6 +17,10 @@ public class Skill_Baldo : BaseSkill // 89 프레임, 12프레임부터 파티�
 
         Collider[] colliders = BaldoAttackCollision?.CheckOverlapBox(targetMask);
 
+        if (colliders.Length > 0)  // 타격 시에만 이펙트 처리
+        {
+            CameraShake.instance.OnShakeCamera(0.05f, 0.5f);
+        }
 
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)

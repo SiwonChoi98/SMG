@@ -18,7 +18,10 @@ public class Skill_Thrust : BaseSkill
 
         Collider[] colliders = thrustAttackCollision?.CheckOverlapBox(targetMask);
 
-        
+        if (colliders.Length > 0)  // 타격 시에만 이펙트 처리
+        {
+            CameraShake.instance.OnShakeCamera(0.1f, 0.6f);
+        }
 
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)

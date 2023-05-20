@@ -879,6 +879,9 @@ MonoBehaviour:
   maxHealth: 100
   strength: 10
   speed: 0
+  isDodgeReady: 0
+  dodgeCoolTime: 0
+  dodgeCoolTimeMax: 0
   playerSkills:
   - {fileID: 2100132701}
   - {fileID: 2049407293}
@@ -894,9 +897,12 @@ MonoBehaviour:
   - {fileID: 1307969564}
   - {fileID: 2022153706}
   - {fileID: 769432675}
+  isShield: 0
   ShieldCount: 0
   isStrengthBuff: 0
   isSpeedBuff: 0
+  dmgText: {fileID: 0}
+  dmgTextPos: {fileID: 0}
 --- !u!95 &1887263582
 Animator:
   serializedVersion: 5

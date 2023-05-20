@@ -17,10 +17,10 @@ public class Skill_GiantSword : BaseSkill
 
         giantSwordAttackCollision = collision;
 
-
         Collider[] colliders = giantSwordAttackCollision?.CheckOverlapBox(targetMask);
 
-        
+        CameraShake.instance.OnShakeCamera(0.1f, 0.7f);
+
         // CheckOverlapBox을 통해 얻어온 충돌체마다 데미지 처리를 해준다. 
         foreach (Collider collider in colliders)
         {
