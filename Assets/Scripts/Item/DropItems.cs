@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public enum EItemIndex
@@ -17,7 +18,8 @@ public enum EItemIndex
     Baldo,
     GroundBreak,
 
-    Heal,
+    SmallHeal,
+    LargeHeal,
     Speed,
     Strength
 }
@@ -33,27 +35,39 @@ public class DropItems : MonoBehaviour
         mMonsterType = this.GetComponent<Monster>().mType;
     }
 
-    public void DropSkill()
-    {   
+    public void DropItem()
+    {
+        DropSkill();
+        DropBuff();
+    }
+
+    private void DropSkill()
+    {
+
         if(mMonsterType == EMonsterType.Common) // 일반 몬스터인 경우
         { 
             int randNum1 = Random.Range(0, 100);
             
+            
             if(randNum1 >= 0 && randNum1 < 30) // 30 퍼센트의 확률로 스킬 생성
             {
                 int randNum2 = Random.Range(0, 100);
-                
-                if( randNum2 >= 0 && randNum2 < 80) // 80퍼 : 일반 스킬 생성
-                {
-                    int normalSkillNum = Random.Range(0, 4); 
 
-                    Instantiate(items[normalSkillNum], this.transform.position, this.transform.rotation);
+                if ( randNum2 >= 0 && randNum2 < 80) // 80퍼 : 일반 스킬 생성
+                {
+                    int normalSkillNum = Random.Range(0, 4);
+
+                    GameObject skill = Instantiate(items[normalSkillNum], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(skill));
                 }
                 else  // 20퍼 : 에픽 스킬 생성
                 {
-                    int  epicSkillNum = Random.Range(4, 7); 
+                    int  epicSkillNum = Random.Range(4, 7);
 
-                    Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
+                    GameObject skill = Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(skill));
                 }
 
             }
@@ -69,15 +83,19 @@ public class DropItems : MonoBehaviour
 
             if (randNum3 >= 0 && randNum3 < 70) // 70퍼 : 에픽 스킬 생성
             {
-                int epicSkillNum = Random.Range(4, 7); 
+                int epicSkillNum = Random.Range(4, 7);
 
-                Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
+                GameObject skill = Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
+
+                StartCoroutine(ItemTrigger(skill));
             }
             else  // 30퍼 : 유니크 스킬 생성
             {
-                int epicSkillNum = Random.Range(7, 9); 
+                int uniqueSkillNum = Random.Range(7, 9);
 
-                Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
+                GameObject skill = Instantiate(items[uniqueSkillNum], this.transform.position, this.transform.rotation);
+
+                StartCoroutine(ItemTrigger(skill));
             }
           
         }
@@ -92,17 +110,21 @@ public class DropItems : MonoBehaviour
             {
                 int randNum4 = Random.Range(0, 100);
 
-                if(randNum4 >= 0 && randNum4 < 30) // 30퍼 : 에픽 스킬 생성
+                if (randNum4 >= 0 && randNum4 < 30) // 30퍼 : 에픽 스킬 생성
                 {
                     int epicSkillNum = Random.Range(4, 7);
+    
+                    GameObject skill = Instantiate(items[epicSkillNum], this.transform.position, this.transform.rotation);
 
-                    Instantiate(items[epicSkillNum], this.transform.position + new Vector3(0, 0, -i), this.transform.rotation); // 임시
+                    StartCoroutine(ItemTrigger(skill));
                 }
-                else // 70퍼 : 유니크 스킬 생성
+                else// 70퍼 : 유니크 스킬 생성
                 {
-                    int specialSkillNum = Random.Range(7, 9); // 7부터 8까지 나오면 해당 스킬 생성
+                    int uniqueSkillNum = Random.Range(7, 9); // 7부터 8까지 나오면 해당 스킬 생성
+                    
+                    GameObject skill = Instantiate(items[uniqueSkillNum], this.transform.position, this.transform.rotation);
 
-                    Instantiate(items[specialSkillNum], this.transform.position + new Vector3(0, 0, -i), this.transform.rotation); // 임시
+                    StartCoroutine(ItemTrigger(skill));
                 }
             }
           
@@ -110,8 +132,89 @@ public class DropItems : MonoBehaviour
         }
     }
 
-    public void DropBuff()
-    {
+    private void DropBuff()
+    {    
 
+        if (mMonsterType == EMonsterType.Common) // 일반 몬스터인 경우
+        {
+            int randNum1 = Random.Range(0, 100);
+
+            if (randNum1 >= 0 && randNum1 < 10) // 10 퍼센트의 확률로 버프 생성
+            {
+                int randNum2 = Random.Range(0, 100);
+
+                if (randNum2 >= 0 && randNum2 < 80) // 80퍼 : 체력 버프 생성
+                {
+                    GameObject buff = Instantiate(items[(int)EItemIndex.SmallHeal], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(buff));
+                }
+
+                else  if(randNum2 >= 80 && randNum2 < 90) // 10퍼 : 스피드 버프 생성
+                {
+                    GameObject buff = Instantiate(items[(int)EItemIndex.Speed], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(buff));
+                }
+
+                else // 10퍼 : 힘 버프 생성
+                {
+                    GameObject buff = Instantiate(items[(int)EItemIndex.Strength], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(buff));
+                }
+
+            }
+
+        }
+
+        else if (mMonsterType == EMonsterType.Elite)
+        {
+            int randNum1 = Random.Range(0, 100);
+
+            if (randNum1 >= 0 && randNum1 < 50) // 50 퍼센트의 확률로 버프 생성
+            {
+                int randNum2 = Random.Range(0, 100);
+
+                if (randNum2 >= 0 && randNum2 < 80) // 80퍼 : 체력 버프 생성
+                {
+                    GameObject buff = Instantiate(items[(int)EItemIndex.LargeHeal], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(buff));
+                }
+
+                else if (randNum2 >= 80 && randNum2 < 90) // 10퍼 : 스피드 버프 생성
+                {
+                    GameObject buff = Instantiate(items[(int)EItemIndex.Speed], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(buff));
+                }
+
+                else // 10퍼 : 힘 버프 생성
+                {
+                    GameObject buff = Instantiate(items[(int)EItemIndex.Strength], this.transform.position, this.transform.rotation);
+
+                    StartCoroutine(ItemTrigger(buff));
+                }
+
+            }
+
+        }
+
+        else if (mMonsterType == EMonsterType.Boss)
+        {
+
+            GameObject buff = Instantiate(items[(int)EItemIndex.LargeHeal], this.transform.position, this.transform.rotation);
+
+            StartCoroutine(ItemTrigger(buff));
+
+        }
+    }
+
+    IEnumerator ItemTrigger(GameObject item)
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        item.GetComponent<BoxCollider>().isTrigger = true;
     }
 }

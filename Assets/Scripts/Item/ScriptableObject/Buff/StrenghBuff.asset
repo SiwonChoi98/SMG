@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1d08e718f95954094f0f4d15ec72f4, type: 3}
+  m_Name: StrenghBuff
+  m_EditorClassIdentifier: 
+  itemName: StrengthBuff
+  itemType: 1
+  itemImage: {fileID: 21300000, guid: fa0e8108e91114176bae7db654be7ef9, type: 3}
+  itemPrefab: {fileID: 3239422303686283717, guid: da0b46477ff38db4a92a0d3bf79acbb8, type: 3}
+  skill: {fileID: 0}
+  buff: {fileID: -5584172486411183641, guid: bfa95a465e8f3c347ac00e468a2733dd, type: 3}

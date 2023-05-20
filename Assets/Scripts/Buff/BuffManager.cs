@@ -73,7 +73,7 @@ public class BuffManager : MonoBehaviour
             {
                 Player player = gameObject.GetComponent<Player>();
 
-                player.CurHealth += 25; // 나중에는 여기를 퍼센트로 올려주자
+                player.CurHealth += (int)(player.MaxHealth / 4); // 나중에는 여기를 퍼센트로 올려주자
 
                 if (player.CurHealth > player.MaxHealth) // 최대치 체력을 넘어가면 최대체력만큼 채워준다.
                 {
@@ -93,6 +93,36 @@ public class BuffManager : MonoBehaviour
             }
 
             Destroy(HealthBuff, 1f);
+        }
+
+        else if (buffType == EBuffType.LargeHealthBuff)
+        {
+            if (gameObject.CompareTag("Player")) // 받는 대상이 플레이어인 경우
+            {
+                Player player = gameObject.GetComponent<Player>();
+
+                player.CurHealth += (int)(player.MaxHealth / 2); // 나중에는 여기를 퍼센트로 올려주자
+
+                if (player.CurHealth > player.MaxHealth) // 최대치 체력을 넘어가면 최대체력만큼 채워준다.
+                {
+                    player.CurHealth = player.MaxHealth;
+                }
+            }
+
+            GameObject LargeHealthBuff = Instantiate(BuffAuras[(int)EBuffType.LargeHealthBuff],
+                             gameObject.transform.position, gameObject.transform.rotation,
+                             gameObject.transform);
+
+            ParticleSystem[] particleSystems = LargeHealthBuff.GetComponentsInChildren<ParticleSystem>();
+
+            foreach (ParticleSystem particle in particleSystems)
+            {
+                particle.Play(); // 각 위치에 맞게 
+            }
+
+            Destroy(LargeHealthBuff, 1f);
+
+
         }
 
         else if(buffType == EBuffType.StrengthBuff) 

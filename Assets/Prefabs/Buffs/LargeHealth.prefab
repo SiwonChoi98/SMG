@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2990286236553589848
+--- !u!1 &8378540052672699025
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2990286236553589846}
-  - component: {fileID: 2990286236553589849}
+  - component: {fileID: 5883668274110969324}
+  - component: {fileID: -4359042660656239825}
   m_Layer: 0
-  m_Name: BuffManager
+  m_Name: LargeHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2990286236553589846
+--- !u!4 &5883668274110969324
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990286236553589848}
+  m_GameObject: {fileID: 8378540052672699025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 257.7883, y: -25.756472, z: 356.087}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2990286236553589849
+--- !u!114 &-4359042660656239825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990286236553589848}
+  m_GameObject: {fileID: 8378540052672699025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af74b976e7f51164889087bc20e7a402, type: 3}
+  m_Script: {fileID: 11500000, guid: a880479ca4f46864dba3dd682e90902d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  BuffAuras:
-  - {fileID: 1745876134088754774, guid: f7972c893b9d8cb44ab6f1e90349013c, type: 3}
-  - {fileID: 1745876134088754774, guid: f7972c893b9d8cb44ab6f1e90349013c, type: 3}
-  - {fileID: 6139223191333610185, guid: f0150c4f7ed38d14bb38142a32d5e318, type: 3}
-  - {fileID: 8363974723964567179, guid: 685bb50f00ee4c94a846a07c75fab4b5, type: 3}
-  strengthBuffTime: 0
-  strengthBuffTimeMax: 0
-  speedBuffTime: 0
-  speedBuffTimeMax: 0
+  buffTime: 0
+  buffTimeMax: 0
+  mBuffType: 1
+  buffTarget: {fileID: 0}

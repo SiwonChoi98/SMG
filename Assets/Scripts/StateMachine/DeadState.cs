@@ -32,15 +32,18 @@ public class DeadState : State<Monster>
 
         context.gameObject.layer = 14; // MonsterDeath 레이어로 바꿔준다.
 
-        context.GetComponent<DropItems>().DropSkill(); // 몬스터 타입에 맞게 아이템을 떨어뜨려준다.
         
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(1.4f);
+
+        context.GetComponent<DropItems>().DropItem(); // 몬스터 타입에 맞게 아이템을 떨어뜨려준다.
+
+        yield return new WaitForSeconds(0.2f);
 
         context.gameObject.SetActive(false);
 
+        // context.gameObject.transform.SetParent() : 나중에 아이템 떄문에 렉걸리면 풀링으로 처리하도록 합시다.
 
         context.gameObject.layer = 7; // Monster 레이어로 바꿔준다.
-
 
     }
 }

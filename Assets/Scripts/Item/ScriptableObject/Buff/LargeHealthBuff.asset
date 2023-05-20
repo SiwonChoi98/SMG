@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a1d08e718f95954094f0f4d15ec72f4, type: 3}
-  m_Name: AttackBuff
+  m_Name: LargeHealthBuff
   m_EditorClassIdentifier: 
-  itemName: AttackBuff
+  itemName: LargeHealthBuff
   itemType: 1
-  itemImage: {fileID: 21300000, guid: fa0e8108e91114176bae7db654be7ef9, type: 3}
-  itemPrefab: {fileID: 3239422303686283717, guid: da0b46477ff38db4a92a0d3bf79acbb8, type: 3}
+  itemImage: {fileID: 21300000, guid: 5b56d9fa0e8bd6e409ed188db38a692c, type: 3}
+  itemPrefab: {fileID: 4431597898553647596, guid: a7aaec8908485994fb339f4bf0083395, type: 3}
   skill: {fileID: 0}
-  buff: {fileID: -5584172486411183641, guid: bfa95a465e8f3c347ac00e468a2733dd, type: 3}
+  buff: {fileID: -4359042660656239825, guid: f62b08f425d900847a14a8f0b83d5c72, type: 3}

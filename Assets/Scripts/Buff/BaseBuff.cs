@@ -5,6 +5,7 @@ using UnityEngine;
 public enum EBuffType : int // 버프의 타입, 디버프도 포함
 {
    HealthBuff,
+   LargeHealthBuff,
    StrengthBuff,
    SpeedBuff
 }
