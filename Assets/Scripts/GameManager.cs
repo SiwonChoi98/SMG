@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     public void ReplayGame()
     {
         ClickSound();
-        StageManager.instance.SetCurrent(StageManager.instance.currentStageIndex);
+        StageManager.instance.SetCurrent(StageManager.instance.currentStageIndex); //지금 현재 스테이지로 이동하는 형태이고 1 스테이지로 가려면 1으로 써주면됨
         LoadingSceneController.Instance.LoadScene("InGame");
     }
     public void PauseGame()

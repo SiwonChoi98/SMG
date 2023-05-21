@@ -63,7 +63,6 @@ public class Monster : MonoBehaviour, IDamageable
     protected float _attackSpeed; //나가는 속도
 
     public Image healthImage;
-    public GameObject HealthBar;
     public GameObject dmgText;
     public Transform dmgTextPos;
     private string _dmgTextFolderName = "DamageText/dmgText";
@@ -294,9 +293,7 @@ public class Monster : MonoBehaviour, IDamageable
     }
     private void LateUpdate()
     {
-        
         healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
-
     }
 
 }

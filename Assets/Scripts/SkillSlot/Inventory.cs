@@ -54,7 +54,7 @@ public class Inventory : MonoBehaviour
                         {
                             // Default가 1인 상태인데, 여기서 _count를 바꾸면 된다.
                             skillSlots[i].SetSlotCount(_count);
-
+                            //플레이어 위치를 받아와서 재생시켜준다. 버프매니저에서
                             Destroy(_dropItem);
                             
                             return;
