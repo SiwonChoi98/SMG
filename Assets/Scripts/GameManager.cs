@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public List<Monster> monsters;
     [SerializeField] private List<Transform> monsterSpawnPos; //몬스터 나오는 위치
     [SerializeField] private GameObject monsterSpawn; //몬스터 위치 부모
+    [SerializeField] private ParticleSystem monsterSpawnPs; 
     public int currentMonsterCount; //몬스터 죽을때 줄여줄 카운트
     public int spawnCount; //현재 스테이지 스폰 몬스터 수
     private int spawnIndex; 
@@ -163,6 +164,9 @@ public class GameManager : MonoBehaviour
                 int spawnRan = Random.Range(0, monsterSpawnPos.Count);
                 monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos[spawnRan].position;
 
+                monsterSpawnPs.gameObject.transform.position = monsterSpawnPos[spawnRan].position; //생성파티클
+                monsterSpawnPs.Play();
+                
                 spawnCount--;
                 spawnIndex++;
             }
@@ -178,6 +182,7 @@ public class GameManager : MonoBehaviour
         playerHealthImageTrans.position = player.transform.position + new Vector3(0, 2f, 0); //플레이어 체력 위치 플레이어 머리위에
         playerHealthImage.fillAmount = Mathf.Lerp(playerHealthImage.fillAmount, (float)player.CurHealth / player.MaxHealth / 1 / 1, Time.deltaTime * 5); //플레이어 체력
         playerCanvasHealthImage.fillAmount = Mathf.Lerp(playerHealthImage.fillAmount, (float)player.CurHealth / player.MaxHealth / 1 / 1, Time.deltaTime * 5); //플레이어 캔버스 체력
+
         if (player.isDodgeReady)
             playerDodgeCoolImage.fillAmount = 0;
         else
