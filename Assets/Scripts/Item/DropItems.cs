@@ -217,4 +217,5 @@ public class DropItems : MonoBehaviour
 
         item.GetComponent<BoxCollider>().isTrigger = true;
     }
+
 }

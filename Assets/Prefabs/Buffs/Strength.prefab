@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffTime: 0
   buffTimeMax: 15
-  mBuffType: 1
+  mBuffType: 2
   buffTarget: {fileID: 0}

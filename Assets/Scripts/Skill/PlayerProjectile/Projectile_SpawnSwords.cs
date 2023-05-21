@@ -84,7 +84,7 @@ public class Projectile_SpawnSwords : MonoBehaviour
     }
     void SearchEnemy()
     {
-        Collider[] t_cols = Physics.OverlapSphere(transform.position, 50f, TargetMask);
+        Collider[] t_cols = Physics.OverlapSphere(transform.position, 25f, TargetMask);
 
         if(t_cols.Length > 0) 
         {
