@@ -70,7 +70,8 @@ public class Player : MonoBehaviour, IDamageable
     public GameObject dmgText;
     public Transform dmgTextPos;
     private string _dmgTextFolderName = "DamageText/dmgText";
-   
+    public GameObject healthText;
+    private string _healthTextFolderName = "HealthText/healthText";
     #region Unity Methods
 
     private void Awake()
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour, IDamageable
 
         dmgTextPos = this.gameObject.transform;
         dmgText = (GameObject)Resources.Load(_dmgTextFolderName);
+        healthText = (GameObject)Resources.Load(_healthTextFolderName);
     }
 
     private void Update()
@@ -545,6 +547,12 @@ public class Player : MonoBehaviour, IDamageable
         dmgtext1.GetComponentInChildren<Text>().text = dmg.ToString();//자식텍스트로 들어가서 //dmg는 int니까 string형태로 바꿔주기
         dmgtext1.GetComponentInChildren<Text>().color = Color.red;
         Destroy(dmgtext1, 0.7f);
+    }
+    public void HealthText(int num)
+    {
+        GameObject healthtext1 = Instantiate(healthText, dmgTextPos.position + new Vector3(0, 2, 0), Quaternion.Euler(70, 0, 0));
+        healthtext1.GetComponentInChildren<Text>().text = num.ToString();
+        Destroy(healthtext1, 0.7f);
     }
 }
 

@@ -74,7 +74,7 @@ public class BuffManager : MonoBehaviour
                 Player player = gameObject.GetComponent<Player>();
 
                 player.CurHealth += (int)(player.MaxHealth / 4); // 나중에는 여기를 퍼센트로 올려주자
-
+                player.HealthText((int)(player.MaxHealth / 4));
                 if (player.CurHealth > player.MaxHealth) // 최대치 체력을 넘어가면 최대체력만큼 채워준다.
                 {
                     player.CurHealth = player.MaxHealth;
@@ -102,7 +102,7 @@ public class BuffManager : MonoBehaviour
                 Player player = gameObject.GetComponent<Player>();
 
                 player.CurHealth += (int)(player.MaxHealth / 2); // 나중에는 여기를 퍼센트로 올려주자
-
+                player.HealthText((int)(player.MaxHealth / 2));
                 if (player.CurHealth > player.MaxHealth) // 최대치 체력을 넘어가면 최대체력만큼 채워준다.
                 {
                     player.CurHealth = player.MaxHealth;
