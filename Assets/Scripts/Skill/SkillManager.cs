@@ -13,8 +13,9 @@ public class SkillManager : MonoBehaviour
 
     public Player player;
 
-    public GameObject[] playerSkills; 
+    public GameObject[] playerSkills;
 
+    public GameObject[] scrollParticle; // 스크롤 획득 시 틀어주는 이펙트
 
     
     private void Awake()
@@ -29,7 +30,6 @@ public class SkillManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
 
     }
 
@@ -208,10 +208,34 @@ public class SkillManager : MonoBehaviour
                 }
 
             }
-
            
         }
 
     }
 
+    public void AcquireParticle(GameObject dropSkill, ESkillGrade skillGrade)
+    {
+
+        if(skillGrade == ESkillGrade.Normal) 
+        {
+            GameObject acquireScroll = Instantiate(scrollParticle[(int)ESkillGrade.Normal], dropSkill.transform.position, Quaternion.identity);
+
+            Destroy(acquireScroll, 1.5f);
+        }
+        
+        else if(skillGrade == ESkillGrade.Epic)
+        {
+            GameObject acquireScroll = Instantiate(scrollParticle[(int)ESkillGrade.Epic], dropSkill.transform.position, Quaternion.identity);
+
+            Destroy(acquireScroll, 1.5f);
+        }
+        
+        else
+        {
+            GameObject acquireScroll = Instantiate(scrollParticle[(int)ESkillGrade.Unique], dropSkill.transform.position, Quaternion.identity);
+
+            Destroy(acquireScroll, 1.5f);
+        }
+       
+    }
 }

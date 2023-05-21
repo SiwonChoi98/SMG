@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ESkillGrade : int // 스킬 등급
+{
+    Normal,
+    Epic,
+    Unique
+}
+
 // 스킬이 플레이어에 붙어있어야 하는지, 아니면 소환되어야 하는지
 public enum ESkillParticleType : int
 {
@@ -32,14 +39,17 @@ public abstract class BaseSkill : MonoBehaviour
     public ParticleSystem[] particleSystems; // 일반 공격에서 사용하는 파티클 시스템,
 
     public int damage; // 플레이어의 공격력을 받아와서 정해줘야 한다.
+    
     public float damageMult; // 스킬의 배수
 
     [SerializeField]
     public float attackForce; // 해당 공격 행동을 할 때 나아가는 방향에 곱해주는 정도.
 
-    public ESkillType mSkillType;
+    public ESkillGrade mskillGrade; // 스킬 등급
 
-    public ESkillParticleType mParticleType;
+    public ESkillType mSkillType; // 스킬 종류
+
+    public ESkillParticleType mParticleType; // 스킬 파티클 타입
 
     [SerializeField]
     private float coolTime;

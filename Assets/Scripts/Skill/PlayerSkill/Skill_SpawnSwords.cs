@@ -36,7 +36,7 @@ public class Skill_SpawnSwords : BaseSkill
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 
-        SoundManager.instance.SfxPlaySound(11, 0.5f);
+        SoundManager.instance.SfxPlaySound(12, 0.5f);
     }
 
     public override void ExitParticleSystem()

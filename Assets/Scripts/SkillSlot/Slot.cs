@@ -169,6 +169,9 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
                 Debug.Log(item.itemName + " 스킬을 사용했습니다.");
 
                 SetSlotCount(-1);
+
+                SoundManager.instance.SfxPlaySound(22);
+
                 player.UseSlotSkill(slotSkill); // 플레이어에게 스킬 사용하게 만든다. 여기서 계속 오류가 났었는데, 위에 처럼 public 변수가 없어서 그랬던 것이다.
             }
         }

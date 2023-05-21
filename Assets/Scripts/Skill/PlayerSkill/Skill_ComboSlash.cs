@@ -9,7 +9,7 @@ public class Skill_ComboSlash : BaseSkill
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
-        SoundManager.instance.SfxPlaySound(13, 0.3f);
+        SoundManager.instance.SfxPlaySound(14, 0.3f);
 
         GameObject go = Instantiate(slashObject,
             SkillManager.instance.player.skillSpawnPos[(int)ESkillType.ComboSlash].position + Vector3.up * 1.5f, // 살짝 위에서 날라가야 한다.
@@ -28,7 +28,7 @@ public class Skill_ComboSlash : BaseSkill
 
         damage = (int)(player.Strength * damageMult);
 
-        SoundManager.instance.SfxPlaySound(14);
+        SoundManager.instance.SfxPlaySound(15);
 
         SkillManager.instance.SpawnParticle(mSkillType, mParticleType);
 

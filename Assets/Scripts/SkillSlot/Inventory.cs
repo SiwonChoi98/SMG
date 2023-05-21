@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -54,7 +55,8 @@ public class Inventory : MonoBehaviour
                         {
                             // Default가 1인 상태인데, 여기서 _count를 바꾸면 된다.
                             skillSlots[i].SetSlotCount(_count);
-                            //플레이어 위치를 받아와서 재생시켜준다. 버프매니저에서
+                            SkillManager.instance.AcquireParticle(_dropItem, _item.skill.mskillGrade);
+                            SoundManager.instance.SfxPlaySound(21);
                             Destroy(_dropItem);
                             
                             return;
@@ -83,7 +85,8 @@ public class Inventory : MonoBehaviour
                 if (skillSlots[i].item == null)
                 {
                     skillSlots[i].AddItem(_item, _count);
-
+                    SkillManager.instance.AcquireParticle(_dropItem, _item.skill.mskillGrade);
+                    SoundManager.instance.SfxPlaySound(21);
                     Destroy(_dropItem);
 
                     return;
@@ -102,6 +105,24 @@ public class Inventory : MonoBehaviour
                     {
                         // Default가 15인 상태인데, 여기서 _time을 바꾸면 된다.
                         buffSlots[i].SetSlotTime(buffSlots[i].item.buff.buffTimeMax);
+                        
+                        if(_item.buff.mBuffType == EBuffType.HealthBuff)
+                        {
+                            SoundManager.instance.SfxPlaySound(17);
+                        }
+                        else if(_item.buff.mBuffType == EBuffType.LargeHealthBuff)
+                        {
+                            SoundManager.instance.SfxPlaySound(18);
+                        }
+                        else if (_item.buff.mBuffType == EBuffType.SpeedBuff)
+                        {
+                            SoundManager.instance.SfxPlaySound(19);
+                        }
+                        else if (_item.buff.mBuffType == EBuffType.StrengthBuff)
+                        {
+                            SoundManager.instance.SfxPlaySound(20);
+                        }
+
                         Destroy(_dropItem);
                         return;
                     }
@@ -113,7 +134,26 @@ public class Inventory : MonoBehaviour
                 if (buffSlots[i].item == null)
                 {
                     buffSlots[i].AddItem(_item, _count);
+
+                    if (_item.buff.mBuffType == EBuffType.HealthBuff)
+                    {
+                        SoundManager.instance.SfxPlaySound(17);
+                    }
+                    else if (_item.buff.mBuffType == EBuffType.LargeHealthBuff)
+                    {
+                        SoundManager.instance.SfxPlaySound(18);
+                    }
+                    else if (_item.buff.mBuffType == EBuffType.SpeedBuff)
+                    {
+                        SoundManager.instance.SfxPlaySound(19);
+                    }
+                    else if (_item.buff.mBuffType == EBuffType.StrengthBuff)
+                    {
+                        SoundManager.instance.SfxPlaySound(20);
+                    }
+
                     Destroy(_dropItem);
+
                     return;
                 }
             }

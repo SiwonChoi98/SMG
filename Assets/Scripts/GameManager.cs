@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     }
     public void ClickSound()
     {
-        SoundManager.instance.SfxPlaySound(15);
+        SoundManager.instance.SfxPlaySound(16);
     }
     private void Awake()
     {

@@ -50,6 +50,7 @@ MonoBehaviour:
   damage: 9
   damageMult: 2.5
   attackForce: 0
+  mskillGrade: 2
   mSkillType: 5
   mParticleType: 1
   coolTime: 0

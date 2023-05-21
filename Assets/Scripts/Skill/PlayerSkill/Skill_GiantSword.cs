@@ -13,6 +13,8 @@ public class Skill_GiantSword : BaseSkill
 
     public override void ExcuteAttack(GameObject target = null, Transform startPoint = null)
     {
+        SoundManager.instance.SfxPlaySound(9, 0.5f);
+
         ManualCollision collision = GameObject.Find("GiantSword_Area").GetComponent<ManualCollision>(); // 만약 할당이 안된 상태라면 저장해준다.
 
         giantSwordAttackCollision = collision;
