@@ -288,7 +288,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     public void DamageText(int dmg)
     {
-        GameObject dmgtext1 = Instantiate(dmgText, dmgTextPos.position + new Vector3(0,2,0), Quaternion.Euler(70, 0, 0)); //Quaternion.identity 원래 가지고있는 각도로 생성
+        GameObject dmgtext1 = Instantiate(dmgText, dmgTextPos.position + new Vector3(0,1,0), Quaternion.Euler(70, 0, 0)); //Quaternion.identity 원래 가지고있는 각도로 생성
         dmgtext1.GetComponentInChildren<Text>().text = dmg.ToString();//자식텍스트로 들어가서 //dmg는 int니까 string형태로 바꿔주기
         Destroy(dmgtext1, 0.7f);
     }
