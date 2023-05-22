@@ -479,6 +479,7 @@ MonoBehaviour:
   damage: 6
   damageMult: 0
   attackForce: 0
+  mskillGrade: 0
   mSkillType: 0
   mParticleType: 0
   coolTime: 0
@@ -1994,7 +1995,7 @@ MonoBehaviour:
   isHitbySkill: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 1008184783}
-  HealthBar: {fileID: 699109072}
+  healthBackImage: {fileID: 699109074}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
 --- !u!114 &7675965074039033444

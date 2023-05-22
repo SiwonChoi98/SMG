@@ -828,6 +828,7 @@ MonoBehaviour:
   isHitbySkill: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 1598022209783441402}
+  healthBackImage: {fileID: 1598022210344843218}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
 --- !u!114 &7037136868840904082
@@ -1325,6 +1326,7 @@ MonoBehaviour:
   damage: 5
   damageMult: 0
   attackForce: 0
+  mskillGrade: 0
   mSkillType: 0
   mParticleType: 0
   coolTime: 0
@@ -1597,6 +1599,17 @@ PrefabInstance:
 --- !u!114 &1598022209783441402 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4210044359538252277, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
+  m_PrefabInstance: {fileID: 3188625165503806991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1598022210344843218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4210044361124104669, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 3188625165503806991}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

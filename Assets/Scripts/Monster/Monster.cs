@@ -63,6 +63,7 @@ public class Monster : MonoBehaviour, IDamageable
     protected float _attackSpeed; //나가는 속도
 
     public Image healthImage;
+    public Image healthBackImage; //각도를 돌려줄 이미지
     public GameObject dmgText;
     public Transform dmgTextPos;
     private string _dmgTextFolderName = "DamageText/dmgText";
@@ -294,6 +295,7 @@ public class Monster : MonoBehaviour, IDamageable
     private void LateUpdate()
     {
         healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
+        healthBackImage.transform.LookAt(GameManager.instance.player.cameraMain.transform);
     }
 
 }

@@ -174,6 +174,7 @@ MonoBehaviour:
   _curHealth: 70
   _speed: 3
   _attackRange: 1.8
+  _attackTime: 0
   _hitTime: 1
   _initialSpeed: 0
   _initialAttackTime: 2.5
@@ -194,7 +195,7 @@ MonoBehaviour:
   isHitbySkill: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 355748807}
-  HealthBar: {fileID: 1991121901}
+  healthBackImage: {fileID: 1991121903}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
 --- !u!114 &3009770090547666186
@@ -1381,7 +1382,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystems: []
   damage: 10
+  damageMult: 0
   attackForce: 0
+  mskillGrade: 0
   mSkillType: 0
   mParticleType: 0
   coolTime: 0
@@ -1504,11 +1507,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4210044361493774908, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 4210044359889801778}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1991121901 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4210044361124104671, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
+--- !u!114 &1991121903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4210044361124104669, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 4210044359889801778}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8466230018265754771
 PrefabInstance:
   m_ObjectHideFlags: 0

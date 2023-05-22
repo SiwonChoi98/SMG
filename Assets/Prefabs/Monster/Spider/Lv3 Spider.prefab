@@ -575,7 +575,7 @@ MonoBehaviour:
   isHitbySkill: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 120873790021152235}
-  HealthBar: {fileID: 120873789524803009}
+  healthBackImage: {fileID: 120873789524803011}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
 --- !u!114 &5322201328972067176
@@ -1326,6 +1326,7 @@ MonoBehaviour:
   damage: 13
   damageMult: 0
   attackForce: 0
+  mskillGrade: 0
   mSkillType: 0
   mParticleType: 0
   coolTime: 0
@@ -1588,11 +1589,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4210044361493774908, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 4305576588356334622}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &120873789524803009 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4210044361124104671, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
+--- !u!114 &120873789524803011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4210044361124104669, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 4305576588356334622}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &120873790021152235 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4210044359538252277, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}

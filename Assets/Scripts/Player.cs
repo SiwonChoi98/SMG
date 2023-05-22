@@ -30,7 +30,7 @@ public class Player : MonoBehaviour, IDamageable
     public float Speed { get => speed; set => speed = value; }
     //--------------------------------------------------------------------
 
-    private Camera cameraMain;
+    public Camera cameraMain;
     private Animator anim;
     private Rigidbody rigid;
 

@@ -208,6 +208,7 @@ MonoBehaviour:
   damage: 25
   damageMult: 0
   attackForce: 0
+  mskillGrade: 0
   mSkillType: 0
   mParticleType: 0
   coolTime: 0
@@ -475,6 +476,7 @@ MonoBehaviour:
   damage: 10
   damageMult: 0
   attackForce: 0
+  mskillGrade: 0
   mSkillType: 0
   mParticleType: 0
   coolTime: 0
@@ -564,6 +566,7 @@ MonoBehaviour:
   damage: 15
   damageMult: 0
   attackForce: 0
+  mskillGrade: 0
   mSkillType: 0
   mParticleType: 0
   coolTime: 0
@@ -974,7 +977,7 @@ MonoBehaviour:
   isHitbySkill: 0
   attackPrefab: {fileID: 0}
   healthImage: {fileID: 2471882848881360204}
-  HealthBar: {fileID: 2471882849426238822}
+  healthBackImage: {fileID: 2471882849426238820}
   dmgText: {fileID: 0}
   dmgTextPos: {fileID: 0}
   chargePoint: {fileID: 2089774894}
@@ -2364,11 +2367,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4210044361493774908, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 1738654785136895161}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2471882849426238822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4210044361124104671, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
+--- !u!114 &2471882849426238820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4210044361124104669, guid: 90d5b0e306043304b8079ef13b7b8a0a, type: 3}
   m_PrefabInstance: {fileID: 1738654785136895161}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7220882147757508975
 PrefabInstance:
   m_ObjectHideFlags: 0
