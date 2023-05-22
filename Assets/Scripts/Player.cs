@@ -111,6 +111,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         GetInput();
         Move();
+        //JoystickMove();
         AttackingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
         Turn();
         DodgeCoolTime();

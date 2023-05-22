@@ -29,7 +29,10 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI currentStageTxt; //현재 스테이지 텍스트
     [SerializeField] private TextMeshProUGUI currentMonsterCountTxt; //현재 몬스터 수 텍스트
+
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
+    [SerializeField] private ParticleSystem outPortalPs; //스테이지 시작 파티클
+
     [SerializeField] private GameObject clearPortal; //클리어 포탈
     [SerializeField] private GameObject clearTxt; //클리어 텍스트
     [SerializeField] private PlayableDirector clearTimeLine;
@@ -96,14 +99,14 @@ public class GameManager : MonoBehaviour
         volumeSlider[1].value = SoundManager.instance.sfxAudioSource.volume;
         clearPortal.SetActive(false); //스테이지 시작 시 클리어 포탈 비활성화
         clearTxtCount = 1;
+
+        outPortalPs.Play();
     }
     private void PlayerStatInit()
     {
         if (StageManager.instance.currentStageIndex != 1)
         {
-            player.CurHealth = PlayerDataManager.instance.playerCurHealth;
-            player.MaxHealth = PlayerDataManager.instance.playerMaxHealth;
-            player.Strength = PlayerDataManager.instance.playerStrength;
+            PlayerDataManager.instance.PlayerStatLoad();
             PlayerDataManager.instance.PlayerSkillsLoad();
         }
     }
@@ -127,9 +130,9 @@ public class GameManager : MonoBehaviour
     {
         if (stage.asset.IsClear())
         {
-            clearPortal.SetActive(true);
             if (clearTxtCount > 0)
             {
+                clearPortal.SetActive(true);
                 StartCoroutine(ClearTxt());
             }
         }
@@ -146,6 +149,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         clearTxt.SetActive(false);
         clearTimeLine.Stop();
+        clearPortal.GetComponent<ParticleSystem>().Play();
         clearTxtCount--;
     }
     public void MonsterSpwan()

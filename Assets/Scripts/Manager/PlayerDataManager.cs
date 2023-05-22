@@ -31,7 +31,12 @@ public class PlayerDataManager : MonoBehaviour
         playerMaxHealth = maxHp;
         playerStrength = strength;
     }
-
+    public void PlayerStatLoad()
+    {
+        GameManager.instance.player.CurHealth = playerCurHealth;
+        GameManager.instance.player.MaxHealth = playerMaxHealth;
+        GameManager.instance.player.Strength = playerStrength;
+    }
     public void PlayerSkillsSave()
     {
         for(int i=0; i<4; i++)
