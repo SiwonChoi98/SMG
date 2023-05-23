@@ -487,7 +487,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 64
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 1615773712665550, guid: d0b875ec86a440b48b4b490a2cc05a18, type: 3}
   hitLevel: 1
   needle: {fileID: 3314736332434616090, guid: ced079834f311c64c8c4a6644215175e, type: 3}
 --- !u!1 &4163750781686426092
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   _maxHealth: 60
   _curHealth: 60
   _speed: 2
-  _attackRange: 4
+  _attackRange: 5
   _attackTime: 0
   _hitTime: 0
   _initialSpeed: 0

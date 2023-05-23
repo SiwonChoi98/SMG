@@ -101,7 +101,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 64
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 1615773712665550, guid: d4424854af0c24b409f60db91ea47c85, type: 3}
   hitLevel: 1
   monsterAttackCollision: {fileID: 352474033}
 --- !u!1 &1013944307107482323

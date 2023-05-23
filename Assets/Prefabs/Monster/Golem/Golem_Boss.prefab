@@ -216,7 +216,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 64
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 1615773712665550, guid: 59f3d952a58cd3b4aaa57bd0402dbd43, type: 3}
   hitLevel: 3
   rockObjects:
   - {fileID: 9211037479601074904, guid: df2e1ea860377fe4881190dc34ef5655, type: 3}
@@ -485,7 +485,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 64
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 1615773712665550, guid: 59f3d952a58cd3b4aaa57bd0402dbd43, type: 3}
   hitLevel: 2
   monsterAttackCollision: {fileID: 599953144}
 --- !u!1 &2089774893
@@ -576,7 +576,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 64
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 1615773712665550, guid: 59f3d952a58cd3b4aaa57bd0402dbd43, type: 3}
   hitLevel: 2
   monsterAttackCollision: {fileID: 599953144}
   thunderEffect: {fileID: 8704438019918659289, guid: 8742cbe634765a8469292c52aa838e30, type: 3}
