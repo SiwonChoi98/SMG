@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Transform outPortalPos; //스테이지 시작 위치
     [SerializeField] private ParticleSystem outPortalPs; //스테이지 시작 파티클
-
     [SerializeField] private GameObject clearPortal; //클리어 포탈
     [SerializeField] private GameObject clearTxt; //클리어 텍스트
     [SerializeField] private PlayableDirector clearTimeLine;
