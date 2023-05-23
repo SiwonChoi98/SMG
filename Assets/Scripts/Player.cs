@@ -644,5 +644,7 @@ public class Player : MonoBehaviour, IDamageable
         healthtext1.GetComponentInChildren<Text>().text = num.ToString();
         Destroy(healthtext1, 0.7f);
     }
+
+
 }
 

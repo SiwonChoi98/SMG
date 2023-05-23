@@ -32,7 +32,11 @@ public class DeadState : State<Monster>
 
         context.gameObject.layer = 14; // MonsterDeath 레이어로 바꿔준다.
 
-        
+        if(context.mType != EMonsterType.Common) // 일반 몬스터가 아닌 경우엔 몬스터 콜라이더도 바꿔준다.
+        {
+            context.transform.Find("MonsterCollider").gameObject.layer = 14;
+        }
+       
         yield return new WaitForSeconds(1.4f);
 
         context.GetComponent<DropItems>().DropItem(); // 몬스터 타입에 맞게 아이템을 떨어뜨려준다.
@@ -46,4 +50,7 @@ public class DeadState : State<Monster>
         context.gameObject.layer = 7; // Monster 레이어로 바꿔준다.
 
     }
+
+
+
 }
