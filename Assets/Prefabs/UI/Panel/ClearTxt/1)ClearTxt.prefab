@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3987816842674289765}
   - component: {fileID: 5627926751829660502}
   m_Layer: 5
-  m_Name: StageClearTxt
+  m_Name: 1)ClearTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -10, y: 0}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8466791543297552823
@@ -77,15 +77,15 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286382021
-  m_fontColor: {r: 0.7714142, g: 1, b: 0.48490566, a: 1}
+    rgba: 4294949531
+  m_fontColor: {r: 0.60754716, g: 0.72830176, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 0.01778283, g: 0.9528302, b: 0, a: 1}
+    topRight: {r: 0.19215685, g: 0.40749365, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 0.9433962, g: 0.91189665, b: 0.17265925, a: 1}
+    bottomRight: {r: 0.30566037, g: 0.7176795, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -153,7 +153,7 @@ PlayableDirector:
   m_InitialTime: 2
   m_SceneBindings:
   - key: {fileID: 4264145836983566878, guid: e832dd87f73d36b40a832a5d9f5279e0, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 5627926751829660502}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &5627926751829660502
