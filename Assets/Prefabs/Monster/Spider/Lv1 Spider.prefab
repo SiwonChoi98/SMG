@@ -806,7 +806,7 @@ MonoBehaviour:
   _maxHealth: 70
   _curHealth: 70
   _speed: 3
-  _attackRange: 1.8
+  _attackRange: 1.6
   _attackTime: 0
   _hitTime: 1
   _initialSpeed: 0
@@ -1334,7 +1334,8 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 64
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 1615773712665550, guid: d4424854af0c24b409f60db91ea47c85, type: 3}
+  hitLevel: 1
   monsterAttackCollision: {fileID: 8592632866022639735}
 --- !u!1 &8987553913043262722
 GameObject:
@@ -1380,7 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e42213e3017c141bb248e70f6340e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 1.5, y: 1, z: 1.5}
+  boxSize: {x: 1.3, y: 1, z: 1.5}
 --- !u!1001 &1189453585418007797
 PrefabInstance:
   m_ObjectHideFlags: 0

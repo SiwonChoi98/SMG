@@ -519,7 +519,7 @@ MonoBehaviour:
   _attackTime: 0
   _hitTime: 0
   _initialSpeed: 0
-  _initialAttackTime: 2
+  _initialAttackTime: 4
   _initialHitTime: 1
   monsterSkills:
   - {fileID: 4804521735850321439}
@@ -1225,6 +1225,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 2
   monsterAttackCollision: {fileID: 4804521735774074814}
 --- !u!1 &4804521735920320541
 GameObject:
@@ -1283,6 +1284,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 3
   monsterAttackCollision: {fileID: 4804521735774074814}
 --- !u!1 &4804521736589940675
 GameObject:
@@ -1375,6 +1377,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 0
   summonWolf: {fileID: 3043652795690941913, guid: 5f2affd77c5932b47ad856151248a733, type: 3}
   spawnPos:
   - {fileID: 4579291260613723350}

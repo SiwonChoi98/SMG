@@ -41,6 +41,11 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void SkillEnd()
     {
         GetComponent<Player>()?.PlayerSkillEnd();
-
     }
+
+    public void HitEnd()
+    {
+        GetComponent<Player>()?.PlayerHitEnd();
+    }
+
 } 

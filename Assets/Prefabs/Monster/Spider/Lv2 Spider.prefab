@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e42213e3017c141bb248e70f6340e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 1.5, y: 1, z: 1.5}
+  boxSize: {x: 1.3, y: 1, z: 1.5}
 --- !u!1 &1007772376
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 1
   monsterAttackCollision: {fileID: 352474033}
 --- !u!1 &1013944307107482323
 GameObject:
@@ -593,7 +594,7 @@ MonoBehaviour:
   _maxHealth: 150
   _curHealth: 150
   _speed: 4
-  _attackRange: 2
+  _attackRange: 1.8
   _attackTime: 0
   _hitTime: 1
   _initialSpeed: 0

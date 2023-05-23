@@ -66,6 +66,7 @@ public abstract class BaseSkill : MonoBehaviour
 
     public GameObject effectPrefab; // 타격했을 때 생기는 프리팹
 
+    public int hitLevel;
     #endregion Variables
 
 

@@ -21,6 +21,7 @@ public class GolemSkill_SpawnRocks : BaseSkill
 
             go.GetComponent<Projectile_Needle>().SetDamage((int)(damage));
             go.GetComponent<Projectile_Needle>().SetTarget(targetMask);
+            go.GetComponent<Projectile_Needle>().SetHitLevel(hitLevel);
         }
 
     }

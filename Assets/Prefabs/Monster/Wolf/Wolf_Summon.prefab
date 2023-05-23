@@ -102,6 +102,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 1
   monsterAttackCollision: {fileID: 3042505048808795530}
 --- !u!1 &3042952208175601623
 GameObject:

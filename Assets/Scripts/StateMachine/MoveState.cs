@@ -50,6 +50,7 @@ public class MoveState : State<Monster>
             context.rigid.MovePosition(Vector3.MoveTowards(context.transform.position, context.target.position + new Vector3(randPosX, 0, randPosZ) , Time.deltaTime * context.Speed));
             //context.transform.position = Vector3.MoveTowards(context.transform.position, context.target.position, Time.deltaTime * 2.5f);
             context.transform.LookAt(context.target.position + new Vector3(randPosX, 0, randPosZ));
+            context.rigid.velocity = Vector3.zero;
         }
     }
 

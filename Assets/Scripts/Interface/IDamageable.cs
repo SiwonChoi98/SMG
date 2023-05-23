@@ -9,6 +9,6 @@ public interface IDamageable
         get;
     }
 
-    void TakeDamage(int damage, GameObject hitEffectPrefab = null);
+    void TakeDamage(int damage, GameObject hitEffectPrefab = null, int hitLevel = 0);
 
 }

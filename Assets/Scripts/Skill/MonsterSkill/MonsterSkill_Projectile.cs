@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSkill_Needle : BaseSkill
+public class MonsterSkill_Projectile : BaseSkill
 {
     [SerializeField]
     GameObject needle;
@@ -20,6 +20,7 @@ public class MonsterSkill_Needle : BaseSkill
 
         go.GetComponent<Projectile_Needle>().SetDamage((int)(damage));
         go.GetComponent<Projectile_Needle>().SetTarget(targetMask);
+        go.GetComponent<Projectile_Needle>().SetHitLevel(hitLevel);
 
     }
 

@@ -110,7 +110,7 @@ public class Monster : MonoBehaviour, IDamageable
     #region IDamageable Methods 
     public bool IsAlive => _curHealth > 0; // 이 부분을 뺄 수도 있음
 
-    public void TakeDamage(int damage, GameObject hittEffectPrefab)
+    public void TakeDamage(int damage, GameObject hittEffectPrefab, int hitLevel)
     {
         if (!IsAlive)
         {
@@ -276,11 +276,8 @@ public class Monster : MonoBehaviour, IDamageable
         if(hitEffectPrefab != null)
         {
             float randPosX = Random.Range(-0.5f, 0.5f);
-            float randPosY = Random.Range(0f, 0.5f);
 
-            Vector3 randVec = new Vector3(randPosX, randPosY, 0);
-
-            GameObject hitEffect = Instantiate(hitEffectPrefab, hitEffectPoint.position + randVec, hitEffectPoint.rotation);
+            GameObject hitEffect = Instantiate(hitEffectPrefab, hitEffectPoint.position + transform.right * randPosX, hitEffectPoint.rotation);
 
             Destroy(hitEffect, 0.7f);
         }

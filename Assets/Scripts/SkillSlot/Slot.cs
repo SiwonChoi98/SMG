@@ -164,7 +164,7 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
     {
         if (item != null && item.itemType == Item.EItemType.Skill) // 슬롯에 들어있는 아이템이 스킬인 경우에만 사용
         {
-            if (player.IsPlayerCanUseSkill) // 플레이어가 !isAttacking && !isDodging && !isCasting 인 상태이면
+            if (player.IsPlayerCanUseSkill) // 플레이어가 !isAttacking && !isDodging && !isCasting && !isHit인 상태이면
             {
                 Debug.Log(item.itemName + " 스킬을 사용했습니다.");
 

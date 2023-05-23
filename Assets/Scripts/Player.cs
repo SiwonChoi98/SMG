@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Reflection.Emit;
 using UnityEditorInternal;
 using UnityEngine;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour, IDamageable
     private bool isDodging; // 회피 중인가?
     private bool isAttacking; // 일반 공격 하는 중인가?
     private bool isCasting; // 스킬을 캐스팅하고 있는가?
+    public bool isHit; // 피격 당하였는가?
 
     private bool isAttackingMove; // 공격할 때 이동시작
     public bool isDodgeReady; // 회피 쿨타임이 다 초기화되서 다시 사용할 수 있는가?
@@ -67,6 +69,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public bool IsPlayerCanUseSkill => PlayerStateCheck(); // 플레이어가 현재 스킬을 사용할 수 있는지 슬롯에서 누를 때 전달해주는 bool값
 
+    public Transform hitEffectPoint; // 맞을 때 파티클 생성되는 부분
     public GameObject dmgText;
     public Transform dmgTextPos;
     private string _dmgTextFolderName = "DamageText/dmgText";
@@ -115,6 +118,7 @@ public class Player : MonoBehaviour, IDamageable
         AttackingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
         Turn();
         DodgeCoolTime();
+        
     }
 
     // 플레이어의 입력을 받아온다.
@@ -178,7 +182,7 @@ public class Player : MonoBehaviour, IDamageable
         if (isDodging)
             moveVec = dodgeVec;
 
-        if (!isAttacking && !isCasting) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우
+        if (!isAttacking && !isCasting && !isHit) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우 && 피격 상태가 아닌 경우
         {
             rigid.MovePosition(transform.position + moveVec * speed * Time.deltaTime);
             
@@ -201,7 +205,8 @@ public class Player : MonoBehaviour, IDamageable
     {
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
 
-        if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
+        if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging && !isHit) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우
+                                                                                           //&& casting중이 아닐 경우  && 회피 상태가 아닌 경우 && 피격 상태가 아닌 경우
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
             //rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
@@ -212,14 +217,14 @@ public class Player : MonoBehaviour, IDamageable
     public void DodgeCoolTime()
     {
         dodgeCoolTime += Time.deltaTime;
-
         isDodgeReady = dodgeCoolTime >= dodgeCoolTimeMax;
     }
 
-    private void Dodge()
+    public void Dodge()
     {  
         if (moveVec != Vector3.zero 
-            && !isAttacking &&!isCasting && isDodgeReady) // 회피 키를 눌렀을 경우 && 움직임이 있는 경우 && 공격 상태가 아닌 경우 && 스킬 시전도 아닌 경우 && 닷지 쿨타임이 충족하는 경우
+            && !isAttacking &&!isCasting && isDodgeReady && !isHit) //움직임이 있는 경우 && 공격 상태가 아닌 경우
+                                                                    //&& 스킬 시전도 아닌 경우 && 닷지 쿨타임이 충족하는 경우 && 피격 상태가 아닌 경우
         {
 
             dodgeCoolTime = 0f;
@@ -313,7 +318,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         //if (attackKey) // 공격키를 눌렀을 경우 
         //{
-            if(!isAttacking &&!isDodging && !isCasting) // 공격 상태가 아닌 경우 && 회피 상태도 아닌 경우 && 스킬 시전 상태도 아닌 경우
+            if(!isAttacking &&!isDodging && !isCasting && !isHit) // 공격 상태가 아닌 경우 && 회피 상태도 아닌 경우 && 스킬 시전 상태도 아닌 경우 && 피격 상태가 아닌 경우
             {
                 isAttacking = true;
                 anim.SetTrigger("DoAttack"); // 애니메이터에서 Attack 서브스테이트 머신으로 들어가게 만들고
@@ -327,7 +332,7 @@ public class Player : MonoBehaviour, IDamageable
 
             // bool을 변수로 뺐더니 오류 발생
 
-            else if (isAttacking && !isDodging && !isCasting && anim.GetBool("AttackEnable"))  // 공격 상태인 경우 && 회피 중이지 않은 경우  && 스킬 시전 상태도 아닌 경우 그리고 다음 공격 애니메이션이 가능한 경우 
+            else if (isAttacking && !isDodging && !isCasting && anim.GetBool("AttackEnable") && !isHit)  // 공격 상태인 경우 && 회피 중이지 않은 경우  && 스킬 시전 상태도 아닌 경우 그리고 다음 공격 애니메이션이 가능한 경우 
             {
                 int attackComboNum = anim.GetInteger("AttackCombo");
 
@@ -498,7 +503,7 @@ public class Player : MonoBehaviour, IDamageable
     #region IDamageable Methods
     public bool IsAlive => curHealth > 0;
 
-    public void TakeDamage(int damage, GameObject hittEffectPrefab) // 맞았을 경우 플레이어가 피격당하는 위치를 어떻게 할지
+    public void TakeDamage(int damage, GameObject hittEffectPrefab, int hitLevel) // 맞았을 경우 플레이어가 피격당하는 위치를 어떻게 할지
     {
         if (!IsAlive)
         {
@@ -516,7 +521,72 @@ public class Player : MonoBehaviour, IDamageable
             return;
         }
 
+        // 여기서 맞는 애니메이션을 호출해야 한다. 맞는 레벨을 정해주자.
+
+        if(!isHit) // 맞는 상태가 아니었던 경우에만 호출해준다.
+        {
+            if (hitLevel == 1)
+            {
+                if (!isAttacking && !isCasting && !isDodging) // 공격 중도 아니고, 캐스팅 중도 아니고, 회피 중도 아닌 경우에만 약하게 맞는 애니메이션 실행
+                {
+                    isHit = true;
+                    anim?.SetTrigger("DoHit");
+                    anim?.SetInteger("HitLevel", hitLevel);
+                    anim?.SetBool("HitEnd", false);
+                }
+
+            }
+
+            else if (hitLevel == 2)
+            {
+                if (!isCasting && !isDodging) // 스킬 캐스팅 중이 아니고, 회피 중도 아니었다면 좀 더 강하게 맞는 애니메이션 실행
+                {
+                    if (isAttacking) // 만약 평타를 때리던 상황에 Lv2 공격을 맞았으면
+                    {
+                        // 하던 공격을 캔슬해야 하므로 취소해준다.
+                        PlayerAttackEnd();
+
+                        // 재생하고 있던 Particle System도 꺼줘야 한다.
+                        for (int i = 0; i < 3; i++)
+                        {
+                            playerSkills[i].ExitParticleSystem();
+                        }
+                    }
+                    Debug.Log("HitStrong");
+                    isHit = true;
+                    anim?.SetTrigger("DoHit");
+                    anim?.SetInteger("HitLevel", hitLevel);
+                    anim?.SetBool("HitEnd", false);
+                }
+
+            }
+
+            else if (hitLevel == 3)
+            {
+                if (!isCasting && !isDodging) // 스킬 캐스팅 중이 아니고, 회피 중도 아니었다면 날아가는 애니메이션 실행
+                {
+                    if (isAttacking) // 만약 평타를 때리던 상황에 Lv3 공격을 맞았으면
+                    {
+                        // 하던 공격을 캔슬해야 하므로 취소해준다.
+                        PlayerAttackEnd();
+
+                        // 재생하고 있던 Particle System도 꺼줘야 한다.
+                        for (int i = 0; i < 3; i++)
+                        {
+                            playerSkills[i].ExitParticleSystem();
+                        }
+                    }
+                }
+
+                isHit = true;
+                anim?.SetTrigger("DoHit");
+                anim?.SetInteger("HitLevel", hitLevel);
+                anim?.SetBool("HitEnd", false);
+            }
+        }
+
         curHealth -= damage;
+        HitEffect(hittEffectPrefab); // 피격 이펙트 생성
         DamageText(damage); //데미지 텍스트
         Debug.Log("Damage : " + damage);
 
@@ -536,11 +606,30 @@ public class Player : MonoBehaviour, IDamageable
         rigid.AddForce(dir.normalized * knockBackForce, ForceMode.Impulse);
 
     }
+
+    public void PlayerHitEnd() // 플레이어가 다 맞았을 경우
+    {
+        anim.SetBool("HitEnd", true);
+
+        isHit = false;
+    }
     #endregion IDamageable Methods
+
+    public void HitEffect(GameObject hitEffectPrefab) // 피격 시 피격 이펙트 생성
+    {
+        if (hitEffectPrefab != null)
+        {
+            float randPosX = Random.Range(-0.3f, 0.3f);
+
+            GameObject hitEffect = Instantiate(hitEffectPrefab, hitEffectPoint.position + transform.right * randPosX, hitEffectPoint.rotation);
+
+            Destroy(hitEffect, 0.7f);
+        }
+    }
 
     private bool PlayerStateCheck() // 여기 부분에 나중에 isDamage 같은 플레이어 피격 상태도 넣어야 할듯
     {
-        return (!isAttacking && !isDodging && !isCasting);
+        return (!isAttacking && !isDodging && !isCasting && !isHit);
     }
     public void DamageText(int dmg)
     {

@@ -217,6 +217,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 3
   rockObjects:
   - {fileID: 9211037479601074904, guid: df2e1ea860377fe4881190dc34ef5655, type: 3}
   - {fileID: 9211037479601074904, guid: df2e1ea860377fe4881190dc34ef5655, type: 3}
@@ -485,6 +486,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 2
   monsterAttackCollision: {fileID: 599953144}
 --- !u!1 &2089774893
 GameObject:
@@ -575,6 +577,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 2
   monsterAttackCollision: {fileID: 599953144}
   thunderEffect: {fileID: 8704438019918659289, guid: 8742cbe634765a8469292c52aa838e30, type: 3}
   thunderMarkEffect: {fileID: 7126072018736761172, guid: 4d13dc7df6e90a248b0e09077b300d4a, type: 3}

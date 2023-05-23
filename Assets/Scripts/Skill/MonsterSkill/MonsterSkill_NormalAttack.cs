@@ -17,7 +17,7 @@ public class MonsterSkill_NormalAttack : BaseSkill // 이거는 진짜 평타만
         {
             float randDamage = Random.Range(damage, damage + (damage * 0.2f));
 
-            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(randDamage), effectPrefab);
+            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(randDamage), effectPrefab, hitLevel);
         }
 
 

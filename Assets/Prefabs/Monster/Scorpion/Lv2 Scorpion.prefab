@@ -88,6 +88,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  hitLevel: 1
   needle: {fileID: 3314736332434616090, guid: ced079834f311c64c8c4a6644215175e, type: 3}
 --- !u!1 &1274682294758881723
 GameObject:

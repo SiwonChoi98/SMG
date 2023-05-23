@@ -14,7 +14,7 @@ public class Golem_ThunderArea : MonoBehaviour // GroundAttackSkill은 바닥 �
     {
         if (other.CompareTag("Player")) // 범위 안에 들어온 콜라이더가 플레이어라면
         {
-            other.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx);
+            other.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx, 1);
         }
     }
 }

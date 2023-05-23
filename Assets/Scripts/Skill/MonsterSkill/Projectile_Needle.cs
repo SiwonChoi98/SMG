@@ -15,6 +15,9 @@ public class Projectile_Needle : MonoBehaviour
     float DestroyTime = 1f;
 
     [SerializeField]
+    int projectileLevel;
+
+    [SerializeField]
     GameObject hitFx;
 
 
@@ -31,7 +34,7 @@ public class Projectile_Needle : MonoBehaviour
         if (1 << collision.transform.gameObject.layer == TargetMask)
         {
             //Debug.Log("collision.gameObject.layer : " + collision.gameObject.layer);
-            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx);
+            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, hitFx, projectileLevel);
             Destroy(this.gameObject); // 맞으면 바로 제거
         }
 
@@ -46,5 +49,10 @@ public class Projectile_Needle : MonoBehaviour
     public void SetTarget(LayerMask layerMask) // 
     {
         TargetMask = layerMask;
+    }
+
+    public void SetHitLevel(int i)
+    {
+        projectileLevel = i;
     }
 }
