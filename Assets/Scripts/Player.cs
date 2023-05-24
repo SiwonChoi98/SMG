@@ -106,7 +106,7 @@ public class Player : MonoBehaviour, IDamageable
     private void Update()
     {   
         //AttackKey();
-        //JoystickMove();
+       
         //UseSlotSkill();
     }
 
@@ -161,7 +161,7 @@ public class Player : MonoBehaviour, IDamageable
         if (isDodging)
             moveVec = dodgeVec;
 
-        if (!isAttacking && !isCasting) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우
+        if (!isAttacking && !isCasting && !isHit) // 공격 중이 아닌 경우 && 스킬 캐스팅 중이 아닌 경우
         {
             rigid.MovePosition(transform.position + moveVec * speed * Time.deltaTime);
 
@@ -586,7 +586,7 @@ public class Player : MonoBehaviour, IDamageable
                 anim?.SetBool("HitEnd", false);
             }
         }
-
+        SoundManager.instance.SfxPlaySound(23, 0.5f);
         curHealth -= damage;
         HitEffect(hittEffectPrefab); // 피격 이펙트 생성
         DamageText(damage); //데미지 텍스트

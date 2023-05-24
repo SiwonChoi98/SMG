@@ -1919,6 +1919,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4809200284546495673}
     m_Modifications:
+    - target: {fileID: 8466230016343267780, guid: 693ef84a278a11c418b97dcd353f0499, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466230016343267780, guid: 693ef84a278a11c418b97dcd353f0499, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466230016343267787, guid: 693ef84a278a11c418b97dcd353f0499, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aae0116e3cdf944a39ef4493775aead3, type: 3}
     - target: {fileID: 8466230017053869960, guid: 693ef84a278a11c418b97dcd353f0499, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
