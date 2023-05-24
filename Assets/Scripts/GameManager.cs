@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image playerCanvasHealthImage;
     [SerializeField] private Image playerDodgeCoolImage;
     public Image playerShieldImage;
+    public Image playerCanvasShieldImage;
 
     [Header("Stage")]
     public Stage stage;

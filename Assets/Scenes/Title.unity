@@ -1102,6 +1102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleImageCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8411560303082247133, guid: 6eb697c478a5b24489e522fe73d3c2b8, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8411560303082247135, guid: 6eb697c478a5b24489e522fe73d3c2b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

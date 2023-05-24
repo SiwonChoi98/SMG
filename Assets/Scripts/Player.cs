@@ -514,9 +514,11 @@ public class Player : MonoBehaviour, IDamageable
         {
             ShieldCount -= 1;
             GameManager.instance.playerShieldImage.fillAmount -= (float)1 / 3;
+            GameManager.instance.playerCanvasShieldImage.fillAmount -= (float)1 / 3;
             if (ShieldCount == 0)
             {
                 GameManager.instance.playerShieldImage.gameObject.SetActive(false);
+                GameManager.instance.playerCanvasShieldImage.gameObject.SetActive(false);
             }
             return;
         }
