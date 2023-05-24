@@ -167,14 +167,11 @@ public class GameManager : MonoBehaviour
 
                 monsters[spawnIndex].gameObject.SetActive(true);
                 int spawnRan = Random.Range(0, monsterSpawnPos.Count);
-                if (stage.asset.gameMode == GameMode.Boss && spawnIndex == 0)
-                {
+
+                if (stage.asset.gameMode == GameMode.Boss && spawnIndex == 0) //몬스터 위치
                     monsters[spawnIndex].gameObject.transform.position = bossMonsterSpawnPos.position;
-                }
                 else
-                {
                     monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos[spawnRan].position;
-                }
 
                 monsterSpawnPs.gameObject.transform.position = monsterSpawnPos[spawnRan].position; //생성파티클
                 monsterSpawnPs.Play();
