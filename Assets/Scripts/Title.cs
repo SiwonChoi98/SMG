@@ -38,7 +38,7 @@ public class Title : MonoBehaviour
     {
         titleAnim.SetTrigger("isStartMotion");
         titlePlayerAura.Play();
-        StageManager.instance.SetCurrent(1);
+        StageManager.instance.SetCurrent(1); //몇스테이지 갈지 여기서 정함
         SoundManager.instance.SfxPlaySound(16);
         yield return new WaitForSeconds(1f);
         LoadingSceneController.Instance.LoadScene("InGame");

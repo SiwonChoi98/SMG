@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public List<Monster> monsters;
     [SerializeField] private List<Transform> monsterSpawnPos; //몬스터 나오는 위치
     [SerializeField] private GameObject monsterSpawn; //몬스터 위치 부모
+    [SerializeField] private Transform bossMonsterSpawnPos; //보스전용 나오는 위치
     [SerializeField] private ParticleSystem monsterSpawnPs; 
     public int currentMonsterCount; //몬스터 죽을때 줄여줄 카운트
     public int spawnCount; //현재 스테이지 스폰 몬스터 수
@@ -166,7 +167,14 @@ public class GameManager : MonoBehaviour
 
                 monsters[spawnIndex].gameObject.SetActive(true);
                 int spawnRan = Random.Range(0, monsterSpawnPos.Count);
-                monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos[spawnRan].position;
+                if (stage.asset.gameMode == GameMode.Boss && spawnIndex == 0)
+                {
+                    monsters[spawnIndex].gameObject.transform.position = bossMonsterSpawnPos.position;
+                }
+                else
+                {
+                    monsters[spawnIndex].gameObject.transform.position = monsterSpawnPos[spawnRan].position;
+                }
 
                 monsterSpawnPs.gameObject.transform.position = monsterSpawnPos[spawnRan].position; //생성파티클
                 monsterSpawnPs.Play();
