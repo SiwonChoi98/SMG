@@ -12,8 +12,8 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
     public int itemCount; // 획득한 아이템의 개수
     private int itemMaxCount = 4; //획득한 아이템의 최대 개수
     public Image itemCountImage; //획득한 아이템의 개수 보여주는 이미지
-    public float maxBuffTime; // 버프 타임의 최대값
-    public float cloneMaxButtTime; //버프타임 이미지의 최대값
+    public float currentBuffTime; // 실시간 버프 타임
+    public float maxBuffTime; //버프타임 이미지의 최대값
     public Image itemImage; // 아이템의 이미지
     public BaseSkill slotSkill; // Slot에 들어가는 스킬 정보, 스킬을 얻은 경우에만 추가
     public BaseBuff slotBuff; // Buff에 들어가는 버프 정보, 버프를 얻은 경우에만 추가 
@@ -25,7 +25,7 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
     [SerializeField]
     private GameObject go_CountImage; // 스킬 사용 횟수 뒤에 보이는 배경 이미지
     [SerializeField]
-    private Image go_BuffTimeImage; // 버프 지속 시간 뒤에 보이는 배경 이미지
+    public Image go_BuffTimeImage; // 버프 지속 시간 뒤에 보이는 배경 이미지
     [SerializeField]
     private Text text_Count; // 스킬 사용 횟수 Text
     [SerializeField]
@@ -37,7 +37,7 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
     {
         orginPos = transform.position;
 
-        maxBuffTime = 0f;
+        currentBuffTime = 0f;
 
         player = SkillManager.instance.player; // 스킬 매니저로부터 플레이어를 받아온다.
 
@@ -49,11 +49,11 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
     {
         if(item != null && item.itemType == Item.EItemType.Buff) // 현재 슬롯에 아이템이 있고, 아이템이 버프 타입이라면 시간 감소 실행
         {
-            if (maxBuffTime > 0) // 지속형 버프
+            if (currentBuffTime > 0) // 지속형 버프
             {
-                maxBuffTime -= Time.deltaTime;
-                text_BuffTime.text = ((int)maxBuffTime).ToString();
-                go_BuffTimeImage.fillAmount -= (float)1 / (int)cloneMaxButtTime * Time.deltaTime;
+                currentBuffTime -= Time.deltaTime;
+                text_BuffTime.text = ((int)currentBuffTime).ToString();
+                go_BuffTimeImage.fillAmount -= (float)1 / (int)maxBuffTime * Time.deltaTime;
                 // Debug.Log("버프 타임 : " + maxBuffTime);
             }
             else
@@ -93,12 +93,12 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
         else if(item.itemType== Item.EItemType.Buff) // 아이템이 버프형인 경우
         {
             slotBuff = _item.buff;
-            maxBuffTime = slotBuff.buffTimeMax; // 각 버프의 버프 시간만큼 버프를 준다.
+            currentBuffTime = slotBuff.buffTimeMax; // 각 버프의 버프 시간만큼 버프를 준다.
             slotBuff.ExcuteBuff(player.gameObject); // 해당 버프에 있는 ExcuteBuff 를 실행하면, 버프매니저로 실행. 중복해서 먹었을 때 버프가 중복해서 걸리지 않도록 하기 위함.
             go_BuffTimeImage.gameObject.SetActive(true);
             go_BuffTimeImage.fillAmount = 1;
-            text_BuffTime.text = ((int)maxBuffTime).ToString(); // 시간은 float 형태가 아닌 우선 int 형태로 출력하게 함
-            cloneMaxButtTime = maxBuffTime;
+            text_BuffTime.text = ((int)currentBuffTime).ToString(); // 시간은 float 형태가 아닌 우선 int 형태로 출력하게 함
+            maxBuffTime = currentBuffTime;
         }
 
         SetColor(1);
@@ -124,9 +124,9 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
     // 버프 시간 조정
     public void SetSlotTime(float _time)
     {
-        maxBuffTime = _time; // 더해주는 것이 아닌 다시 초기화
+        currentBuffTime = _time; // 더해주는 것이 아닌 다시 초기화
         BuffManager.instance.SlotBuffReset(slotBuff.mBuffType);
-        text_BuffTime.text = ((int)maxBuffTime).ToString();
+        text_BuffTime.text = ((int)currentBuffTime).ToString();
         go_BuffTimeImage.fillAmount = 1;
     }
 
@@ -149,7 +149,7 @@ public class Slot : MonoBehaviour //IBeginDragHandler, IDragHandler, IEndDragHan
     private void ClearBuffSlot()
     {
         item = null;
-        maxBuffTime = 0f;
+        currentBuffTime = 0f;
         itemImage.sprite = null;
 
         SetColor(0);

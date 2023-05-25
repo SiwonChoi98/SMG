@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     public Slot[] skillSlots; // 스킬 슬롯들
     [SerializeField]
-    private Slot[] buffSlots; // 버프 슬롯들
+    public Slot[] buffSlots; // 버프 슬롯들
 
     private void Awake()
     {

@@ -31,6 +31,7 @@ public class Player : MonoBehaviour, IDamageable
     public float Speed { get => speed; set => speed = value; }
     //--------------------------------------------------------------------
 
+    public int stat_Attack; // 플레이어의 힘, 공격력의 기반.
     public Camera cameraMain;
     private Animator anim;
     private Rigidbody rigid;
@@ -94,7 +95,8 @@ public class Player : MonoBehaviour, IDamageable
         speed = 5f;
         maxHealth = 100;
         curHealth = maxHealth; // 처음에 피를 100으로 채워준다.
-        strength = 10;
+        stat_Attack = 10;
+        strength = stat_Attack; // 공격력을 힘만큼 초기 설정해준다.
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;
 

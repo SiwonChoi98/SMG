@@ -33,6 +33,13 @@ public class BuffManager : MonoBehaviour
 
     }
 
+
+    private void Start()
+    {
+        strengthBuffTimeMax = 15f;
+        speedBuffTimeMax = 15f;
+    }
+        
     public void Update()
     {
         if(player.isStrengthBuff) // 플레이어의 힘이 강화된 상태라면
@@ -41,6 +48,7 @@ public class BuffManager : MonoBehaviour
 
             if(strengthBuffTime > strengthBuffTimeMax) // 만약 시간이 다 지났다면
             {
+                Debug.Log("strengthBuffTime : " + strengthBuffTime);
                 strengthBuffTime = 0;
                 player.isStrengthBuff = false;
                 player.Strength = (int)(player.Strength * 0.5f);
@@ -55,6 +63,7 @@ public class BuffManager : MonoBehaviour
 
             if (speedBuffTime > speedBuffTimeMax)
             {
+                Debug.Log("speedBuffTime : " + speedBuffTime);
                 speedBuffTime = 0;
                 player.isSpeedBuff = false;
                 player.Speed = 5f;

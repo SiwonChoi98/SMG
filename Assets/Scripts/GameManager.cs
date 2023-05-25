@@ -112,6 +112,15 @@ public class GameManager : MonoBehaviour
         {
             PlayerDataManager.instance.PlayerStatLoad();
             PlayerDataManager.instance.PlayerSkillsLoad();
+            PlayerDataManager.instance.PlayerBuffsLoad();
+
+            if (player.isShield == true)
+            {
+                SkillManager.instance.AttachParticle(ESkillType.Shield, ESkillParticleType.Attach);
+                ShieldCheck(player);
+            }
+            
+                
         }
     }
     private void MonsterSpawnDataSave()
@@ -199,6 +208,13 @@ public class GameManager : MonoBehaviour
             playerDodgeCoolImage.fillAmount = 0;
         else
             playerDodgeCoolImage.fillAmount = player.dodgeCoolTime / player.dodgeCoolTimeMax;
+    }
+    public void ShieldCheck(Player player)
+    {
+        playerShieldImage.fillAmount = (float)player.ShieldCount / 3;
+        playerCanvasShieldImage.fillAmount = (float)player.ShieldCount / 3;
+        playerShieldImage.gameObject.SetActive(true);
+        playerCanvasShieldImage.gameObject.SetActive(true);
     }
     
 }

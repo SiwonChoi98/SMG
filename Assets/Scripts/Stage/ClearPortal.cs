@@ -8,9 +8,12 @@ public class ClearPortal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Player _player = GameManager.instance.player;       
+            PlayerDataManager.instance.PlayerStatSave(_player.CurHealth, _player.MaxHealth, _player.stat_Attack, 
+                             _player.isShield, _player.ShieldCount);
+            PlayerDataManager.instance.PlayerItemSave();
+
             StageManager.instance.LastStageUp();
-            PlayerDataManager.instance.PlayerStatSave(GameManager.instance.player.CurHealth, GameManager.instance.player.MaxHealth, GameManager.instance.player.Strength);
-            PlayerDataManager.instance.PlayerSkillsSave();
             GameManager.instance.NextGame();
         }
     }
