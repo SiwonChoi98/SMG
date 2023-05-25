@@ -293,6 +293,7 @@ public class Monster : MonoBehaviour, IDamageable
     {
         healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, (float)CurHealth /MaxHealth / 1 / 1, Time.deltaTime * 5); //체력
         healthBackImage.transform.LookAt(GameManager.instance.player.cameraMain.transform);
+        healthBackImage.transform.rotation = Quaternion.Euler(180,0,0);
     }
 
 }
