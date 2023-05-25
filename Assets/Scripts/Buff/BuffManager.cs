@@ -33,7 +33,6 @@ public class BuffManager : MonoBehaviour
 
     }
 
-
     private void Start()
     {
         strengthBuffTimeMax = 15f;
@@ -44,12 +43,12 @@ public class BuffManager : MonoBehaviour
     {
         if(player.isStrengthBuff) // 플레이어의 힘이 강화된 상태라면
         {
-            strengthBuffTime += Time.deltaTime;
+            strengthBuffTime -= Time.deltaTime;
 
-            if(strengthBuffTime > strengthBuffTimeMax) // 만약 시간이 다 지났다면
+            if(strengthBuffTime < 0) // 만약 시간이 다 지났다면
             {
                 Debug.Log("strengthBuffTime : " + strengthBuffTime);
-                strengthBuffTime = 0;
+                strengthBuffTime = strengthBuffTimeMax;
                 player.isStrengthBuff = false;
                 player.Strength = (int)(player.Strength * 0.5f);
                 GameObject strengthAura = GameObject.Find("StrengthAura(Clone)"); // 일단 임시로 이렇게 제거하도록 하였다.
@@ -59,15 +58,15 @@ public class BuffManager : MonoBehaviour
 
         if (player.isSpeedBuff)  // 플레이어의 속도가 빨라진 상태라면
         {
-            speedBuffTime += Time.deltaTime;
+            speedBuffTime -= Time.deltaTime;
 
-            if (speedBuffTime > speedBuffTimeMax)
+            if (speedBuffTime < 0)
             {
                 Debug.Log("speedBuffTime : " + speedBuffTime);
-                speedBuffTime = 0;
+                speedBuffTime = speedBuffTimeMax;
                 player.isSpeedBuff = false;
                 player.Speed = 5f;
-                GameObject speedAura = GameObject.Find("SpeedAura(Clone)");
+                GameObject speedAura = GameObject.Find("SpeedAuraTest(Clone)");
                 Destroy(speedAura);
             }
         }
@@ -147,6 +146,8 @@ public class BuffManager : MonoBehaviour
                     player.isStrengthBuff = true;
 
                     strengthBuffTimeMax = buffTimeMax;
+
+                    strengthBuffTime = strengthBuffTimeMax;
                 }
 
                 GameObject StrengthBuff = Instantiate(BuffAuras[(int)EBuffType.StrengthBuff],
@@ -178,6 +179,8 @@ public class BuffManager : MonoBehaviour
                     player.isSpeedBuff = true;
 
                     speedBuffTimeMax = buffTimeMax;
+
+                    speedBuffTime = speedBuffTimeMax;
                 }
 
                 GameObject SpeedBuff = Instantiate(BuffAuras[(int)EBuffType.SpeedBuff],
