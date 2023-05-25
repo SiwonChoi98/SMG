@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection.Emit;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -115,10 +114,10 @@ public class Player : MonoBehaviour, IDamageable
     private void FixedUpdate() // 움직임 및 rigid를 사용하는 부분은 여기에 구현
     {
         GetInput();
-        Move();
-        //JoystickMove();
+        //Move();
+        JoystickMove();
         AttackingMove(); // 일반 공격하거나 스킬을 캐스팅할 때 살짝씩 이동
-        Turn();
+        //Turn();
         DodgeCoolTime();
         
     }
