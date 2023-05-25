@@ -2615,7 +2615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7067910214888515878, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.86
+      value: -38.03
       objectReference: {fileID: 0}
     - target: {fileID: 7067910214888515878, guid: 25c61ff2e09c4f04eac2f98b8ddccffe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4038,6 +4038,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1943652330}
+    - target: {fileID: 2990286236553589849, guid: 4fde302de84b8424d9ef92fb8e4b8eef, type: 3}
+      propertyPath: BuffAuras.Array.data[3]
+      value: 
+      objectReference: {fileID: 1987180978279583039, guid: cce941ec65976a040bfdd3efcb5c0b16, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fde302de84b8424d9ef92fb8e4b8eef, type: 3}
 --- !u!1001 &3279934272915993733
