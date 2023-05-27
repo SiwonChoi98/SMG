@@ -169,7 +169,7 @@ public class Player : MonoBehaviour, IDamageable
             anim.SetBool("IsRun", moveVec != Vector3.zero);
         }
         //turn
-        if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
+        if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging && !isHit) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
             //rigid.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime));
