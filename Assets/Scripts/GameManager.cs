@@ -159,6 +159,10 @@ public class GameManager : MonoBehaviour
     {
         clearTxt.SetActive(true);
         clearTimeLine.Play();
+        for(int i=0; i<monsters.Count; i++)
+        {
+            monsters[i].gameObject.SetActive(false);
+        }
         yield return new WaitForSeconds(2f);
         clearTxt.SetActive(false);
         clearTimeLine.Stop();
@@ -199,6 +203,10 @@ public class GameManager : MonoBehaviour
     }
     private void GUI()
     {
+        if(currentMonsterCount < 0) //임시 조치
+        {
+            currentMonsterCount = 0;
+        }
         currentMonsterCountTxt.text = currentMonsterCount.ToString(); //현재 스테이지 잡아야 할 몬스터 수
         playerHealthImageTrans.position = player.transform.position + new Vector3(0, 2f, 0); //플레이어 체력 위치 플레이어 머리위에
         playerHealthImage.fillAmount = Mathf.Lerp(playerHealthImage.fillAmount, (float)player.CurHealth / player.MaxHealth / 1 / 1, Time.deltaTime * 5); //플레이어 체력

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 166d5cf480f6d1445b2b645d3d0c7d42, type: 3}
+  m_Script: {fileID: 11500000, guid: e190decbd2556ee4dafd64815da4614a, type: 3}
   m_Name: Stage5
   m_EditorClassIdentifier: 
   gameMode: 1
