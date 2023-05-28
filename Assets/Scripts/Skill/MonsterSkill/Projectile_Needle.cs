@@ -55,4 +55,9 @@ public class Projectile_Needle : MonoBehaviour
     {
         projectileLevel = i;
     }
+
+    public void SetHitEffect(GameObject hitEffect)
+    {
+        hitFx = hitEffect;
+    }
 }

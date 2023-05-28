@@ -205,11 +205,11 @@ public class BuffManager : MonoBehaviour
     {
         if(buffType == EBuffType.StrengthBuff) 
         {
-            strengthBuffTime = 0f;
+            strengthBuffTime = speedBuffTimeMax;
         }
         else if(buffType == EBuffType.SpeedBuff) 
         {
-            speedBuffTime = 0f;
+            speedBuffTime = speedBuffTimeMax;
         }
     }
 

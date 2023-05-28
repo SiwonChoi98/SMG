@@ -94,7 +94,7 @@ public class Player : MonoBehaviour, IDamageable
         speed = 5f;
         maxHealth = 100;
         curHealth = maxHealth; // 처음에 피를 100으로 채워준다.
-        stat_Attack = 15;
+        stat_Attack = 20;
         strength = stat_Attack; // 공격력을 힘만큼 초기 설정해준다.
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;

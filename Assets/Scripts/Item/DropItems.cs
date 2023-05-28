@@ -48,7 +48,7 @@ public class DropItems : MonoBehaviour
             int randNum1 = Random.Range(0, 100);
             
             
-            if(randNum1 >= 0 && randNum1 < 30) // 30 퍼센트의 확률로 스킬 생성
+            if(randNum1 >= 0 && randNum1 < 35) // 35 퍼센트의 확률로 스킬 생성
             {
                 int randNum2 = Random.Range(0, 100);
 

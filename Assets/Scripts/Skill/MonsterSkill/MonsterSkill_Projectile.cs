@@ -21,7 +21,7 @@ public class MonsterSkill_Projectile : BaseSkill
         go.GetComponent<Projectile_Needle>().SetDamage((int)(damage));
         go.GetComponent<Projectile_Needle>().SetTarget(targetMask);
         go.GetComponent<Projectile_Needle>().SetHitLevel(hitLevel);
-
+        go.GetComponent<Projectile_Needle>().SetHitEffect(effectPrefab);
     }
 
     public override void ExcuteParticleSystem()
