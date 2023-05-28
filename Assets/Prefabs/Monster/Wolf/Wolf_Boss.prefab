@@ -513,8 +513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: BossWolf
-  _maxHealth: 1500
-  _curHealth: 1500
+  _maxHealth: 900
+  _curHealth: 900
   _speed: 4
   _attackRange: 2.5
   _attackTime: 0

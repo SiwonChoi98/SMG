@@ -534,8 +534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Lv1 Wolf
-  _maxHealth: 90
-  _curHealth: 90
+  _maxHealth: 80
+  _curHealth: 80
   _speed: 5
   _attackRange: 2.2
   _attackTime: 0

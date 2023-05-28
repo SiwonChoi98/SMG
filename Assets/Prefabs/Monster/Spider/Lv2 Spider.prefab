@@ -591,8 +591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Lv2 Spider
-  _maxHealth: 150
-  _curHealth: 150
+  _maxHealth: 120
+  _curHealth: 120
   _speed: 4
   _attackRange: 1.8
   _attackTime: 0

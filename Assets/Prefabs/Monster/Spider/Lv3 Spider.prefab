@@ -551,8 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Lv3 Spider
-  _maxHealth: 200
-  _curHealth: 200
+  _maxHealth: 180
+  _curHealth: 180
   _speed: 6
   _attackRange: 2.3
   _attackTime: 0
