@@ -149,20 +149,19 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ClearTxt());
             }
         }
-        if (stage.asset.IsOver())
+        else if (stage.asset.IsOver())
         {
             gameOverPanel.SetActive(true);
         }
-        MonsterSpwan();
+        else
+        {
+            MonsterSpwan();
+        }
     }
     private IEnumerator ClearTxt()
     {
         clearTxt.SetActive(true);
         clearTimeLine.Play();
-        for(int i=0; i<monsters.Count; i++)
-        {
-            monsters[i].gameObject.SetActive(false);
-        }
         yield return new WaitForSeconds(2f);
         clearTxt.SetActive(false);
         clearTimeLine.Stop();
@@ -203,7 +202,7 @@ public class GameManager : MonoBehaviour
     }
     private void GUI()
     {
-        if(currentMonsterCount < 0) //임시 조치
+        if(stage.asset.IsClear()) //임시 조치
         {
             currentMonsterCount = 0;
         }

@@ -29,6 +29,11 @@ public class MoveState : State<Monster>
 
     public override void Update(float deltaTime) 
     {
+        if (GameManager.instance.stage.asset.IsClear())
+        {
+            stateMachine.ChangeState<DeadState>();
+            return;
+        }
         if (context.target)
         {
             if (context.isHit)

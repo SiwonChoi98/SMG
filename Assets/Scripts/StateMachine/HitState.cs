@@ -23,8 +23,13 @@ public class HitState : State<Monster>
     }
 
     public override void Update(float deltaTime)
-    {   
-        if(context.CurHealth > 0) // 여기에 애니메이션 이벤트 추가해서 작업하는 것이 어떤지, Hit 모션이 다 끝나면 Idle로 가도록
+    {
+        if (GameManager.instance.stage.asset.IsClear())
+        {
+            stateMachine.ChangeState<DeadState>();
+            return;
+        }
+        if (context.CurHealth > 0) // 여기에 애니메이션 이벤트 추가해서 작업하는 것이 어떤지, Hit 모션이 다 끝나면 Idle로 가도록
         {
             stateMachine.ChangeState<IdleState>();
         }
